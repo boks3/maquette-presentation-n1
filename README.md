@@ -60,6 +60,7 @@ npm ci                                                                          
   --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 15
 # 1 quater. boksONE (Rhino : pièces sans nom, découpées volume par volume ; la scène de rendu, à 40 m, est écartée)
 .venv/bin/python maillage.py ~/chemin/"V2 3D BOKS capuchon for rendering back door.stp" --nom one-brut --decouper \
+  --rapatrier SUOGOU --rap-axes=x,-z,y --rap-dec=-9792.0,-148.1,39330.8 \
   --boite=-260,-800,-60,260,600,800 --axes=x,z,-y --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 15
 for n in armoire casier pro one; do mv $n-brut-index.json $n-index.json
   npx gltfpack -i $n-brut.glb -o secours/$n.glb -kn -km && npx gltfpack -i $n-brut.glb -o $n.glb -kn -km -cc && rm $n-brut.glb
@@ -163,4 +164,9 @@ Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris
   qu'elle ne se dispute pas l'affichage avec lui. Pas sur la Bokspark, où la vitre est en retrait derrière la porte.
 - **boksONE** : le crochet de la gâche (plaque à patte en Z et ses vis, cotes du « SUP GACHE » de la PRO) suit la porte
   avant ; le capot en U de la serrure (cotes du « CAPOT SERRURE » de la PRO) reste sur le montant.
+- **boksONE, crochet JIEKAI** : le fichier range une copie de la serrure et de son crochet SUOGOU (les seules pièces
+  nommées) à ~40 m, près de la scène de rendu ; le produit n'a que le corps de serrure. `--rapatrier SUOGOU` remet le
+  crochet en place : rotation `x,-z,y` (la copie est en Y vers le haut), socle contre le support de gâche de la porte
+  (y = −116,4 mm), centré sur lui. Contrôle : la même transformation pose le corps de serrure de la copie sur celui du
+  produit à 0,3 mm près sur les trois axes.
 - Poids : XL 6,8 Mo (391 000 triangles), L 3,1 Mo (192 000), M 2,2 Mo (133 000), boksONE 2,3 Mo (149 000).

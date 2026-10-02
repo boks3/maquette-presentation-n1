@@ -20,6 +20,7 @@ from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
 from OCP.TopAbs import TopAbs_WIRE
 from OCP.Bnd import Bnd_Box
 from OCP.TopoDS import TopoDS_Iterator
+from OCP.gp import gp_Trsf
 from OCP.BRepLib import BRepLib_ToolTriangulatedShape
 from OCP.TopAbs import TopAbs_COMPOUND
 from OCP.BRepBndLib import BRepBndLib
@@ -40,6 +41,9 @@ ap.add_argument("--normales", action="store_true", help="exporte l'orientation e
 ap.add_argument("--minuscules", type=float, default=0, help="avec --normales : pièces de diagonale < N mm simplifiées (--plafond-minuscules), sans normales exportées")
 ap.add_argument("--plafond-minuscules", type=int, default=120)
 ap.add_argument("--decouper", action="store_true", help="un nœud par élément des COMPOUND (exports Rhino sans arbre nommé)")
+ap.add_argument("--rapatrier", default="", help="chemins à remettre en place (pièces déplacées dans le fichier) ...")
+ap.add_argument("--rap-axes", default="x,y,z", help="... rotation, même écriture que --axes ...")
+ap.add_argument("--rap-dec", default="0,0,0", help="... puis translation en mm (repère du STEP)")
 ap.add_argument("--boite", default="", help="xmin,ymin,zmin,xmax,ymax,zmax en mm (repère du STEP) : on écarte ce dont le centre est dehors")
 ap.add_argument("--grossier", default="", help="chemins maillés grossièrement (1 mm, 0,8 rad) et jamais simplifiés (tôles à picots)")
 A = ap.parse_args()
@@ -147,6 +151,11 @@ def parcours(lab, loc, chemin):
 
 def ajouter(chemin, forme):
         ch = ' / '.join(chemin)
+        if A.rapatrier and re.search(A.rapatrier, ch):
+            R = [[(-1 if c.strip().startswith("-") else 1) * (j == "xyz".index(c.strip()[-1])) for j in range(3)] for c in A.rap_axes.split(",")]
+            t = [float(v) for v in A.rap_dec.split(",")]
+            tr = gp_Trsf(); tr.SetValues(*R[0], t[0], *R[1], t[1], *R[2], t[2])
+            forme = forme.Moved(TopLoc_Location(tr))
         if A.boite:
             b = Bnd_Box(); BRepBndLib.Add_s(forme, b); p0, p1 = b.CornerMin(), b.CornerMax()
             x0, y0, z0, x1, y1, z1 = map(float, A.boite.split(","))

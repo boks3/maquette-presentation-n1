@@ -93,6 +93,7 @@ def role_one(i):
     return "panneau"
 def porte_one(i):
     x0, y0, z0, x1, y1, z1 = i["boite"]
+    if "SUOGOU" in i["chemin"]: return "g"  # crochet JIEKAI rapatrié (maillage.py --rapatrier), vissé sur la porte
     barillet = x0 > 130 and 455 < z0 and z1 < 490
     clavier = x0 > 110 and 490 < z0 and z1 < 640
     # crochet de la gâche, vissé dans la porte (cotes du « SUP GACHE » de l'armoire PRO) ; le capot de serrure
