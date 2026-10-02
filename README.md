@@ -50,20 +50,17 @@ npm ci                                                                          
 .venv/bin/python pieces.py
 # 1 bis. STEP de l'armoire -> sources/armoire.glb (Z vers le haut dans le fichier ; tôles à picots maillées grossièrement)
 .venv/bin/python maillage.py ~/chemin/"BOKS 1 D V1800   1250 ARMOIRE V 1800 COMPLETE (rampe étroite).STEP" \
-  --nom armoire-brut --z-haut --facade "PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 \
+  --nom armoire-brut --z-haut --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 20 \
   --grossier "PLANCHER|RAMPE P1$|RAMPE -2 P10" --sans "DALLE PRESENTATION"
-mv armoire-brut-index.json armoire-index.json
-npx gltfpack -i armoire-brut.glb -o armoire.glb -kn -km && rm armoire-brut.glb
-.venv/bin/python pieces.py armoire
 # 1 ter. Casier V 1200 (déjà en Y vers le haut) et Armoire PRO (Z vers le haut, façade vers +Y)
 .venv/bin/python maillage.py ~/chemin/"BOKS 1 D CASIER V1200   1050  COMPLET.STEP" --nom casier-brut \
-  --facade "PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
+  --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 25 --sans "Export STEP - Boks  -|AAA Battery"
 .venv/bin/python maillage.py ~/chemin/"C0042-22101-D1060-00-ARMOIRE COMPLETE PRO.STEP" --nom pro-brut --axes=-x,z,y \
-  --facade "B040-00- PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
+  --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 15
 # 1 quater. boksONE (Rhino : pièces sans nom, découpées volume par volume ; la scène de rendu, à 40 m, est écartée)
 .venv/bin/python maillage.py ~/chemin/"V2 3D BOKS capuchon for rendering back door.stp" --nom one-brut --decouper \
   --boite=-260,-800,-60,260,600,800 --axes=x,z,-y --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 15
-for n in casier pro one; do mv $n-brut-index.json $n-index.json; npx gltfpack -i $n-brut.glb -o $n.glb -kn -km && rm $n-brut.glb; .venv/bin/python pieces.py $n; done
+for n in armoire casier pro one; do mv $n-brut-index.json $n-index.json; npx gltfpack -i $n-brut.glb -o $n.glb -kn -km && rm $n-brut.glb; .venv/bin/python pieces.py $n; done
 # 2. (si l'image du clavier change) texture
 .venv/bin/python preparer_clavier.py
 # 3. photos
@@ -147,3 +144,17 @@ Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris
   Rien n'est simplifié, sauf les pièces de moins de 15 mm (`--minuscules`, 120 triangles, orientation recalculée).
   149 000 triangles.
 - Encombrement mesuré : 408 × 400 (charnières arrière comprises) × 705 mm ; boks.app annonce H 70 × L 40 × P 37 cm.
+
+## Rendu des tailles M, L, XL et de la boksONE (02/10/2026)
+
+- **Orientation des surfaces** : `--normales` exporte la normale de la surface CAO à chaque nœud ; la page s'en sert au
+  lieu de la recalculer. Un garde-fou (`normales_fiables`) la refuse pour une pièce quand elle contredit ses triangles
+  (> 60° sur plus de 2 % d'entre eux : surface mal paramétrée) ; c'est arrivé pour 6 pièces de la boksONE, aucune ailleurs.
+  La façade des portes n'est plus découpée (`--facade "^$"`) : c'était le correctif précédent du même défaut.
+- **Simplification** : seulement les pièces de moins de 15 mm (20 mm pour XL, 25 mm pour L : rivets et vis du clavier).
+- **Taille L** : la carte électronique et les piles du clavier, enfermées dans son boîtier, sont retirées (`--sans`).
+- **Taille M** : la vitre du clavier affleure le montant ; matière `vitreAffleurante` (décalage de profondeur) pour
+  qu'elle ne se dispute pas l'affichage avec lui. Pas sur la Bokspark, où la vitre est en retrait derrière la porte.
+- **boksONE** : le crochet de la gâche (plaque à patte en Z et ses vis, cotes du « SUP GACHE » de la PRO) suit la porte
+  avant ; le capot en U de la serrure (cotes du « CAPOT SERRURE » de la PRO) reste sur le montant.
+- Poids : XL 6,8 Mo (391 000 triangles), L 3,1 Mo (192 000), M 2,2 Mo (133 000), boksONE 2,3 Mo (149 000).

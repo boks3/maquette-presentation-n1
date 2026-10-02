@@ -65,7 +65,8 @@ def porte_casier(ch):
 # tige d'arrêt et sa rondelle sont sur la porte ; b2 = tige d'arrêt Ø4, dont le bout coulisse dans le plafond.
 def role_pro(ch):
     if "[façade]" in ch: return "porteFace"
-    if "CLAVIER COMPLET" in ch: return role(ch)
+    if "CLAVIER COMPLET" in ch:  # vitre au ras du montant : matière qui passe devant (la page)
+        r = role(ch); return "vitreAffleurante" if r == "vitre" else r
     piece = ch.split(" / ")[-1]
     for motif, r in [(r"ARTI|RESSORT|PALIER|A2", "inox"), (r"PORTE (P\d|OMEGA)", "porte"),
                      (r"CORPS P|PAN |FACE|PIED|PLAT  PRO", "panneau"),
@@ -94,6 +95,9 @@ def porte_one(i):
     x0, y0, z0, x1, y1, z1 = i["boite"]
     barillet = x0 > 130 and 455 < z0 and z1 < 490
     clavier = x0 > 110 and 490 < z0 and z1 < 640
+    # crochet de la gâche, vissé dans la porte (cotes du « SUP GACHE » de l'armoire PRO) ; le capot de serrure
+    # en U juste derrière (cotes du « CAPOT SERRURE » de la PRO) reste sur le montant
+    if x0 >= 109 and x1 <= 131 and y0 >= -147 and y1 <= -110 and z0 >= 340 and z1 <= 432: return "g"
     if y0 >= -153 and y1 <= -125.5 and x0 >= -190 and x1 <= 165 and z0 >= 19 and not (barillet or clavier): return "g"
     if y0 >= 212 and y1 <= 249 and x0 >= -187 and x1 <= 160 and z0 >= 19: return "a"
     return ""

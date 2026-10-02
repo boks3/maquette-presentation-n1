@@ -7,22 +7,22 @@
  {
   "noeud": "p01",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1017-00-CORPS ASS1 / GOUG-SOUD-AC-M5X10",
-  "triangles": 220
+  "triangles": 120
  },
  {
   "noeud": "p02",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1017-00-CORPS ASS1 / GOUG-SOUD-AC-M5X10",
-  "triangles": 220
+  "triangles": 120
  },
  {
   "noeud": "p03",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1017-00-CORPS ASS1 / GOUG-SOUD-AC-M5X10",
-  "triangles": 220
+  "triangles": 120
  },
  {
   "noeud": "p04",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1017-00-CORPS ASS1 / GOUG-SOUD-AC-M5X10",
-  "triangles": 220
+  "triangles": 120
  },
  {
   "noeud": "p05",
@@ -52,27 +52,27 @@
  {
   "noeud": "p10",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1015-00-FACE ASS2 / C0042-22101-D1012-00-FACE MT DROIT ASS1 / C0042-22101-B019-00-FACE P7",
-  "triangles": 80
+  "triangles": 106
  },
  {
   "noeud": "p11",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1015-00-FACE ASS2 / C0042-22101-D1012-00-FACE MT DROIT ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 156
+  "triangles": 120
  },
  {
   "noeud": "p12",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1015-00-FACE ASS2 / C0042-22101-D1012-00-FACE MT DROIT ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 156
+  "triangles": 120
  },
  {
   "noeud": "p13",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1015-00-FACE ASS2 / C0042-22101-D1012-00-FACE MT DROIT ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 156
+  "triangles": 120
  },
  {
   "noeud": "p14",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1015-00-FACE ASS2 / C0042-22101-D1012-00-FACE MT DROIT ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 156
+  "triangles": 120
  },
  {
   "noeud": "p15",
@@ -82,7 +82,7 @@
  {
   "noeud": "p16",
   "chemin": "C0042-22101-D1030-00-CORPS + FACE-PRO / C0042-22101-D1015-00-FACE ASS2 / C0042-22101-D1014-00-FACE ASS1 / C0042-22101-B018-00-FACE ARRET PT",
-  "triangles": 240
+  "triangles": 588
  },
  {
   "noeud": "p17",
@@ -92,62 +92,57 @@
  {
   "noeud": "p18",
   "chemin": "C0042-22101-A002-00-PALIER INF",
-  "triangles": 240
+  "triangles": 320
  },
  {
   "noeud": "p19",
   "chemin": "C0042-22101-A003-00-PALIER SUP",
-  "triangles": 240
- },
- {
-  "noeud": "p20f",
-  "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / C0042-22101-B040-00- PORTE P1 [façade]",
-  "triangles": 33
+  "triangles": 320
  },
  {
   "noeud": "p20",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / C0042-22101-B040-00- PORTE P1",
-  "triangles": 1356
+  "triangles": 1389
  },
  {
   "noeud": "p21",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 138
+  "triangles": 120
  },
  {
   "noeud": "p22",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 138
+  "triangles": 120
  },
  {
   "noeud": "p23",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 138
+  "triangles": 120
  },
  {
   "noeud": "p24",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X10",
-  "triangles": 138
+  "triangles": 120
  },
  {
   "noeud": "p25",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X6",
-  "triangles": 138
+  "triangles": 119
  },
  {
   "noeud": "p26",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X6",
-  "triangles": 138
+  "triangles": 119
  },
  {
   "noeud": "p27",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X6",
-  "triangles": 138
+  "triangles": 119
  },
  {
   "noeud": "p28",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1020-00-PORTE ASS1 / GOUG-SER-AC-A2-M4X6",
-  "triangles": 138
+  "triangles": 119
  },
  {
   "noeud": "p29",
@@ -172,7 +167,7 @@
  {
   "noeud": "p33",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1023-00-ARTICUL PORTE ASS1 / C0042-22101-B055-00 ARTI PORTE P1",
-  "triangles": 239
+  "triangles": 664
  },
  {
   "noeud": "p34",
@@ -182,12 +177,12 @@
  {
   "noeud": "p35",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1023-00-ARTICUL PORTE ASS1 / C0042-22101-A001-00 RESSORT ARTI PORTE",
-  "triangles": 240
+  "triangles": 9380
  },
  {
   "noeud": "p36",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / C0042-22101-D1023-00-ARTICUL PORTE ASS1Symétrie / C0042-22101-B055-00 ARTI PORTE P1Symétrie",
-  "triangles": 240
+  "triangles": 664
  },
  {
   "noeud": "p37",
@@ -222,17 +217,17 @@
  {
   "noeud": "p43",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / ECR-M4-AC-HE-CO-ZN  (ECROU A COLLERETTE)",
-  "triangles": 240
+  "triangles": 119
  },
  {
   "noeud": "p44",
   "chemin": "C0042-22101-D1021-00-PORTE ASS2 / ECR-M4-AC-HE-CO-ZN  (ECROU A COLLERETTE)",
-  "triangles": 240
+  "triangles": 120
  },
  {
   "noeud": "p45",
   "chemin": "C0042-22101-D1022-00- ARRET PORTE ASS1 / C0042-22101-B052-00- ARRET PT U1",
-  "triangles": 240
+  "triangles": 420
  },
  {
   "noeud": "p46",
@@ -252,7 +247,7 @@
  {
   "noeud": "p49",
   "chemin": "SERRURE JIEKAI    110  BARILLET / SERRURE JIEKAI   012  P2",
-  "triangles": 240
+  "triangles": 320
  },
  {
   "noeud": "p50",
@@ -277,27 +272,27 @@
  {
   "noeud": "p54",
   "chemin": "CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS5_1",
-  "triangles": 124
+  "triangles": 120
  },
  {
   "noeud": "p55",
   "chemin": "CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS6_1",
-  "triangles": 124
+  "triangles": 120
  },
  {
   "noeud": "p56",
   "chemin": "CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS10_1",
-  "triangles": 240
+  "triangles": 1858
  },
  {
   "noeud": "p57",
   "chemin": "CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS11_1",
-  "triangles": 240
+  "triangles": 244
  },
  {
   "noeud": "p58",
   "chemin": "CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS12_1",
-  "triangles": 240
+  "triangles": 244
  },
  {
   "noeud": "p59",
@@ -317,12 +312,12 @@
  {
   "noeud": "p62",
   "chemin": "C0042-22101-D1035-00-SUP SERRURE ASS1 / INSER -H-AC-ZN-M6",
-  "triangles": 240
+  "triangles": 264
  },
  {
   "noeud": "p63",
   "chemin": "C0042-22101-D1035-00-SUP SERRURE ASS1 / INSER -H-AC-ZN-M6",
-  "triangles": 240
+  "triangles": 264
  },
  {
   "noeud": "p64",
@@ -332,27 +327,27 @@
  {
   "noeud": "p65",
   "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M3X16D5_3_1",
-  "triangles": 240
+  "triangles": 256
  },
  {
   "noeud": "p66",
   "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M3X16D5_3_1",
-  "triangles": 240
+  "triangles": 256
  },
  {
   "noeud": "p67",
   "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M3X16D5_3_1",
-  "triangles": 240
+  "triangles": 256
  },
  {
   "noeud": "p68",
   "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M6X18D7_4_1",
-  "triangles": 240
+  "triangles": 256
  },
  {
   "noeud": "p69",
   "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M6X18D7_4_1",
-  "triangles": 240
+  "triangles": 256
  },
  {
   "noeud": "p70",
@@ -362,52 +357,52 @@
  {
   "noeud": "p71",
   "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 01-KE-BET_10_1",
-  "triangles": 240
+  "triangles": 5428
  },
  {
   "noeud": "p72",
   "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 01-TOP-KE_9_1",
-  "triangles": 239
+  "triangles": 4045
  },
  {
   "noeud": "p73",
   "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 04-WAI-KE_4_1",
-  "triangles": 238
+  "triangles": 942
  },
  {
   "noeud": "p74",
   "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 04-TUI-GANG_2_1",
-  "triangles": 240
+  "triangles": 628
  },
  {
   "noeud": "p75",
   "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 04-GAI-ZI_4_1",
-  "triangles": 240
+  "triangles": 484
  },
  {
   "noeud": "p76",
   "chemin": "00-S79_ASM_161_ASM_ASM / M3X6-GB819_1_1",
-  "triangles": 240
+  "triangles": 120
  },
  {
   "noeud": "p77",
   "chemin": "00-S79_ASM_161_ASM_ASM / M3X6-GB819_1_1",
-  "triangles": 240
+  "triangles": 120
  },
  {
   "noeud": "p78",
   "chemin": "00-S79_ASM_161_ASM_ASM / M3X6-GB819_1_1",
-  "triangles": 240
+  "triangles": 120
  },
  {
   "noeud": "p79",
   "chemin": "00-S79_ASM_161_ASM_ASM / GB846-ST20X6C_1_1",
-  "triangles": 240
+  "triangles": 120
  },
  {
   "noeud": "p80",
   "chemin": "00-S79_ASM_161_ASM_ASM / GB846-ST20X6C_1_1",
-  "triangles": 240
+  "triangles": 120
  },
  {
   "noeud": "p81",
@@ -417,12 +412,12 @@
  {
   "noeud": "p82",
   "chemin": "00-S79_ASM_161_ASM_ASM / 01-GUA-GOU_7_1",
-  "triangles": 239
+  "triangles": 4904
  },
  {
   "noeud": "p83",
   "chemin": "C0042-22101-D1036-00-L  SERRURE / C0042-22101-B061-00- L GUIDE SERR",
-  "triangles": 240
+  "triangles": 738
  },
  {
   "noeud": "p84",
@@ -442,22 +437,22 @@
  {
   "noeud": "p87",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  },
  {
   "noeud": "p88",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  },
  {
   "noeud": "p89",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  },
  {
   "noeud": "p90",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  },
  {
   "noeud": "p91",
@@ -467,21 +462,21 @@
  {
   "noeud": "p92",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  },
  {
   "noeud": "p93",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  },
  {
   "noeud": "p94",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  },
  {
   "noeud": "p95",
   "chemin": "C0042-22101-D1019-00-PIED ASS1 / INSER -H-AC-ZN-M5",
-  "triangles": 240
+  "triangles": 372
  }
 ]

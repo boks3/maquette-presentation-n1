@@ -77,6 +77,16 @@ def petite(shape):
     b = Bnd_Box(); BRepBndLib.Add_s(shape, b)
     return b.SquareExtent() ** 0.5 < A.petites
 
+REPLIS = []
+def normales_fiables(V, F, N):
+    """Les normales de la surface CAO contredisent-elles les triangles ? (surfaces mal paramétrées)"""
+    a, b, c = V[F[:, 0]], V[F[:, 1]], V[F[:, 2]]
+    fn = np.cross(b - a, c - a); L = np.linalg.norm(fn, axis=1); ok = L > 1e-9
+    if not ok.any(): return False
+    fn = fn[ok] / L[ok, None]
+    vn = N[F[ok]].mean(axis=1); vn /= np.maximum(np.linalg.norm(vn, axis=1), 1e-12)[:, None]
+    return float(np.mean((fn * vn).sum(1) < 0.5)) < 0.02
+
 def maille(shape, combler=False, grossier=False):
     lin, ang = (1.0, 0.8) if grossier or petite(shape) else (0.4, A.angle)
     BRepMesh_IncrementalMesh(shape, lin, False, ang, True)
@@ -144,6 +154,8 @@ def ajouter(chemin, forme):
             if not (x0 <= cx <= x1 and y0 <= cy <= y1 and z0 <= cz <= z1): return
         grossier = bool(A.grossier and re.search(A.grossier, ch))
         V, F, N = maille(forme, combler=bool(re.search(A.combler, ch)), grossier=grossier)
+        if len(F) and N is not None and not normales_fiables(V, F, N):
+            REPLIS.append(ch); N = None  # orientation recalculée par la page pour cette pièce
         if len(F): pieces.append((chemin[1:], V, F, petite(forme), grossier, N))
 
 roots = Seq(); st.GetFreeShapes(roots)
@@ -183,4 +195,5 @@ for k, (chemin, V, F, est_petite, grossier, N) in enumerate(pieces):
     index.append({"noeud": nomnoeud, "chemin": " / ".join(chemin), "triangles": int(len(m.faces))} | ({"boite": boite} if A.decouper else {}))
 scene.export(f"{A.nom}.glb")
 json.dump(index, open("index.json" if A.nom == "hub" else f"{A.nom}-index.json", "w"), ensure_ascii=False, indent=1)
+if A.normales: print("normales CAO écartées (contredisent les triangles) :", len(REPLIS), [c.split(" / ")[-1] for c in REPLIS][:12])
 print("trous bouchés :", BOUCHES[0]); print(len(pieces), "pièces,", sum(i["triangles"] for i in index), "triangles")

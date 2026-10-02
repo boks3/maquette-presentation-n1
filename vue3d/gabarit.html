@@ -306,6 +306,10 @@ const M = {
   dalle:   new THREE.MeshStandardMaterial({ color: 0xbdbab4, metalness: 0.0, roughness: 0.92 }),
 };
 for (const m of Object.values(M)) { m.side = THREE.DoubleSide; m.shadowSide = THREE.DoubleSide; }
+// taille M : la vitre du clavier affleure le montant ; elle passe devant les surfaces au même plan
+// (pas sur la Bokspark, où la vitre est en retrait derrière la porte et transparaîtrait)
+M.vitreAffleurante = M.vitre.clone();
+Object.assign(M.vitreAffleurante, { polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
 
 function couleurScene() {
   const css = getComputedStyle(document.documentElement);
@@ -390,6 +394,7 @@ async function charger(cle) {
   for (const o of meshes) {
     let n = o; while (n && !pieces[n.name]) n = n.parent;
     const [role, porte, detail] = n ? pieces[n.name] : ['alu', ''];
+    o.userData.noeud = n ? n.name : '';  // nom du nœud de la maquette (p00…), pour le diagnostic
     // orientation exacte des surfaces quand le fichier l'apporte (maillage.py --normales), sinon recalculée
     if (!o.geometry.attributes.normal) o.geometry = toCreasedNormals(o.geometry, THREE.MathUtils.degToRad(35));
     o.material = role === 'porteFace' ? M.porte : (M[role] || M.alu);
