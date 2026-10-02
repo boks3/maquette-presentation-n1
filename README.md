@@ -32,7 +32,8 @@ ou supprimer le dépôt.
 | `photos/` | Les 9 photos en 2400 × 1600 : fermé, ouvert à 100° sous 4 angles, entrouvert à 45°, détail et gros plan du clavier. |
 | `sources/lire.py` | Lit le STEP et liste les pièces avec leur encombrement (repérage). |
 | `sources/maillage.py` | Convertit un STEP en glTF (mètres, Y vers le haut) + index des nœuds. Sans option : Présentation N°1 (`hub.glb`, `index.json`). Options pour l'armoire : `--z-haut`, maillage allégé, `--sans`. Bouche les perçages < 25 mm ; sépare la façade des portes (`[façade]`). |
-| `sources/armoire.glb`, `casier.glb`, `pro.glb`, `one.glb` (+ `*-index.json`) | Armoire V 1800, Casier V 1200, Armoire PRO : sortie de `maillage.py` passée dans gltfpack (positions quantifiées, sans compression meshopt : la page ne charge pas de WebAssembly). |
+| `sources/<modèle>.glb` (`hub`, `one`, `pro`, `casier`, `armoire`) + `*-index.json` | Les maquettes servies, **compressées meshopt** (gltfpack `-cc`, décodeur WebAssembly de three.js) : 4,4 Mo pour les cinq. |
+| `sources/secours/<modèle>.glb` | Les mêmes sans compression meshopt (16 Mo) : la page les prend si le navigateur refuse WebAssembly. |
 | `sources/pieces.py` | Refait `vue3d/pieces.json` depuis `index.json` ; `pieces.py armoire` (`casier`, `pro`) refait `vue3d/pieces-armoire.json` (…). |
 | `sources/preparer_clavier.py` | Prépare la texture du clavier Boks (`clavier-original.png` → `clavier_tex.png`). |
 | `sources/scene.html`, `photos.mjs`, `vues.json` | Rendu des photos dans Chrome sans interface (three.js) ; `vues.json` = les 9 points de vue. |
@@ -60,7 +61,10 @@ npm ci                                                                          
 # 1 quater. boksONE (Rhino : pièces sans nom, découpées volume par volume ; la scène de rendu, à 40 m, est écartée)
 .venv/bin/python maillage.py ~/chemin/"V2 3D BOKS capuchon for rendering back door.stp" --nom one-brut --decouper \
   --boite=-260,-800,-60,260,600,800 --axes=x,z,-y --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 15
-for n in armoire casier pro one; do mv $n-brut-index.json $n-index.json; npx gltfpack -i $n-brut.glb -o $n.glb -kn -km && rm $n-brut.glb; .venv/bin/python pieces.py $n; done
+for n in armoire casier pro one; do mv $n-brut-index.json $n-index.json
+  npx gltfpack -i $n-brut.glb -o secours/$n.glb -kn -km && npx gltfpack -i $n-brut.glb -o $n.glb -kn -km -cc && rm $n-brut.glb
+  .venv/bin/python pieces.py $n; done
+# Bokspark (hub) : secours/hub.glb = sortie brute de maillage.py ; hub.glb = gltfpack -kn -km -cc -vpf (positions non quantifiées)
 # 2. (si l'image du clavier change) texture
 .venv/bin/python preparer_clavier.py
 # 3. photos
@@ -81,6 +85,8 @@ anticrénelage laisse des pointillés sur les portes : rendre en double sans ant
 - **Ombres** : recalculées seulement quand une pièce bouge (porte, changement de modèle), pas quand la caméra
   tourne ou zoome : c'était 75 à 95 % du coût d'une image.
 - **« Ouvrir la porte »** : 100°, ou la limite du modèle si elle est plus basse.
+- **Chargement** : la maquette compressée d'abord ; en cas d'échec du décodage (WebAssembly refusé), `sources/secours/`.
+  Éprouvé dans Chrome avec WebAssembly bloqué exprès : les cinq modèles se chargent depuis `secours/`.
 
 ## Choix faits (le fichier ne les donne pas)
 

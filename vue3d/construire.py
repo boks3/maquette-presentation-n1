@@ -16,9 +16,10 @@ for f in sorted(d.glob("pieces-*.json")):  # pieces-armoire.json -> __PIECES_ARM
 assert "__" + "PIECES" not in s, "liste de pièces manquante"
 (d / "artifact.html").write_text(s.replace("__GLB_EN_TEXTE__", "true"))
 # claude.ai ne sert pas les .glb : les mêmes maquettes en base64, à publier aux chemins sources/<nom>.glb.txt
-for g in sorted(src.glob("*.glb")):
-    (d / "artifact-fichiers" / "sources").mkdir(parents=True, exist_ok=True)
-    (d / "artifact-fichiers" / "sources" / (g.name + ".txt")).write_text(base64.b64encode(g.read_bytes()).decode())
+for g in sorted(src.glob("*.glb")) + sorted(src.glob("secours/*.glb")):  # compressées, puis leur secours
+    cible = d / "artifact-fichiers" / g.relative_to(src.parent)
+    cible.parent.mkdir(parents=True, exist_ok=True)
+    cible.with_name(g.name + ".txt").write_text(base64.b64encode(g.read_bytes()).decode())
 s = s.replace("__GLB_EN_TEXTE__", "false")
 tete = ('<!doctype html>\n<html lang="fr">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'

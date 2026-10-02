@@ -175,6 +175,8 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { toCreasedNormals } from 'three/addons/utils/BufferGeometryUtils.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+MeshoptDecoder.ready.catch(() => {});  // WebAssembly refusé : le chargement prend la version non compressée
 
 const $ = id => document.getElementById(id);
 
@@ -183,7 +185,8 @@ const $ = id => document.getElementById(id);
    tourne vers +y (porte droite), -1 sinon. b1 et b2 : axes du compas d'arrêt de porte
    (bras C1 sur l'armoire, bras C2 sur la porte, position porte fermée) ; sans b1, glissiere
    = bout de la tige d'arrêt qui coulisse sur la paroi (x fixe), porte fermée.
-   glb : fichier de la maquette, téléchargé au premier choix du modèle. */
+   glb : fichier de la maquette (compressé meshopt), téléchargé au premier choix du modèle ; si le navigateur
+   refuse de le décoder (WebAssembly bloqué), la page prend sources/secours/<même nom>, non compressé. */
 const PRODUITS = {
   n1: {
     titre: 'Bokspark', ref: 'Présentation N°1 · C0042-26091-D1100-00 · deux portes sur charnières inox 180°, clavier Boks',
@@ -267,6 +270,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.1;
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
 renderer.shadowMap.autoUpdate = false;  // l'ombre ne dépend pas de la caméra : recalculée seulement quand une pièce bouge
+renderer.shadowMap.needsUpdate = true;  // dès la 1re image, sinon la texture d'ombre n'existe pas encore (avertissement WebGL)
 stage.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -372,15 +376,23 @@ async function charger(cle) {
   const P = PRODUITS[cle];
   const pieces = JSON.parse($(P.pieces).textContent);
   $('jauge').style.width = '5%';
-  let octets = await telecharger(GLB_EN_TEXTE ? P.glb + '.txt' : P.glb);
-  if (GLB_EN_TEXTE) {
-    const bin = atob(new TextDecoder().decode(octets).trim());
-    octets = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) octets[i] = bin.charCodeAt(i);
+  const lire = async (url, compresse) => {
+    let octets = await telecharger(GLB_EN_TEXTE ? url + '.txt' : url);
+    if (GLB_EN_TEXTE) {
+      const bin = atob(new TextDecoder().decode(octets).trim());
+      octets = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) octets[i] = bin.charCodeAt(i);
+    }
+    const chargeur = new GLTFLoader(); if (compresse) chargeur.setMeshoptDecoder(MeshoptDecoder);
+    return chargeur.parseAsync(octets.buffer.slice(octets.byteOffset, octets.byteOffset + octets.byteLength), '');
+  };
+  const texture = P.texture ? new THREE.TextureLoader().loadAsync($(P.texture).textContent.trim()) : null;
+  let gltf;
+  try { gltf = await lire(P.glb, true); }
+  catch (e) {
+    console.warn('Maquette compressée illisible ici, version non compressée :', e);
+    gltf = await lire(P.glb.replace('sources/', 'sources/secours/'), false);
   }
-  const [tex, gltf] = await Promise.all([
-    P.texture ? new THREE.TextureLoader().loadAsync($(P.texture).textContent.trim()) : null,
-    new GLTFLoader().parseAsync(octets.buffer.slice(octets.byteOffset, octets.byteOffset + octets.byteLength), ''),
-  ]);
+  const tex = await texture;
   $('jauge').style.width = '100%';
   if (tex) {
     tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
