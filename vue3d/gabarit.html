@@ -123,7 +123,7 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
     <strong id="chargementTexte">Préparation de la maquette…</strong>
     <div class="jauge"><span id="jauge"></span></div>
   </div>
-  <p class="aide" id="aide">Glisser pour tourner · pincer ou molette pour zoomer</p>
+  <p class="aide" id="aide">Glisser pour tourner · clic droit ou Maj + glisser pour déplacer · molette pour zoomer</p>
 </main>
 
 <section class="commandes" aria-label="Commandes">
@@ -133,6 +133,13 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
       <label class="etiquette" for="angle">Ouverture</label>
       <input type="range" id="angle" min="0" max="180" step="1" value="0">
       <output id="angleVal" for="angle">0°</output>
+    </div>
+  </div>
+  <div class="groupe">
+    <span class="etiquette" id="gesteTitre">Glisser pour</span>
+    <div class="choix" role="group" aria-labelledby="gesteTitre">
+      <button type="button" data-geste="tourner" aria-pressed="true">Tourner</button>
+      <button type="button" data-geste="deplacer" aria-pressed="false">Déplacer</button>
     </div>
   </div>
   <div class="groupe">
@@ -333,6 +340,17 @@ const controles = new OrbitControls(camera, renderer.domElement);
 controles.enableDamping = true; controles.dampingFactor = 0.08;
 controles.maxPolarAngle = Math.PI / 2 - 0.03; controles.minDistance = 0.35; controles.maxDistance = 16;
 controles.screenSpacePanning = true;
+/* « Glisser pour : Tourner | Déplacer ». En Déplacer, le bouton gauche et un doigt déplacent la vue (le droit tourne) ;
+   sinon l'inverse. Toujours possibles : clic droit ou Maj/Ctrl + glisser pour déplacer, deux doigts sur téléphone. */
+function poserGeste(g) {
+  const deplacer = g === 'deplacer';
+  controles.mouseButtons.LEFT = deplacer ? THREE.MOUSE.PAN : THREE.MOUSE.ROTATE;
+  controles.mouseButtons.RIGHT = deplacer ? THREE.MOUSE.ROTATE : THREE.MOUSE.PAN;
+  controles.touches.ONE = deplacer ? THREE.TOUCH.PAN : THREE.TOUCH.ROTATE;
+  document.querySelectorAll('[data-geste]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.geste === g)));
+}
+document.querySelectorAll('[data-geste]').forEach(b => b.addEventListener('click', () => poserGeste(b.dataset.geste)));
+if (matchMedia('(pointer: coarse)').matches) $('aide').textContent = 'Un doigt pour tourner · deux doigts pour déplacer et zoomer';
 controles.addEventListener('start', () => { $('aide').hidden = true; marquerVue(null); });
 
 /* Zoom à la molette : celui d'OrbitControls avance de 5 % par cran, d'un bloc. Ici ~25 % par cran,

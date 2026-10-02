@@ -86,6 +86,9 @@ anticrénelage laisse des pointillés sur les portes : rendre en double sans ant
 - **Ombres** : recalculées seulement quand une pièce bouge (porte, changement de modèle), pas quand la caméra
   tourne ou zoome : c'était 75 à 95 % du coût d'une image.
 - **« Ouvrir la porte »** : 100°, ou la limite du modèle si elle est plus basse.
+- **Se déplacer** : « Glisser pour : Tourner | Déplacer ». En Déplacer, glisser (souris ou un doigt) déplace la vue ;
+  toujours possibles : clic droit ou Maj/Ctrl + glisser, deux doigts sur téléphone. Demandé par Ziad (« quand on zoome
+  on ne peut pas se déplacer »).
 - **Chargement** : la maquette compressée d'abord ; en cas d'échec du décodage (WebAssembly refusé), `sources/secours/`.
   Éprouvé dans Chrome avec WebAssembly bloqué exprès : les cinq modèles se chargent depuis `secours/`.
 
