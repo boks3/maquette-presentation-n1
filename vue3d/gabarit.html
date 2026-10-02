@@ -35,8 +35,9 @@ body {
   display: flex; flex-direction: column; gap: 12px;
   padding-inline: 16px; padding-block: 14px; box-sizing: border-box;
 }
-.modeles { align-self: flex-start; }
-.modeles button { font-family: var(--font-head); font-weight: 500; letter-spacing: 0.02em; }
+.modeles { align-self: flex-start; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.modeles::-webkit-scrollbar { display: none; }
+.modeles button { font-family: var(--font-head); font-weight: 500; letter-spacing: 0.02em; white-space: nowrap; }
 .tete { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px 24px; }
 .titre { display: grid; gap: 2px; min-width: 0; }
 .surtitre { margin: 0; font-family: var(--font-head); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
@@ -88,12 +89,18 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
   .curseur { flex: 1 1 100%; }
   input[type="range"] { flex: 1; width: auto; }
   .choix button { padding: 9px 10px; }
+  .modeles { display: grid; grid-template-columns: 1fr 1fr; width: 100%; overflow: visible; }
+  .modeles button + button { border-left: 0; }
+  .modeles button:nth-child(even) { border-left: 1px solid var(--line); }
+  .modeles button:nth-child(n+3) { border-top: 1px solid var(--line); }
 }
 </style>
 
 <div class="choix modeles" role="group" aria-label="Modèle">
   <button type="button" data-produit="n1" aria-pressed="true">Présentation N°1</button>
   <button type="button" data-produit="armoire" aria-pressed="false">Armoire V 1800</button>
+  <button type="button" data-produit="casier" aria-pressed="false">Casier V 1200</button>
+  <button type="button" data-produit="pro" aria-pressed="false">Armoire PRO</button>
 </div>
 <header class="tete">
   <div class="titre">
@@ -150,9 +157,9 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
 
 <script id="donnees-pieces" type="application/json">__PIECES__</script>
 <script id="donnees-clavier" type="text/plain">__TEX__</script>
-<script id="donnees-glb" type="text/plain">__GLB__</script>
 <script id="donnees-pieces-armoire" type="application/json">__PIECES_ARMOIRE__</script>
-<script id="donnees-glb-armoire" type="text/plain">__GLB_ARMOIRE__</script>
+<script id="donnees-pieces-casier" type="application/json">__PIECES_CASIER__</script>
+<script id="donnees-pieces-pro" type="application/json">__PIECES_PRO__</script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
@@ -171,12 +178,14 @@ const $ = id => document.getElementById(id);
 /* Chaque modèle : ses textes, ses données, son centre (éclairage), la hauteur de son sol,
    l'axe de ses portes (x, z en mètres) et la vue de détail. sens = +1 si la porte du détail
    tourne vers +y (porte droite), -1 sinon. b1 et b2 : axes du compas d'arrêt de porte
-   (bras C1 sur l'armoire, bras C2 sur la porte, position porte fermée). */
+   (bras C1 sur l'armoire, bras C2 sur la porte, position porte fermée) ; sans b1, glissiere
+   = bout de la tige d'arrêt qui coulisse sur la paroi (x fixe), porte fermée.
+   glb : fichier de la maquette, téléchargé au premier choix du modèle. */
 const PRODUITS = {
   n1: {
     titre: 'Présentation N°1', ref: 'C0042-26091-D1100-00 · deux portes sur charnières inox 180°, clavier Boks',
     cotes: ['2 170 mm', '2 170 mm', '2 106 mm'],
-    pieces: 'donnees-pieces', glb: 'donnees-glb', texture: 'donnees-clavier',
+    pieces: 'donnees-pieces', glb: 'sources/hub.glb', texture: 'donnees-clavier',
     centre: [-1.054, 1.0, 2.0], sol: -0.0423,
     pivots: { g: [-2.0900, 3.0869], d: [-0.0180, 3.0869] }, max: 180, portes: 'les portes',
     detail: { nom: 'Clavier', az: 15, sens: 1, dist: 0.62 },
@@ -185,13 +194,51 @@ const PRODUITS = {
   armoire: {
     titre: 'Armoire V 1800', ref: 'BOKS 1 D V1800 1250 · une porte, serrure à barillet, rampe étroite',
     cotes: ['1 459 mm', '1 545 mm', '1 909 mm'],
-    pieces: 'donnees-pieces-armoire', glb: 'donnees-glb-armoire',
+    pieces: 'donnees-pieces-armoire', glb: 'sources/armoire.glb',
     centre: [-0.864, 4.011, -2.67], sol: 3.0559,
     pivots: { g: [-1.5344, -3.0069], b1: [-1.1886, -3.2876], b2: [-1.2239, -3.0257] }, max: 110, portes: 'la porte',
     detail: { nom: 'Serrure', az: -25, sens: -1, dist: 0.9 },  // depuis la gauche : le volet ouvert est à droite de la poignée
     note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. Le volet de la poignée est ouvert, comme dans le fichier. La rampe d'accès mesure 2 056 mm.",
   },
+  casier: {
+    titre: 'Casier V 1200', ref: 'BOKS 1 D CASIER V1200 1050 · une porte, clavier Boks connecté, serrure à barillet',
+    cotes: ['805 mm', '879 mm', '1 256 mm'],
+    pieces: 'donnees-pieces-casier', glb: 'sources/casier.glb', texture: 'donnees-clavier',
+    centre: [-0.061, 0.175, 1.24], sol: -0.4536,
+    pivots: { g: [-0.4289, 1.5915], b2: [-0.2361, 1.5904] }, glissiere: { x: -0.4610, z: 1.3634 }, max: 95, portes: 'la porte',
+    detail: { nom: 'Clavier', az: 15, sens: 0, dist: 0.62 },
+    note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le film du clavier connecté. La tige d'arrêt coulisse sur la paroi gauche ; ouverture limitée à 95°.",
+  },
+  pro: {
+    titre: 'Armoire PRO', ref: 'C0042-22101-D1060-00 · une porte sur charnières à ressort, clavier Boks, serrure à barillet',
+    cotes: ['500 mm', '437 mm', '1 053 mm'],
+    pieces: 'donnees-pieces-pro', glb: 'sources/pro.glb', texture: 'donnees-clavier',
+    centre: [0.0599, 0.9735, -0.0969], sol: 0.4465,
+    pivots: { g: [-0.1567, 0.1102], b2: [-0.0437, 0.1105] }, glissiere: { x: -0.0001, z: -0.0752 }, max: 90, portes: 'la porte',
+    detail: { nom: 'Clavier', az: 15, sens: 0, dist: 0.62 },
+    note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le clavier. La tige d'arrêt coulisse dans le plafond ; ouverture limitée à 90°, le fichier ne donne pas la butée.",
+  },
 };
+
+/* claude.ai ne sert pas les .glb : sa version de la page lit les mêmes maquettes en base64 (<fichier>.glb.txt). */
+const GLB_EN_TEXTE = __GLB_EN_TEXTE__;
+async function telecharger(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(url + ' : ' + r.status);
+  const total = Number(r.headers.get('content-length')) || 0;
+  if (!r.body || !total) return new Uint8Array(await r.arrayBuffer());
+  const lecteur = r.body.getReader(), morceaux = [];
+  let recu = 0;
+  for (;;) {
+    const { done, value } = await lecteur.read();
+    if (done) break;
+    morceaux.push(value); recu += value.length;
+    $('jauge').style.width = Math.min(90, 90 * recu / total) + '%';
+  }
+  const octets = new Uint8Array(recu); let i = 0;
+  for (const m of morceaux) { octets.set(m, i); i += m.length; }
+  return octets;
+}
 const stage = $('stage');
 const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const echec = msg => { $('chargementTexte').textContent = msg; $('chargement').hidden = false; };
@@ -278,14 +325,15 @@ async function charger(cle) {
   if (caches[cle]) return caches[cle];
   const P = PRODUITS[cle];
   const pieces = JSON.parse($(P.pieces).textContent);
-  $('jauge').style.width = '30%';
-  const b64 = $(P.glb).textContent.trim();
-  const octets = new Uint8Array(b64.length * 3 / 4 - (b64.endsWith('==') ? 2 : b64.endsWith('=') ? 1 : 0));
-  { const bin = atob(b64); for (let i = 0; i < bin.length; i++) octets[i] = bin.charCodeAt(i); }
-  $('jauge').style.width = '60%';
+  $('jauge').style.width = '5%';
+  let octets = await telecharger(GLB_EN_TEXTE ? P.glb + '.txt' : P.glb);
+  if (GLB_EN_TEXTE) {
+    const bin = atob(new TextDecoder().decode(octets).trim());
+    octets = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) octets[i] = bin.charCodeAt(i);
+  }
   const [tex, gltf] = await Promise.all([
     P.texture ? new THREE.TextureLoader().loadAsync($(P.texture).textContent.trim()) : null,
-    new GLTFLoader().parseAsync(octets.buffer, ''),
+    new GLTFLoader().parseAsync(octets.buffer.slice(octets.byteOffset, octets.byteOffset + octets.byteLength), ''),
   ]);
   $('jauge').style.width = '100%';
   if (tex) {
@@ -317,7 +365,7 @@ async function charger(cle) {
     if (detail) details.push(o);
     if (porte) pivots[porte].attach(o);
   }
-  return caches[cle] = { monde, pivots, details, compas: pivots.b2 ? pivots.b2.position.clone() : null };
+  return caches[cle] = { cle, monde, pivots, details, compas: pivots.b2 ? pivots.b2.position.clone() : null };
 }
 
 let cle = null, actuel = null;
@@ -351,18 +399,28 @@ function poserAngle(a) {
   const pv = actuel ? actuel.pivots : {}, t = THREE.MathUtils.degToRad(a);
   if (pv.g) pv.g.rotation.y = -t;
   if (pv.d) pv.d.rotation.y = t;
-  if (pv.b1 && pv.b2) {
-    /* Compas : l'axe D (sur la porte) tourne avec elle autour de la charnière H ; C1 pivote en B
-       (sur l'armoire) et C2 en D, tous deux alignés sur BD, et coulissent l'un dans l'autre. */
-    const H = pv.g.position, B = pv.b1.position, D0 = actuel.compas;
+  if (pv.b2) {
+    /* Arrêt de porte : l'axe D (sur la porte) tourne avec elle autour de la charnière H.
+       Compas (b1) : C1 pivote en B sur l'armoire, C2 en D, alignés sur BD, ils coulissent l'un dans l'autre.
+       Tige (glissiere) : pivote en D, son autre bout F reste sur la paroi (x fixe), à distance constante de D. */
+    const H = pv.g.position, D0 = actuel.compas;
     const dx = D0.x - H.x, dz = D0.z - H.z, c = Math.cos(-t), s = Math.sin(-t);
     const D = new THREE.Vector3(H.x + dx * c + dz * s, D0.y, H.z - dx * s + dz * c);
-    const phi = Math.atan2(D.x - B.x, D.z - B.z) - Math.atan2(D0.x - B.x, D0.z - B.z);
-    pv.b1.rotation.y = phi; pv.b2.position.copy(D); pv.b2.rotation.y = phi;
+    let phi;
+    if (pv.b1) {
+      const B = pv.b1.position;
+      phi = Math.atan2(D.x - B.x, D.z - B.z) - Math.atan2(D0.x - B.x, D0.z - B.z);
+      pv.b1.rotation.y = phi;
+    } else {
+      const F = PRODUITS[actuel.cle].glissiere, L = Math.hypot(F.x - D0.x, F.z - D0.z);
+      const zF = D.z - Math.sqrt(Math.max(0, L * L - (D.x - F.x) ** 2));
+      phi = Math.atan2(F.x - D.x, zF - D.z) - Math.atan2(F.x - D0.x, F.z - D0.z);
+    }
+    pv.b2.position.copy(D); pv.b2.rotation.y = phi;
   }
   $('angle').value = Math.round(a); $('angleVal').textContent = Math.round(a) + '°';
   const ouvert = a > 0.5;
-  const portes = cle ? PRODUITS[cle].portes : 'les portes';
+  const portes = actuel ? PRODUITS[actuel.cle].portes : 'les portes';  // la maquette affichée, pas celle en cours de chargement
   $('bascule').textContent = (ouvert ? 'Fermer ' : 'Ouvrir ') + portes;
   $('bascule').setAttribute('aria-pressed', String(ouvert));
   aRendre = true;
@@ -388,7 +446,7 @@ function distancePour(rayon) {
 }
 function placement(nom) {
   if (nom === 'detail' && actuel && actuel.details.length) {
-    const d = PRODUITS[cle].detail, b = new THREE.Box3();
+    const d = PRODUITS[actuel.cle].detail, b = new THREE.Box3();
     actuel.details.forEach(o => b.expandByObject(o));
     return { cible: b.getCenter(new THREE.Vector3()), az: d.az + d.sens * angle, el: 3, dist: d.dist };
   }

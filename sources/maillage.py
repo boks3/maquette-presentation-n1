@@ -25,6 +25,7 @@ ap = argparse.ArgumentParser(description="STEP -> maquette glTF (mètres, Y vers
 ap.add_argument("step")
 ap.add_argument("--nom", default="hub", help="sortie <nom>.glb et index ; hub = Présentation N°1 (index.json)")
 ap.add_argument("--z-haut", action="store_true", help="STEP en Z vers le haut, façade vers -X : (x, y, z) -> (-y, z, -x)")
+ap.add_argument("--axes", default="", help="repère du STEP vers celui de la page, ex. \"-x,z,y\" (Z vers le haut, façade vers +Y) ; rotation propre seulement")
 ap.add_argument("--combler", default=r"PORTE|PORTILLON|BOITIER", help="chemins dont on bouche les perçages < 25 mm")
 ap.add_argument("--facade", default=r"PORTE GAUCHE P1|PORTE DROITE P1|PORTILLON", help="chemins dont la façade devient un nœud [façade]")
 ap.add_argument("--angle", type=float, default=0.25, help="déflexion angulaire du maillage (rad)")
@@ -117,7 +118,12 @@ for i in range(1, roots.Length()+1): parcours(roots.Value(i), TopLoc_Location(),
 scene = trimesh.Scene()
 index = []
 for k, (chemin, V, F, est_petite, grossier) in enumerate(pieces):
-    if A.z_haut: V = np.column_stack([-V[:, 1], V[:, 2], -V[:, 0]])  # rotation propre : l'enroulement des triangles ne change pas
+    axes = A.axes or ("-y,z,-x" if A.z_haut else "")
+    if axes:  # chaque composante de la page = ± un axe du STEP ; rotation propre : l'enroulement des triangles ne change pas
+        cols = [(-1 if c.strip().startswith("-") else 1) * V[:, "xyz".index(c.strip()[-1])] for c in axes.split(",")]
+        M = np.array([[(-1 if c.strip().startswith("-") else 1) * (j == "xyz".index(c.strip()[-1])) for j in range(3)] for c in axes.split(",")])
+        assert round(np.linalg.det(M)) == 1, "--axes doit être une rotation (déterminant +1)"
+        V = np.column_stack(cols)
     V = V / 1000.0  # mm -> m
     m = trimesh.Trimesh(V, F, process=True)
     plafond = A.plafond_petites if est_petite and A.plafond_petites else A.plafond

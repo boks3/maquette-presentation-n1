@@ -1,0 +1,1377 @@
+[
+ {
+  "noeud": "p00",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / BOKS 1 B CASIER V1200   024 PAN ARR",
+  "triangles": 5184
+ },
+ {
+  "noeud": "p01",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / BOKS 1 B CASIER V1200   030 FOND RENF",
+  "triangles": 1664
+ },
+ {
+  "noeud": "p02",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p03",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p04",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p05",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p06",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p07",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p08",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p09",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p10",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p11",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1016 PAN ARR  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p12",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / BOKS 1 B CASIER V1200   020  CT DROIT",
+  "triangles": 6038
+ },
+ {
+  "noeud": "p13",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p14",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p15",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p16",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p17",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / BOKS 1 B CASIER V1200   023 COTE RENF",
+  "triangles": 1632
+ },
+ {
+  "noeud": "p18",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p19",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p20",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p21",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p22",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p23",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p24",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p25",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p26",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p27",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1012 COTE D ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p28",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / BOKS 1 B CASIER V1200   022  CT GAUCHE",
+  "triangles": 5334
+ },
+ {
+  "noeud": "p29",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / BOKS 1 B CASIER V1200   023 COTE RENF",
+  "triangles": 1632
+ },
+ {
+  "noeud": "p30",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p31",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p32",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p33",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p34",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p35",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p36",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p37",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p38",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p39",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1014 COTE G ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p40",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / BOKS 1 B CASIER V1200   025 PAN TOIT",
+  "triangles": 4094
+ },
+ {
+  "noeud": "p41",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / BOKS 1 B CASIER V1200   021 TOIT RENF",
+  "triangles": 1152
+ },
+ {
+  "noeud": "p42",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p43",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p44",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p45",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p46",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / GOUGEON A SERTIR M 4X8 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p47",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p48",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p49",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p50",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p51",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1017 PAN TOIT  ASS1 / ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p52",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / BOKS 1 D CASIER V1200   1024 FOND ASS1 / BOKS 1 B CASIER V1200   026 FOND",
+  "triangles": 6720
+ },
+ {
+  "noeud": "p53",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / BOKS 1 D CASIER V1200   1024 FOND ASS1 / BOKS 1 B CASIER V1200   027 FOND OMEG",
+  "triangles": 5044
+ },
+ {
+  "noeud": "p54",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / BOKS 1 D CASIER V1200   1024 FOND ASS1 / BOKS 1 B CASIER V1200   027 FOND OMEG",
+  "triangles": 5044
+ },
+ {
+  "noeud": "p55",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / BOKS 1 B CASIER V1200   028 FOND CACHE",
+  "triangles": 236
+ },
+ {
+  "noeud": "p56",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / VIS A TOLE TB 4.2X13 ZN",
+  "triangles": 240
+ },
+ {
+  "noeud": "p57",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / BOKS 1 B CASIER V1200   028 FOND CACHE",
+  "triangles": 236
+ },
+ {
+  "noeud": "p58",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / VIS A TOLE TB 4.2X13 ZN",
+  "triangles": 240
+ },
+ {
+  "noeud": "p59",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / BOKS 1 B CASIER V1200   029 FOND CACHE-2",
+  "triangles": 380
+ },
+ {
+  "noeud": "p60",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / VIS A TOLE TB 4.2X13 ZN",
+  "triangles": 240
+ },
+ {
+  "noeud": "p61",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / BOKS 1 B CASIER V1200   029 FOND CACHE-2Symétrie",
+  "triangles": 380
+ },
+ {
+  "noeud": "p62",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / BOKS 1 D CASIER V1200   1025 FOND ASS2 / VIS A TOLE TB 4.2X13 ZN",
+  "triangles": 240
+ },
+ {
+  "noeud": "p63",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p64",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p65",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p66",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p67",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p68",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p69",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p70",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p71",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p72",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p73",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p74",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p75",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p76",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p77",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p78",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p79",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p80",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p81",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p82",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p83",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p84",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p85",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p86",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p87",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p88",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p89",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p90",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p91",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p92",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p93",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p94",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p95",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p96",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p97",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p98",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p99",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p100",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p101",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p102",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p103",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p104",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p105",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p106",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p107",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p108",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p109",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p110",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p111",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p112",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p113",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p114",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p115",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p116",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p117",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p118",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p119",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p120",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p121",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1030 CORPS ASS1 / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p122",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 B CASIER V1200   012 TRAV INF",
+  "triangles": 1566
+ },
+ {
+  "noeud": "p123",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 B CASIER V1200   011 MT GAUCHE",
+  "triangles": 1662
+ },
+ {
+  "noeud": "p124",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 D CASIER V1200   1010 MT DROIT ASS1 / BOKS 1 B CASIER V1200   010 MT DROIT",
+  "triangles": 3062
+ },
+ {
+  "noeud": "p125",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 D CASIER V1200   1010 MT DROIT ASS1 / BOKS 1 B ARM GD MOD V2  017 FACE P5",
+  "triangles": 108
+ },
+ {
+  "noeud": "p126",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 D CASIER V1200   1010 MT DROIT ASS1 / BOKS 1 B ARM GD MOD V2  019 P7",
+  "triangles": 80
+ },
+ {
+  "noeud": "p127",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 D CASIER V1200   1010 MT DROIT ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p128",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 D CASIER V1200   1010 MT DROIT ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p129",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 D CASIER V1200   1010 MT DROIT ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p130",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 D CASIER V1200   1010 MT DROIT ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p131",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 B ARM GD MOD V2  074 ARRET PT3",
+  "triangles": 240
+ },
+ {
+  "noeud": "p132",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 B CASIER V1200   016 RENF Ø6.2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p133",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 B CASIER V1200   017 RENF H Ø6.2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p134",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / BOKS 1 D CASIER V1200   1026 FACADE ASS1 / BOKS 1 B CASIER V1200   014 TRAV SUP",
+  "triangles": 2064
+ },
+ {
+  "noeud": "p135",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p136",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p137",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p138",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p139",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p140",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p141",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p142",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p143",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p144",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p145",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p146",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p147",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p148",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p149",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p150",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p151",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p152",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p153",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p154",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p155",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p156",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p157",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p158",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p159",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p160",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p161",
+  "chemin": "BOKS 1 D CASIER V1200   1040 CORPS+FACADE / RIVET AVEUGLE  ALU ACIER 4.8X8",
+  "triangles": 240
+ },
+ {
+  "noeud": "p162f",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B CASIER V1200   060 PORTE P1 [façade]",
+  "triangles": 2
+ },
+ {
+  "noeud": "p162",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B CASIER V1200   060 PORTE P1",
+  "triangles": 1427
+ },
+ {
+  "noeud": "p163",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B ARM GD MOD V2  058 ZED 2 -1.5",
+  "triangles": 104
+ },
+ {
+  "noeud": "p164",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B ARM GD MOD V2  057 ZED 1 -1.5",
+  "triangles": 112
+ },
+ {
+  "noeud": "p165",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B CASIER V1200   062  PT OMEG",
+  "triangles": 8964
+ },
+ {
+  "noeud": "p166",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B CASIER V1200   062  PT OMEG",
+  "triangles": 8964
+ },
+ {
+  "noeud": "p167",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B CASIER V1200   062  PT OMEG",
+  "triangles": 8964
+ },
+ {
+  "noeud": "p168",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / GOUGEON A SERTIR M 4X6 INOX A2",
+  "triangles": 138
+ },
+ {
+  "noeud": "p169",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / GOUGEON A SERTIR M 4X6 INOX A2",
+  "triangles": 138
+ },
+ {
+  "noeud": "p170",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 138
+ },
+ {
+  "noeud": "p171",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 138
+ },
+ {
+  "noeud": "p172",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 138
+ },
+ {
+  "noeud": "p173",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 138
+ },
+ {
+  "noeud": "p174",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B CASIER V1200   061 PORTE RENF",
+  "triangles": 200
+ },
+ {
+  "noeud": "p175",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 D CASIER V1200   1020 PORTE ASS1 / BOKS 1 B CASIER V1200   061 PORTE RENF1",
+  "triangles": 200
+ },
+ {
+  "noeud": "p176",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / ECROU M4  A INOX EP 2.5  SABLE",
+  "triangles": 116
+ },
+ {
+  "noeud": "p177",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / ECROU M4  A INOX EP 2.5  SABLE",
+  "triangles": 116
+ },
+ {
+  "noeud": "p178",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 B CASIER V1200   068 PALIER HAUT",
+  "triangles": 239
+ },
+ {
+  "noeud": "p179",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 B CASIER V1200   067 PALIER BAS",
+  "triangles": 239
+ },
+ {
+  "noeud": "p180",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 B CASIER V1200   065 PT L1",
+  "triangles": 132
+ },
+ {
+  "noeud": "p181",
+  "chemin": "BOKS 1 D CASIER V1200   1021 PORTE ASS2 / BOKS 1 B CASIER V1200   065 PT L1",
+  "triangles": 132
+ },
+ {
+  "noeud": "p182",
+  "chemin": "BOKS 1 D CASIER V1200   1022 ARRET DE PORTE / BOKS 1 B ARM GD MOD V2  075 ARRET  PT U1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p183",
+  "chemin": "BOKS 1 D CASIER V1200   1022 ARRET DE PORTE / BOKS 1 B CASIER V1200   066  ARRET PT Ø4",
+  "triangles": 1060
+ },
+ {
+  "noeud": "p184",
+  "chemin": "BOKS 1 D CASIER V1200   1022 ARRET DE PORTE / ECROU M4 BORGNE INOX A2",
+  "triangles": 239
+ },
+ {
+  "noeud": "p185",
+  "chemin": "ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p186",
+  "chemin": "ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p187",
+  "chemin": "BOKS 1 B ARM GD MOD V2  069 SUP GACHE",
+  "triangles": 828
+ },
+ {
+  "noeud": "p188",
+  "chemin": "SUOGOU-C_ASM_1_ASM_1 / 08-SUOGOU-DIBAN_4_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p189",
+  "chemin": "SUOGOU-C_ASM_1_ASM_1 / 08-SUO-GOU-DING_2_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p190",
+  "chemin": "SUOGOU-C_ASM_1_ASM_1 / 08-SUOGOU-ZHOU_2_1",
+  "triangles": 128
+ },
+ {
+  "noeud": "p191",
+  "chemin": "ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p192",
+  "chemin": "ECROU M4  A COLERETTE INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p193",
+  "chemin": "BOKS 1 D CASIER V1200   1023 SUP SERRURE / BOKS 1 B ARM GD MOD V2  060 SUP SER V2",
+  "triangles": 1798
+ },
+ {
+  "noeud": "p194",
+  "chemin": "BOKS 1 D CASIER V1200   1023 SUP SERRURE / INSERT H SERFIN M6 ZN",
+  "triangles": 240
+ },
+ {
+  "noeud": "p195",
+  "chemin": "BOKS 1 D CASIER V1200   1023 SUP SERRURE / INSERT H SERFIN M6 ZN",
+  "triangles": 240
+ },
+ {
+  "noeud": "p196",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / 01-SHANG-GAI_11_1",
+  "triangles": 1748
+ },
+ {
+  "noeud": "p197",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M3X16D5_3_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p198",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M3X16D5_3_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p199",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M3X16D5_3_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p200",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M6X18D7_4_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p201",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_ASM_3_ASM_1_ASM / S0-M6X18D7_4_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p202",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-DI-KE_24_1",
+  "triangles": 5834
+ },
+ {
+  "noeud": "p203",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 01-KE-BET_10_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p204",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 01-TOP-KE_9_1",
+  "triangles": 239
+ },
+ {
+  "noeud": "p205",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 04-WAI-KE_4_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p206",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 04-TUI-GANG_2_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p207",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 04-SHANG-TUI_ASM_4_ASM_1_ASM / 04-GAI-ZI_4_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p208",
+  "chemin": "00-S79_ASM_161_ASM_ASM / M3X6-GB819_1_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p209",
+  "chemin": "00-S79_ASM_161_ASM_ASM / M3X6-GB819_1_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p210",
+  "chemin": "00-S79_ASM_161_ASM_ASM / M3X6-GB819_1_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p211",
+  "chemin": "00-S79_ASM_161_ASM_ASM / GB846-ST20X6C_1_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p212",
+  "chemin": "00-S79_ASM_161_ASM_ASM / GB846-ST20X6C_1_1",
+  "triangles": 240
+ },
+ {
+  "noeud": "p213",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-BO-GAN_16",
+  "triangles": 7769
+ },
+ {
+  "noeud": "p214",
+  "chemin": "00-S79_ASM_161_ASM_ASM / 01-GUA-GOU_7_1",
+  "triangles": 239
+ },
+ {
+  "noeud": "p215",
+  "chemin": "SERRURE JIEKAI    110  BARILLET / SERRURE JIEKAI    010  P1",
+  "triangles": 228
+ },
+ {
+  "noeud": "p216",
+  "chemin": "SERRURE JIEKAI    110  BARILLET / SERRURE JIEKAI   012  P2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p217",
+  "chemin": "SERRURE TESA    014 ECROU 1",
+  "triangles": 152
+ },
+ {
+  "noeud": "p218",
+  "chemin": "BOKS 1 B CASIER V1200   069 PENNE",
+  "triangles": 732
+ },
+ {
+  "noeud": "p219",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / BOKS 1 B CASIER V1200   070 VISIERE 430",
+  "triangles": 1144
+ },
+ {
+  "noeud": "p220",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p221",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p222",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p223",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p224",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / GOUGEON A SERTIR M 4X10 INOX A2",
+  "triangles": 156
+ },
+ {
+  "noeud": "p225",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / BOKS 1 B CASIER V1200   072 ROND VISIERE",
+  "triangles": 156
+ },
+ {
+  "noeud": "p226",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / BOKS 1 B CASIER V1200   072 ROND VISIERE",
+  "triangles": 156
+ },
+ {
+  "noeud": "p227",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / BOKS 1 B CASIER V1200   072 ROND VISIERE",
+  "triangles": 156
+ },
+ {
+  "noeud": "p228",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / BOKS 1 B CASIER V1200   072 ROND VISIERE",
+  "triangles": 156
+ },
+ {
+  "noeud": "p229",
+  "chemin": "BOKS 1 D CASIER V1200   1027 VISIERE ASS1 / BOKS 1 B CASIER V1200   072 ROND VISIERE",
+  "triangles": 156
+ },
+ {
+  "noeud": "p230",
+  "chemin": "BOKS 1 D CASIER V1200   1028 AXE PORTE / BOKS 1 B CASIER V1200   064 AXE P2",
+  "triangles": 252
+ },
+ {
+  "noeud": "p231",
+  "chemin": "BOKS 1 D CASIER V1200   1028 AXE PORTE / ECROU M5 INOX A2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p232",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / BOKS 1 B CASIER V1200   035 PIED V2",
+  "triangles": 3540
+ },
+ {
+  "noeud": "p233",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p234",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p235",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p236",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p237",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / BOKS 1 B CASIER V1200   035 PIED V2",
+  "triangles": 3540
+ },
+ {
+  "noeud": "p238",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p239",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p240",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p241",
+  "chemin": "BOKS 1 D CASIER V1200   1019 PIED ASS1 V2 / INSERT H SERFIN M5 ZN POSEE",
+  "triangles": 240
+ },
+ {
+  "noeud": "p242",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p243",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p244",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p245",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p246",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p247",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p248",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400006-B01 - FIEVEL KEYPAD FOIL",
+  "triangles": 2260
+ },
+ {
+  "noeud": "p249",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400011-A01 - Battery holder",
+  "triangles": 2508
+ },
+ {
+  "noeud": "p250",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400007-A01 - FIEVEL Adhesive foam",
+  "triangles": 688
+ },
+ {
+  "noeud": "p251",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400010-A01 - FIEVEL Gasket",
+  "triangles": 3374
+ },
+ {
+  "noeud": "p252",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400013_A01 - FIEVEL Battery Holder Adhesive",
+  "triangles": 12
+ },
+ {
+  "noeud": "p253",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p254",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p255",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p256",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p257",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p258",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p259",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p260",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TPLR6-C -- TIPSUN - AAA Battery",
+  "triangles": 240
+ },
+ {
+  "noeud": "p261",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400016-B01 - FIEVEL NFC ADHESIVE",
+  "triangles": 88
+ },
+ {
+  "noeud": "p262",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0600001-B01 - Fievel Light guide foam",
+  "triangles": 216
+ },
+ {
+  "noeud": "p263",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / Export STEP - Boks  - v4.2[Proto-2022-06] - 2022-07-22",
+  "triangles": 29013
+ },
+ {
+  "noeud": "p264",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / Export STEP - BOKS-NFC - v4.2[Proto-2022-06] - 2022-07-22",
+  "triangles": 112
+ },
+ {
+  "noeud": "p265",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BLIND BAYONET PLUG X-8-2",
+  "triangles": 240
+ },
+ {
+  "noeud": "p266",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400005-D01 - FIEVEL Bottom Casing",
+  "triangles": 11826
+ },
+ {
+  "noeud": "p267",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p268",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p269",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400004-D01 - FIEVEL Front Face",
+  "triangles": 14892
+ },
+ {
+  "noeud": "p270",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p271",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / SCREW 3x8 LARGE HEAD ---_L16 mm",
+  "triangles": 240
+ },
+ {
+  "noeud": "p272",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400003-B03 - FIEVEL Bottom cover",
+  "triangles": 1380
+ },
+ {
+  "noeud": "p273",
+  "chemin": "BKS2022-001-D01-FIEVEL PP CONNECTED LOCK / BOKS - TXC-2022-0400008-B02 - FIEVEL Cable Gland",
+  "triangles": 240
+ }
+]

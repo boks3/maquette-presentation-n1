@@ -1,11 +1,15 @@
 # Maquettes 3D Boks
 
-Deux maquettes 3D interactives sur la même page, au choix en tête de page (lien direct : `#n1` ou `#armoire`) :
+Quatre maquettes 3D interactives sur la même page, au choix en tête de page (lien direct : `#n1`, `#armoire`, `#casier`, `#pro`) :
 
 - **Présentation N°1** : caisson **C0042-26091-D1100-00 « PRÉSENTATION N°1 »** (export SolidWorks 2025
   du 02/10/2026), avec ses photos de présentation ;
 - **Armoire V 1800** : ensemble **BOKS 1 D V1800 1250 « ARMOIRE V 1800 COMPLETE (rampe étroite) »**
-  (export SolidWorks 2022 du 07/05/2023), une porte, serrure à barillet, rampe d'accès. Pas de photos.
+  (export SolidWorks 2022 du 07/05/2023), une porte, serrure à barillet, rampe d'accès. Pas de photos ;
+- **Casier V 1200** : **BOKS 1 D CASIER V1200 1050 COMPLET** (SolidWorks 2022, 07/05/2023), une porte,
+  clavier Boks connecté, serrure à barillet ;
+- **Armoire PRO** : **C0042-22101-D1060-00 ARMOIRE COMPLETE PRO** (SolidWorks 2022, 14/02/2023), une porte
+  sur charnières à ressort, clavier Boks, serrure à barillet.
 
 - **Page en ligne** : https://boks3.github.io/maquette-presentation-n1/ (GitHub Pages, branche `main`, racine).
 - **Même page sur claude.ai** (privée) : https://claude.ai/artifact/ForGWMwGuv6tCGHkxbJ4kb
@@ -19,15 +23,15 @@ ou supprimer le dépôt.
 
 | Chemin | Contenu |
 |---|---|
-| `index.html` | La page en ligne : autonome (deux maquettes, texture et pièces intégrées en base64, ~8,4 Mo), seul three.js 0.186.1 vient de jsDelivr. Générée, ne pas l'éditer à la main. |
+| `index.html` | La page en ligne (~0,55 Mo : code, listes de pièces, texture du clavier). Elle télécharge la maquette du modèle choisi (`sources/*.glb`) et three.js 0.186.1 (jsDelivr). Générée, ne pas l'éditer à la main. Pour l'ouvrir en local, passer par un serveur (`python3 -m http.server`) : en `file://` le navigateur refuse le téléchargement. |
 | `vue3d/gabarit.html` | Le code de la page (vue, portes, points de vue, teintes). Ce qui distingue les deux modèles est dans `PRODUITS`. C'est lui qu'on modifie. |
-| `vue3d/construire.py` | Construit `index.html` (et `vue3d/artifact.html` pour claude.ai) depuis le gabarit. |
+| `vue3d/construire.py` | Construit `index.html` (et `vue3d/artifact.html` pour claude.ai, à publier avec les `sources/*.glb` aux mêmes chemins) depuis le gabarit. |
 | `vue3d/pieces.json`, `vue3d/pieces-armoire.json` | Pour chaque nœud : sa matière, ce qui le fait bouger (`g`, `d`, `b1`, `b2` ou rien) et, pour l'armoire, `1` s'il cadre la vue « Serrure ». |
 | `photos/` | Les 9 photos en 2400 × 1600 : fermé, ouvert à 100° sous 4 angles, entrouvert à 45°, détail et gros plan du clavier. |
 | `sources/lire.py` | Lit le STEP et liste les pièces avec leur encombrement (repérage). |
 | `sources/maillage.py` | Convertit un STEP en glTF (mètres, Y vers le haut) + index des nœuds. Sans option : Présentation N°1 (`hub.glb`, `index.json`). Options pour l'armoire : `--z-haut`, maillage allégé, `--sans`. Bouche les perçages < 25 mm ; sépare la façade des portes (`[façade]`). |
-| `sources/armoire.glb`, `sources/armoire-index.json` | Armoire V 1800 : sortie de `maillage.py` passée dans gltfpack (positions quantifiées, sans compression meshopt : la page ne charge pas de WebAssembly). |
-| `sources/pieces.py` | Refait `vue3d/pieces.json` depuis `index.json` ; `pieces.py armoire` refait `vue3d/pieces-armoire.json`. |
+| `sources/armoire.glb`, `casier.glb`, `pro.glb` (+ `*-index.json`) | Armoire V 1800, Casier V 1200, Armoire PRO : sortie de `maillage.py` passée dans gltfpack (positions quantifiées, sans compression meshopt : la page ne charge pas de WebAssembly). |
+| `sources/pieces.py` | Refait `vue3d/pieces.json` depuis `index.json` ; `pieces.py armoire` (`casier`, `pro`) refait `vue3d/pieces-armoire.json` (…). |
 | `sources/preparer_clavier.py` | Prépare la texture du clavier Boks (`clavier-original.png` → `clavier_tex.png`). |
 | `sources/scene.html`, `photos.mjs`, `vues.json` | Rendu des photos dans Chrome sans interface (three.js) ; `vues.json` = les 9 points de vue. |
 | `sources/reduire.py` | Réduit les rendus doubles (4800 × 3200) en photos 2400 × 1600. |
@@ -49,6 +53,12 @@ npm ci                                                                          
 mv armoire-brut-index.json armoire-index.json
 npx gltfpack -i armoire-brut.glb -o armoire.glb -kn -km && rm armoire-brut.glb
 .venv/bin/python pieces.py armoire
+# 1 ter. Casier V 1200 (déjà en Y vers le haut) et Armoire PRO (Z vers le haut, façade vers +Y)
+.venv/bin/python maillage.py ~/chemin/"BOKS 1 D CASIER V1200   1050  COMPLET.STEP" --nom casier-brut \
+  --facade "PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
+.venv/bin/python maillage.py ~/chemin/"C0042-22101-D1060-00-ARMOIRE COMPLETE PRO.STEP" --nom pro-brut --axes=-x,z,y \
+  --facade "B040-00- PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
+for n in casier pro; do mv $n-brut-index.json $n-index.json; npx gltfpack -i $n-brut.glb -o $n.glb -kn -km && rm $n-brut.glb; .venv/bin/python pieces.py $n; done
 # 2. (si l'image du clavier change) texture
 .venv/bin/python preparer_clavier.py
 # 3. photos
@@ -93,3 +103,18 @@ l'ordre des 68 nœuds restent identiques.
 - **Maillage allégé** : pièces de moins de 80 mm simplifiées à 240 triangles ; plancher et rampes (tôle à picots, ~400 bossages chacun) maillés grossièrement plutôt que simplifiés, la simplification les froissait. 397 000 triangles.
 
 Encombrement de l'armoire : 1 459 mm (largeur) × 1 545 mm (profondeur, visière comprise, volet fermé) × 1 909 mm (hauteur sur vérins) ; rampe : 2 056 × 770 mm.
+
+## Choix faits pour le Casier V 1200 et l'Armoire PRO
+
+- **Clavier** : sur le montant droit, fixe (goujons de fixation sur le cadre). L'image du clavier Boks est plaquée
+  sur le film du clavier connecté (casier, 34 × 109 mm) et sur `SYSTEME_CLAVIER` (PRO, même clavier que la N°1).
+- **Porte** : pivote à gauche (casier : axe `AXE P2` ; PRO : paliers et charnières à ressort). Suivent la porte bien que
+  rangés hors de son assemblage : casier, support de gâche, crochet de serrure (SUOGOU), ferrure U1 et 4 écrous M4 ;
+  PRO, ferrure U1 et sa rondelle.
+- **Tige d'arrêt Ø4** (`b2` + `glissiere`) : pivote sur la ferrure U1 de la porte, son autre bout coulisse à x constant
+  (casier : sur la paroi gauche ; PRO : dans le plafond). Ouverture limitée à 95° (casier, avant que l'axe de la tige
+  ne sorte du plan de la paroi) et 90° (PRO) : le fichier ne donne pas la longueur des lumières.
+- **Allègement** : pièces de moins de 80 mm à 240 triangles ; la carte électronique du clavier connecté (cachée dans
+  son boîtier) simplifiée à 15 000 triangles. Casier 226 000 triangles, PRO 106 000.
+
+Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris) ; PRO 500 × 437 × 1 053 mm (pieds compris).
