@@ -46,6 +46,7 @@ ap.add_argument("--rap-axes", default="x,y,z", help="... rotation, même écritu
 ap.add_argument("--rap-dec", default="0,0,0", help="... puis translation en mm (repère du STEP)")
 ap.add_argument("--couper", default="", help="chemins à découper : la partie dans --couper-boite devient un nœud « [coupe] »")
 ap.add_argument("--couper-boite", default="", help="x0,y0,z0,x1,y1,z1 en mm (repère du STEP), découpe exacte par plans")
+ap.add_argument("--deplacer", action="append", default=[], help="REGEX=dx,dy,dz : translation en mm (repère du STEP) des chemins qui correspondent ; répétable")
 ap.add_argument("--boite", default="", help="xmin,ymin,zmin,xmax,ymax,zmax en mm (repère du STEP) : on écarte ce dont le centre est dehors")
 ap.add_argument("--grossier", default="", help="chemins maillés grossièrement (1 mm, 0,8 rad) et jamais simplifiés (tôles à picots)")
 A = ap.parse_args()
@@ -158,6 +159,12 @@ def ajouter(chemin, forme):
             t = [float(v) for v in A.rap_dec.split(",")]
             tr = gp_Trsf(); tr.SetValues(*R[0], t[0], *R[1], t[1], *R[2], t[2])
             forme = forme.Moved(TopLoc_Location(tr))
+        for spec in A.deplacer:
+            motif, dec = spec.rsplit("=", 1)
+            if re.search(motif, ch):
+                t = [float(v) for v in dec.split(",")]
+                tr = gp_Trsf(); tr.SetValues(1, 0, 0, t[0], 0, 1, 0, t[1], 0, 0, 1, t[2])
+                forme = forme.Moved(TopLoc_Location(tr))
         if A.boite:
             b = Bnd_Box(); BRepBndLib.Add_s(forme, b); p0, p1 = b.CornerMin(), b.CornerMax()
             x0, y0, z0, x1, y1, z1 = map(float, A.boite.split(","))

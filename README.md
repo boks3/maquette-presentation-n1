@@ -62,6 +62,8 @@ npm ci                                                                          
 .venv/bin/python maillage.py ~/chemin/"V2 3D BOKS capuchon for rendering back door.stp" --nom one-brut --decouper \
   --rapatrier SUOGOU --rap-axes=x,-z,y --rap-dec=-9792.0,-148.1,39330.8 \
   --couper "COMPOUND 042$" --couper-boite=-189.2,-141,655,158.8,-125,684.5 \
+  --deplacer 'COMPOUND (041|023|019|024|014|015|011|020|012|021|013|016|018|017|022)$=18,0,0' \
+  --deplacer 'COMPOUND (051|028|027|026|025)$|SUOGOU=18,0,0' \
   --boite=-260,-800,-60,260,600,800 --axes=x,z,-y --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 15
 for n in armoire casier pro one; do mv $n-brut-index.json $n-index.json
   npx gltfpack -i $n-brut.glb -o secours/$n.glb -kn -km && npx gltfpack -i $n-brut.glb -o $n.glb -kn -km -cc && rm $n-brut.glb
@@ -181,4 +183,8 @@ Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris
 - **boksONE, traverse haute** : une seule pièce dans le fichier, avec un bandeau au-dessus de la porte (cadre) et une
   lèvre qui descend derrière le haut de la porte. Sur le produit (photo de Ziad), cette lèvre est le profilé du haut
   de la porte : `--couper` la découpe à la largeur de la porte (nœud « [coupe] », qui suit la porte) ; le bandeau reste.
+- **boksONE, serrure** : Ziad (« la serrure est déportée, normalement elle est collée sur la paroi à droite », photos du
+  produit) : dans le fichier, le capot de serrure laissait 18 mm entre lui et le retour du montant et dépassait dans
+  l'ouverture. `--deplacer` décale de 18 mm vers la droite la serrure (capot, corps JIEKAI, plaques, pênes, vis) et le
+  crochet de la porte, qui restent en face l'un de l'autre ; l'équerre vissée sur la paroi ne bouge pas.
 - Poids : XL 6,8 Mo (391 000 triangles), L 3,1 Mo (192 000), M 2,2 Mo (133 000), boksONE 2,3 Mo (149 000).
