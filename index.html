@@ -320,10 +320,10 @@ const M = {
   dalle:   new THREE.MeshStandardMaterial({ color: 0xbdbab4, metalness: 0.0, roughness: 0.92 }),
 };
 for (const m of Object.values(M)) { m.side = THREE.DoubleSide; m.shadowSide = THREE.DoubleSide; }
-// taille M : la vitre du clavier affleure le montant ; elle passe devant les surfaces au même plan
-// (pas sur la Bokspark, où la vitre est en retrait derrière la porte et transparaîtrait)
+// taille M : la plaque noire du clavier affleure le montant ; sur le produit elle est cachée derrière lui
+// (seule la fenêtre du montant montre le clavier) : elle passe derrière les surfaces au même plan
 M.vitreAffleurante = M.vitre.clone();
-Object.assign(M.vitreAffleurante, { polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 });
+Object.assign(M.vitreAffleurante, { polygonOffset: true, polygonOffsetFactor: 2, polygonOffsetUnits: 2 });
 
 function couleurScene() {
   const css = getComputedStyle(document.documentElement);

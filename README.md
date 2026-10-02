@@ -161,8 +161,9 @@ Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris
   La façade des portes n'est plus découpée (`--facade "^$"`) : c'était le correctif précédent du même défaut.
 - **Simplification** : seulement les pièces de moins de 15 mm (20 mm pour XL, 25 mm pour L : rivets et vis du clavier).
 - **Taille L** : la carte électronique et les piles du clavier, enfermées dans son boîtier, sont retirées (`--sans`).
-- **Taille M** : la vitre du clavier affleure le montant ; matière `vitreAffleurante` (décalage de profondeur) pour
-  qu'elle ne se dispute pas l'affichage avec lui. Pas sur la Bokspark, où la vitre est en retrait derrière la porte.
+- **Taille M** : la plaque noire du clavier affleure le montant ; sur le produit elle est cachée derrière lui (Ziad).
+  Matière `vitreAffleurante` : décalage de profondeur qui la fait passer derrière les surfaces au même plan ; seule la
+  fenêtre du montant montre le clavier. Pas sur la Bokspark, où la vitre est déjà en retrait derrière la porte.
 - **boksONE** : le crochet de la gâche (plaque à patte en Z et ses vis, cotes du « SUP GACHE » de la PRO) suit la porte
   avant ; le capot en U de la serrure (cotes du « CAPOT SERRURE » de la PRO) reste sur le montant.
 - **boksONE, crochet JIEKAI** : le fichier range une copie de la serrure et de son crochet SUOGOU (les seules pièces
