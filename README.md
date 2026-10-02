@@ -2,7 +2,7 @@
 
 Cinq maquettes 3D interactives sur la même page, au choix en tête de page (lien direct : `#n1`, `#armoire`, `#casier`, `#pro`, `#one`) :
 
-- **Présentation N°1** : caisson **C0042-26091-D1100-00 « PRÉSENTATION N°1 »** (export SolidWorks 2025
+- **Bokspark** (Présentation N°1) : caisson **C0042-26091-D1100-00 « PRÉSENTATION N°1 »** (export SolidWorks 2025
   du 02/10/2026), avec ses photos de présentation ;
 - **Boks taille XL** (Armoire V 1800) : ensemble **BOKS 1 D V1800 1250 « ARMOIRE V 1800 COMPLETE (rampe étroite) »**
   (export SolidWorks 2022 du 07/05/2023), une porte, serrure à barillet, rampe d'accès. Pas de photos ;
