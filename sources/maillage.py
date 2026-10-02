@@ -44,6 +44,8 @@ ap.add_argument("--decouper", action="store_true", help="un nœud par élément 
 ap.add_argument("--rapatrier", default="", help="chemins à remettre en place (pièces déplacées dans le fichier) ...")
 ap.add_argument("--rap-axes", default="x,y,z", help="... rotation, même écriture que --axes ...")
 ap.add_argument("--rap-dec", default="0,0,0", help="... puis translation en mm (repère du STEP)")
+ap.add_argument("--couper", default="", help="chemins à découper : la partie dans --couper-boite devient un nœud « [coupe] »")
+ap.add_argument("--couper-boite", default="", help="x0,y0,z0,x1,y1,z1 en mm (repère du STEP), découpe exacte par plans")
 ap.add_argument("--boite", default="", help="xmin,ymin,zmin,xmax,ymax,zmax en mm (repère du STEP) : on écarte ce dont le centre est dehors")
 ap.add_argument("--grossier", default="", help="chemins maillés grossièrement (1 mm, 0,8 rad) et jamais simplifiés (tôles à picots)")
 A = ap.parse_args()
@@ -170,6 +172,23 @@ def ajouter(chemin, forme):
 roots = Seq(); st.GetFreeShapes(roots)
 for i in range(1, roots.Length()+1): parcours(roots.Value(i), TopLoc_Location(), [])
 
+if A.couper:  # ex. boksONE : la lèvre de la traverse haute, derrière le haut de la porte, appartient à la porte
+    x0, y0, z0, x1, y1, z1 = map(float, A.couper_boite.split(","))
+    plans = [((1, 0, 0), (x0, 0, 0)), ((-1, 0, 0), (x1, 0, 0)), ((0, 1, 0), (0, y0, 0)),
+             ((0, -1, 0), (0, y1, 0)), ((0, 0, 1), (0, 0, z0)), ((0, 0, -1), (0, 0, z1))]
+    ajouts = []
+    for i, (chemin, V, F, est_petite, grossier, N) in enumerate(pieces):
+        if not re.search(A.couper, ' / '.join(chemin)): continue
+        reste, dehors = trimesh.Trimesh(V, F, process=False), []
+        for n, o in plans:
+            d = trimesh.intersections.slice_mesh_plane(reste, -np.array(n, float), o)
+            if len(d.faces): dehors.append(d)
+            reste = trimesh.intersections.slice_mesh_plane(reste, n, o)
+        if not len(reste.faces): continue
+        ext = trimesh.util.concatenate(dehors)
+        pieces[i] = (chemin, np.asarray(ext.vertices), np.asarray(ext.faces), est_petite, grossier, None)
+        ajouts.append((chemin[:-1] + [chemin[-1] + " [coupe]"], np.asarray(reste.vertices), np.asarray(reste.faces), est_petite, grossier, None))
+    pieces += ajouts  # en fin de liste : les autres nœuds gardent leur nom
 scene = trimesh.Scene()
 index = []
 for k, (chemin, V, F, est_petite, grossier, N) in enumerate(pieces):
