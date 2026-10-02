@@ -413,6 +413,7 @@ async function charger(cle) {
     o.material = role === 'porteFace' ? M.porte : (M[role] || M.alu);
     if (role === 'porteFace') { const N = o.geometry.attributes.normal; for (let i = 0; i < N.count; i++) N.setXYZ(i, 0, 0, 1); N.needsUpdate = true; }
     o.castShadow = o.receiveShadow = true;
+    if (role === 'cache') o.visible = false;  // pièce retirée de la vue (goujons autour du clavier)
     if (role === 'facade') {
       const g = o.geometry; g.computeBoundingBox(); const b = g.boundingBox, P = g.attributes.position;
       const uv = new Float32Array(P.count * 2);

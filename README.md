@@ -164,6 +164,9 @@ Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris
 - **Taille M** : la plaque noire du clavier affleure le montant ; sur le produit elle est cachée derrière lui (Ziad).
   Matière `vitreAffleurante` : décalage de profondeur qui la fait passer derrière les surfaces au même plan ; seule la
   fenêtre du montant montre le clavier. Pas sur la Bokspark, où la vitre est déjà en retrait derrière la porte.
+- **Goujons autour du clavier** (M, L, boksONE) : Ziad, « retire les trous ». Sur la boksONE, ils sont masqués (rôle
+  `cache`) ; sur M et L, leur retrait laissait voir les perçages du montant, et les boucher abîmait sa face : ils
+  prennent donc la teinte du montant (rôle `panneau`), affleurants, presque invisibles.
 - **boksONE** : le crochet de la gâche (plaque à patte en Z et ses vis, cotes du « SUP GACHE » de la PRO) suit la porte
   avant ; le capot en U de la serrure (cotes du « CAPOT SERRURE » de la PRO) reste sur le montant.
 - **boksONE, crochet JIEKAI** : le fichier range une copie de la serrure et de son crochet SUOGOU (les seules pièces

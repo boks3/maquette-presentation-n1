@@ -47,6 +47,7 @@ def detail_armoire(ch):  # vue « Serrure » : poignée et barillet
 # de la tige d'arrêt et les 4 écrous M4 de premier niveau. b2 = tige d'arrêt Ø4 et son écrou borgne.
 def role_casier(ch):
     if "[façade]" in ch: return "porteFace"
+    if "MT DROIT ASS1" in ch and "GOUGEON A SERTIR M 4X10" in ch: return "panneau"  # goujons autour du clavier, à la teinte du montant
     piece = ch.split(" / ")[-1]
     for motif, r in [(r"KEYPAD FOIL", "facade"), (r"FIEVEL|Fievel|Battery|AAA|Export STEP|BAYONET", "clavier"),
                      (r"PORTE P1|PORTE RENF|PT OMEG|ZED", "porte"),
@@ -65,6 +66,7 @@ def porte_casier(ch):
 # tige d'arrêt et sa rondelle sont sur la porte ; b2 = tige d'arrêt Ø4, dont le bout coulisse dans le plafond.
 def role_pro(ch):
     if "[façade]" in ch: return "porteFace"
+    if "FACE MT DROIT ASS1" in ch and "GOUG-SER-AC-A2-M4X10" in ch: return "panneau"  # goujons autour du clavier, à la teinte du montant (Ziad : « retire les trous »)
     if "CLAVIER COMPLET" in ch:  # vitre au ras du montant : matière qui passe devant (la page)
         r = role(ch); return "vitreAffleurante" if r == "vitre" else r
     piece = ch.split(" / ")[-1]
@@ -84,6 +86,7 @@ def porte_pro(ch):
 # (charnières à droite). Restent fixes : le montant droit avec le clavier et le barillet, le cadre, la caisse.
 def role_one(i):
     x0, y0, z0, x1, y1, z1 = i["boite"]; dx, dy, dz = x1 - x0, y1 - y0, z1 - z0
+    if x0 > 115 and x1 < 175 and 495 < z0 < 630 and y0 < -137 and max(dx, dy, dz) < 9: return "cache"  # goujons et écrous autour du clavier
     if 33 < dx < 35 and dy < 2 and 108 < dz < 110: return "facade"                     # film du clavier, 34 x 109
     if x0 > 110 and y0 > -153 and y1 < 10 and 340 < z0 and z1 < 640 and max(dx, dy, dz) > 40: return "clavier"
     if max(dx, dy, dz) < 80: return "inox"                                              # visserie, charnières, barillet
