@@ -1,0 +1,367 @@
+<title>Maquette Présentation N°1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Assistant:wght@400;600&display=swap">
+<style>
+/* Mise en page : un plateau 3D plein cadre, l'identité en tête, les commandes en pied. Couleurs et polices de boks.app. */
+:root {
+  --bg: #F6F7F8;
+  --surface: #FFFFFF;
+  --ink: #133B46;
+  --soft: #5C7378;
+  --accent: #0E9CBC;
+  --accent-ink: #FFFFFF;
+  --line: rgba(19, 59, 70, 0.14);
+  --stage: #E9EDEF;
+  --shadow: rgba(19, 59, 70, 0.10);
+  --font-head: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --font-body: "Assistant", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1C21; --surface: #142A31; --ink: #E6F0F2; --soft: #9BB1B7;
+    --accent: #3DB9D6; --accent-ink: #062027; --line: rgba(230, 240, 242, 0.14);
+    --stage: #18292F; --shadow: rgba(0, 0, 0, 0.35); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1C21; --surface: #142A31; --ink: #E6F0F2; --soft: #9BB1B7;
+  --accent: #3DB9D6; --accent-ink: #062027; --line: rgba(230, 240, 242, 0.14);
+  --stage: #18292F; --shadow: rgba(0, 0, 0, 0.35); color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px;
+  display: flex; flex-direction: column; gap: 12px;
+  padding-inline: 16px; padding-block: 14px; box-sizing: border-box;
+}
+.tete { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px 24px; }
+.titre { display: grid; gap: 2px; min-width: 0; }
+.surtitre { margin: 0; font-family: var(--font-head); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+h1 { margin: 0; font-family: var(--font-head); font-weight: 500; font-size: clamp(22px, 3.2vw, 30px); line-height: 1.1; text-wrap: balance; }
+.ref { margin: 0; color: var(--soft); font-size: 13px; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.cotes { display: flex; gap: 18px; margin: 0; }
+.cotes div { display: grid; gap: 1px; }
+.cotes dt { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); }
+.cotes dd { margin: 0; font-family: var(--font-head); font-size: 17px; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.scene { position: relative; flex: 1; min-height: 300px; border-radius: 14px; overflow: hidden; background: var(--stage); }
+#stage, #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+.aide { position: absolute; left: 12px; bottom: 12px; margin: 0; padding: 6px 10px; border-radius: 999px; font-size: 12px; color: var(--soft); background: var(--surface); border: 1px solid var(--line); pointer-events: none; }
+.chargement { position: absolute; inset: 0; display: grid; place-content: center; gap: 10px; text-align: center; color: var(--soft); background: var(--stage); }
+.chargement strong { font-family: var(--font-head); font-weight: 500; font-size: 16px; color: var(--ink); }
+.jauge { width: min(240px, 60vw); height: 4px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.jauge span { display: block; height: 100%; width: 0%; background: var(--accent); transition: width 0.2s; }
+
+.commandes { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+.groupe { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; min-width: 0; }
+.etiquette { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.primaire {
+  font-family: var(--font-head); font-weight: 500; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--ink); color: var(--bg); border: 0; border-radius: 8px; padding: 11px 18px; min-width: 196px;
+}
+.primaire[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.curseur { display: flex; align-items: center; gap: 10px; }
+input[type="range"] { width: 150px; accent-color: var(--accent); }
+output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: tabular-nums; min-width: 3.2em; }
+.choix { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.choix button { border: 0; background: transparent; padding: 9px 12px; font-size: 14px; color: var(--ink); }
+.choix button + button { border-left: 1px solid var(--line); }
+.choix button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.teintes { display: flex; gap: 8px; }
+.teinte { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: var(--c); padding: 0; box-shadow: 0 1px 2px var(--shadow); }
+.teinte[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+.teinte-nom { font-size: 13px; color: var(--soft); white-space: nowrap; }
+.note { margin: 0; font-size: 12px; color: var(--soft); max-width: 70ch; }
+
+@media (max-width: 640px) {
+  body { gap: 10px; padding-block: 10px; }
+  .cotes { gap: 14px; }
+  .cotes dd { font-size: 15px; }
+  .scene { min-height: 52vh; }
+  .commandes { gap: 10px 16px; }
+  .primaire { flex: 1 1 100%; min-width: 0; }
+  .curseur { flex: 1 1 100%; }
+  input[type="range"] { flex: 1; width: auto; }
+  .choix button { padding: 9px 10px; }
+}
+</style>
+
+<header class="tete">
+  <div class="titre">
+    <p class="surtitre">Maquette 3D</p>
+    <h1>Présentation N°1</h1>
+    <p class="ref">C0042-26091-D1100-00 · deux portes sur charnières inox 180°, clavier Boks</p>
+  </div>
+  <dl class="cotes" aria-label="Encombrement">
+    <div><dt>Largeur</dt><dd>2 170 mm</dd></div>
+    <div><dt>Profondeur</dt><dd>2 170 mm</dd></div>
+    <div><dt>Hauteur</dt><dd>2 106 mm</dd></div>
+  </dl>
+</header>
+
+<main class="scene">
+  <div id="stage" aria-label="Maquette 3D : glisser pour tourner"></div>
+  <div class="chargement" id="chargement" role="status">
+    <strong id="chargementTexte">Préparation de la maquette…</strong>
+    <div class="jauge"><span id="jauge"></span></div>
+  </div>
+  <p class="aide" id="aide">Glisser pour tourner · pincer ou molette pour zoomer</p>
+</main>
+
+<section class="commandes" aria-label="Commandes">
+  <div class="groupe">
+    <button class="primaire" id="bascule" type="button" aria-pressed="false">Ouvrir les portes</button>
+    <div class="curseur">
+      <label class="etiquette" for="angle">Ouverture</label>
+      <input type="range" id="angle" min="0" max="180" step="1" value="0">
+      <output id="angleVal" for="angle">0°</output>
+    </div>
+  </div>
+  <div class="groupe">
+    <span class="etiquette" id="vuesTitre">Vue</span>
+    <div class="choix" role="group" aria-labelledby="vuesTitre">
+      <button type="button" data-vue="trois-quarts" aria-pressed="true">Trois-quarts</button>
+      <button type="button" data-vue="face" aria-pressed="false">Face</button>
+      <button type="button" data-vue="dessus" aria-pressed="false">Dessus</button>
+      <button type="button" data-vue="clavier" aria-pressed="false">Clavier</button>
+    </div>
+  </div>
+  <div class="groupe">
+    <span class="etiquette" id="teintesTitre">Teinte</span>
+    <div class="teintes" role="group" aria-labelledby="teintesTitre">
+      <button type="button" class="teinte" style="--c:#383E42" data-teinte="#383E42" data-nom="Anthracite RAL 7016" aria-label="Anthracite RAL 7016" aria-pressed="true"></button>
+      <button type="button" class="teinte" style="--c:#C5C7C4" data-teinte="#C5C7C4" data-nom="Gris clair RAL 7035" aria-label="Gris clair RAL 7035" aria-pressed="false"></button>
+      <button type="button" class="teinte" style="--c:#F1F0EA" data-teinte="#F1F0EA" data-nom="Blanc RAL 9016" aria-label="Blanc RAL 9016" aria-pressed="false"></button>
+      <button type="button" class="teinte" style="--c:#16171A" data-teinte="#16171A" data-nom="Noir RAL 9005" aria-label="Noir RAL 9005" aria-pressed="false"></button>
+    </div>
+    <span class="teinte-nom" id="teinteNom">Anthracite RAL 7016</span>
+  </div>
+</section>
+<p class="note">Teintes d'illustration : le fichier SolidWorks n'en donne aucune. Le toit est ajouré, comme dans la maquette d'origine.</p>
+
+<script id="donnees-pieces" type="application/json">__PIECES__</script>
+<script id="donnees-clavier" type="text/plain">__TEX__</script>
+<script id="donnees-glb" type="text/plain">__GLB__</script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { toCreasedNormals } from 'three/addons/utils/BufferGeometryUtils.js';
+
+const $ = id => document.getElementById(id);
+const stage = $('stage');
+const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const echec = msg => { $('chargementTexte').textContent = msg; $('chargement').hidden = false; };
+
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+} catch (e) {
+  echec("La 3D n'est pas disponible sur cet appareil : WebGL est désactivé.");
+  throw e;
+}
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.1;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
+stage.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.9;
+
+const C = new THREE.Vector3(-1.054, 1.0, 2.0);
+const soleil = new THREE.DirectionalLight(0xffffff, 2.2);
+soleil.position.copy(C).add(new THREE.Vector3(3.5, 8, 3.5)); soleil.target.position.copy(C);
+soleil.castShadow = true; soleil.shadow.mapSize.set(2048, 2048);
+Object.assign(soleil.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 1, far: 20 });
+soleil.shadow.bias = -0.0002; soleil.shadow.normalBias = 0.01; soleil.shadow.radius = 5;
+const appoint = new THREE.DirectionalLight(0xffffff, 0.9);
+appoint.position.copy(C).add(new THREE.Vector3(-5, 3, 7)); appoint.target.position.copy(C);
+scene.add(soleil, soleil.target, appoint, appoint.target, new THREE.HemisphereLight(0xffffff, 0xd8dadc, 0.7));
+
+const ombre = new THREE.ShadowMaterial({ opacity: 0.24 });
+const sol = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), ombre);
+sol.rotation.x = -Math.PI / 2; sol.position.y = -0.0423; sol.receiveShadow = true; scene.add(sol);
+
+const M = {
+  alu:     new THREE.MeshStandardMaterial({ color: 0xc4c8cc, metalness: 0.85, roughness: 0.38 }),
+  panneau: new THREE.MeshStandardMaterial({ color: 0x383e42, metalness: 0.15, roughness: 0.55 }),
+  porte:   new THREE.MeshStandardMaterial({ color: 0x383e42, metalness: 0.15, roughness: 0.6 }),
+  boitier: new THREE.MeshStandardMaterial({ color: 0x2b3033, metalness: 0.2, roughness: 0.5 }),
+  inox:    new THREE.MeshStandardMaterial({ color: 0xdadcde, metalness: 1.0, roughness: 0.22 }),
+  clavier: new THREE.MeshStandardMaterial({ color: 0x17191b, metalness: 0.1, roughness: 0.45 }),
+  vitre:   new THREE.MeshStandardMaterial({ color: 0x0c0d0e, metalness: 0.0, roughness: 0.12 }),
+  touche:  new THREE.MeshStandardMaterial({ color: 0x5a5f63, metalness: 0.3, roughness: 0.4 }),
+  facade:  new THREE.MeshStandardMaterial({ color: 0xe6e6e6, metalness: 0.0, roughness: 0.55, envMapIntensity: 0.35 }),
+};
+for (const m of Object.values(M)) { m.side = THREE.DoubleSide; m.shadowSide = THREE.DoubleSide; }
+
+function couleurScene() {
+  const css = getComputedStyle(document.documentElement);
+  scene.background = new THREE.Color(css.getPropertyValue('--stage').trim() || '#E9EDEF');
+  const sombre = css.getPropertyValue('color-scheme').includes('dark');
+  ombre.opacity = sombre ? 0.4 : 0.24;
+  aRendre = true;
+}
+let aRendre = true;
+couleurScene();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', couleurScene);
+new MutationObserver(couleurScene).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+const camera = new THREE.PerspectiveCamera(32, 1, 0.05, 100);
+const controles = new OrbitControls(camera, renderer.domElement);
+controles.enableDamping = true; controles.dampingFactor = 0.08;
+controles.maxPolarAngle = Math.PI / 2 - 0.03; controles.minDistance = 0.35; controles.maxDistance = 16;
+controles.screenSpacePanning = true;
+controles.addEventListener('start', () => { $('aide').hidden = true; marquerVue(null); });
+
+function taille() {
+  const l = stage.clientWidth, h = stage.clientHeight;
+  if (!l || !h) return;
+  renderer.setSize(l, h, false); camera.aspect = l / h; camera.updateProjectionMatrix(); aRendre = true;
+}
+new ResizeObserver(taille).observe(stage);
+
+const pivots = { g: new THREE.Group(), d: new THREE.Group() };
+pivots.g.position.set(-2.0900, 0, 3.0869);
+pivots.d.position.set(-0.0180, 0, 3.0869);
+scene.add(pivots.g, pivots.d);
+let facadeClavier = null;
+
+try {
+  const pieces = JSON.parse($('donnees-pieces').textContent);
+  $('jauge').style.width = '30%';
+  const b64 = $('donnees-glb').textContent.trim();
+  const octets = new Uint8Array(b64.length * 3 / 4 - (b64.endsWith('==') ? 2 : b64.endsWith('=') ? 1 : 0));
+  { const bin = atob(b64); for (let i = 0; i < bin.length; i++) octets[i] = bin.charCodeAt(i); }
+  $('jauge').style.width = '60%';
+  const [tex, gltf] = await Promise.all([
+    new THREE.TextureLoader().loadAsync($('donnees-clavier').textContent.trim()),
+    new GLTFLoader().parseAsync(octets.buffer, ''),
+  ]);
+  $('jauge').style.width = '100%';
+  tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  M.facade.map = tex; M.facade.needsUpdate = true;
+
+  const racine = gltf.scene; scene.add(racine); scene.updateMatrixWorld(true);
+  const meshes = []; racine.traverse(o => { if (o.isMesh) meshes.push(o); });
+  for (const o of meshes) {
+    let n = o; while (n && !pieces[n.name]) n = n.parent;
+    const [role, porte] = n ? pieces[n.name] : ['alu', ''];
+    o.geometry = toCreasedNormals(o.geometry, THREE.MathUtils.degToRad(35));
+    o.material = role === 'porteFace' ? M.porte : (M[role] || M.alu);
+    if (role === 'porteFace') { const N = o.geometry.attributes.normal; for (let i = 0; i < N.count; i++) N.setXYZ(i, 0, 0, 1); N.needsUpdate = true; }
+    o.castShadow = o.receiveShadow = true;
+    if (role === 'facade') {
+      const g = o.geometry; g.computeBoundingBox(); const b = g.boundingBox, P = g.attributes.position;
+      const uv = new Float32Array(P.count * 2);
+      for (let i = 0; i < P.count; i++) {
+        uv[2 * i] = (P.getX(i) - b.min.x) / (b.max.x - b.min.x);
+        uv[2 * i + 1] = (P.getY(i) - b.min.y) / (b.max.y - b.min.y);
+      }
+      g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+      facadeClavier = o;
+    }
+    if (porte) pivots[porte].attach(o);
+  }
+  $('chargement').hidden = true;
+  taille();
+  allerA('trois-quarts', true);
+} catch (e) {
+  console.error(e);
+  echec("La maquette n'a pas pu se charger. Rechargez la page.");
+}
+
+/* Portes */
+let angle = 0, animPorte = null;
+function poserAngle(a) {
+  angle = a;
+  pivots.g.rotation.y = -THREE.MathUtils.degToRad(a);
+  pivots.d.rotation.y = THREE.MathUtils.degToRad(a);
+  $('angle').value = Math.round(a); $('angleVal').textContent = Math.round(a) + '°';
+  const ouvert = a > 0.5;
+  $('bascule').textContent = ouvert ? 'Fermer les portes' : 'Ouvrir les portes';
+  $('bascule').setAttribute('aria-pressed', String(ouvert));
+  aRendre = true;
+}
+const douceur = t => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+function animerPortes(cible) {
+  if (reduit) { animPorte = null; return poserAngle(cible); }
+  const depart = angle, duree = Math.max(350, Math.abs(cible - depart) / 180 * 1600);
+  animPorte = { depart, cible, t0: performance.now(), duree };
+}
+$('bascule').addEventListener('click', () => animerPortes(angle > 0.5 ? 0 : 100));
+$('angle').addEventListener('input', e => { animPorte = null; poserAngle(Number(e.target.value)); });
+
+/* Points de vue */
+let animVue = null;
+function marquerVue(nom) {
+  document.querySelectorAll('[data-vue]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.vue === nom)));
+}
+function distancePour(rayon) {
+  const v = THREE.MathUtils.degToRad(camera.fov);
+  const h = 2 * Math.atan(Math.tan(v / 2) * camera.aspect);
+  return rayon / Math.sin(Math.min(v, h) / 2);
+}
+function placement(nom) {
+  if (nom === 'clavier' && facadeClavier) {
+    const b = new THREE.Box3().setFromObject(facadeClavier); const c = b.getCenter(new THREE.Vector3());
+    return { cible: c, az: 15 + angle, el: 3, dist: 0.62 };
+  }
+  const boite = new THREE.Box3();
+  scene.traverse(o => { if (o.isMesh && o !== sol) boite.expandByObject(o); });
+  const sphere = boite.getBoundingSphere(new THREE.Sphere());
+  const r = { 'trois-quarts': [-35, 14], face: [0, 6], dessus: [-25, 52] }[nom] || [-35, 14];
+  return { cible: sphere.center, az: r[0], el: r[1], dist: distancePour(sphere.radius) * 1.08 };
+}
+function allerA(nom, net = false) {
+  const p = placement(nom);
+  const a = THREE.MathUtils.degToRad(p.az), e = THREE.MathUtils.degToRad(p.el);
+  const pos = new THREE.Vector3(Math.cos(e) * Math.sin(a), Math.sin(e), Math.cos(e) * Math.cos(a)).multiplyScalar(p.dist).add(p.cible);
+  marquerVue(nom);
+  if (net || reduit) { camera.position.copy(pos); controles.target.copy(p.cible); controles.update(); aRendre = true; return; }
+  animVue = { p0: camera.position.clone(), p1: pos, c0: controles.target.clone(), c1: p.cible.clone(), t0: performance.now(), duree: 800 };
+}
+document.querySelectorAll('[data-vue]').forEach(b => b.addEventListener('click', () => allerA(b.dataset.vue)));
+
+/* Teintes */
+document.querySelectorAll('[data-teinte]').forEach(b => b.addEventListener('click', () => {
+  const c = new THREE.Color(b.dataset.teinte);
+  M.panneau.color.copy(c); M.porte.color.copy(c);
+  document.querySelectorAll('[data-teinte]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  $('teinteNom').textContent = b.dataset.nom;
+  aRendre = true;
+}));
+
+/* Boucle : on ne dessine que quand quelque chose bouge */
+function boucle(t) {
+  if (animPorte) {
+    const k = Math.min(1, (t - animPorte.t0) / animPorte.duree);
+    poserAngle(animPorte.depart + (animPorte.cible - animPorte.depart) * douceur(k));
+    if (k >= 1) animPorte = null;
+  }
+  if (animVue) {
+    const k = douceur(Math.min(1, (t - animVue.t0) / animVue.duree));
+    camera.position.lerpVectors(animVue.p0, animVue.p1, k);
+    controles.target.lerpVectors(animVue.c0, animVue.c1, k);
+    if (k >= 1) animVue = null;
+    aRendre = true;
+  }
+  if (controles.update()) aRendre = true;
+  if (aRendre) { renderer.render(scene, camera); aRendre = false; }
+  requestAnimationFrame(boucle);
+}
+requestAnimationFrame(boucle);
+</script>

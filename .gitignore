@@ -1,0 +1,7 @@
+node_modules/
+.venv/
+sources/hd/
+sources/photos/
+*.step
+*.STEP
+vue3d/artifact.html

@@ -1,0 +1,342 @@
+[
+ {
+  "noeud": "p00",
+  "chemin": "C0042-26091-B110-00 PROF-LPB-2000",
+  "triangles": 460
+ },
+ {
+  "noeud": "p01",
+  "chemin": "C0042-26091-B160-00 PAN LP 2000",
+  "triangles": 1820
+ },
+ {
+  "noeud": "p02",
+  "chemin": "C0042-26091-B160-00 PAN LP 2000",
+  "triangles": 1820
+ },
+ {
+  "noeud": "p03",
+  "chemin": "C0042-26091-B120-00 PROF-LPH-2000",
+  "triangles": 632
+ },
+ {
+  "noeud": "p04",
+  "chemin": "C0042-26091-B140-00 PROF POTEAU ARR",
+  "triangles": 476
+ },
+ {
+  "noeud": "p05",
+  "chemin": "C0042-26091-B130-00 PROF-PI ARR-BAS",
+  "triangles": 460
+ },
+ {
+  "noeud": "p06",
+  "chemin": "C0042-26091-B160-00 PAN LP 2000",
+  "triangles": 1820
+ },
+ {
+  "noeud": "p07",
+  "chemin": "C0042-26091-B160-00 PAN LP 2000",
+  "triangles": 1820
+ },
+ {
+  "noeud": "p08",
+  "chemin": "C0042-26091-B134-00 PROF-PI ARR-HAUT",
+  "triangles": 652
+ },
+ {
+  "noeud": "p09",
+  "chemin": "C0042-26091-B140-00 PROF POTEAU ARR",
+  "triangles": 476
+ },
+ {
+  "noeud": "p10",
+  "chemin": "C0042-26091-B110-00 PROF-LPB-2000SYM",
+  "triangles": 460
+ },
+ {
+  "noeud": "p11",
+  "chemin": "C0042-26091-B120-00 PROF-LPH-2000SYM",
+  "triangles": 632
+ },
+ {
+  "noeud": "p12",
+  "chemin": "C0042-26091-B164-00 PAN TOITURE",
+  "triangles": 8940
+ },
+ {
+  "noeud": "p13",
+  "chemin": "C0042-26091-B164-00 PAN TOITURE",
+  "triangles": 8940
+ },
+ {
+  "noeud": "p14",
+  "chemin": "C0042-26091-B150-00 MONT AVANT",
+  "triangles": 844
+ },
+ {
+  "noeud": "p15",
+  "chemin": "C0042-26091-B152-00 TRAV HAUTE AVANT",
+  "triangles": 682
+ },
+ {
+  "noeud": "p16",
+  "chemin": "C0042-26091-B160-00 PAN LP 2000",
+  "triangles": 1820
+ },
+ {
+  "noeud": "p17",
+  "chemin": "C0042-26091-B160-00 PAN LP 2000",
+  "triangles": 1820
+ },
+ {
+  "noeud": "p18",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P1",
+  "triangles": 2700
+ },
+ {
+  "noeud": "p19",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P2",
+  "triangles": 2300
+ },
+ {
+  "noeud": "p20",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p21",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p22",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p23",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p24",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p25",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p26f",
+  "chemin": "C0042-26091-B170-00 PORTE GAUCHE P1 [façade]",
+  "triangles": 14
+ },
+ {
+  "noeud": "p26",
+  "chemin": "C0042-26091-B170-00 PORTE GAUCHE P1",
+  "triangles": 1170
+ },
+ {
+  "noeud": "p27",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P1",
+  "triangles": 2700
+ },
+ {
+  "noeud": "p28",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P2",
+  "triangles": 2300
+ },
+ {
+  "noeud": "p29",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p30",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p31",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p32",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p33",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p34",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p35",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P1",
+  "triangles": 2700
+ },
+ {
+  "noeud": "p36",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P2",
+  "triangles": 2300
+ },
+ {
+  "noeud": "p37",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p38",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p39",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p40",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p41",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p42",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p43",
+  "chemin": "C0042-26091-B152-00 MONT AVANT GAUCHE_DéfautSYM",
+  "triangles": 844
+ },
+ {
+  "noeud": "p44",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P1",
+  "triangles": 2700
+ },
+ {
+  "noeud": "p45",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P2",
+  "triangles": 2300
+ },
+ {
+  "noeud": "p46",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p47",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P3",
+  "triangles": 820
+ },
+ {
+  "noeud": "p48",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p49",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p50",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p51",
+  "chemin": "CHARNIERE 180° INOX H=100 ASS1 / CHARNIERE 180° INOX H=100 P4",
+  "triangles": 832
+ },
+ {
+  "noeud": "p52f",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / C0042-26091-B172-00 PORTE DROITE P1 [façade]",
+  "triangles": 78
+ },
+ {
+  "noeud": "p52",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / C0042-26091-B172-00 PORTE DROITE P1",
+  "triangles": 1548
+ },
+ {
+  "noeud": "p53",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / C0042-26091-B174-00 PORTE DR BOITIER",
+  "triangles": 2028
+ },
+ {
+  "noeud": "p54f",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / C0042-26091-B178-00 PORTE DR PORTILLON [façade]",
+  "triangles": 12
+ },
+ {
+  "noeud": "p54",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / C0042-26091-B178-00 PORTE DR PORTILLON",
+  "triangles": 2358
+ },
+ {
+  "noeud": "p55",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS1_1",
+  "triangles": 12523
+ },
+ {
+  "noeud": "p56",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS2_1",
+  "triangles": 8087
+ },
+ {
+  "noeud": "p57",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS3_1",
+  "triangles": 8181
+ },
+ {
+  "noeud": "p58",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS4_1",
+  "triangles": 854
+ },
+ {
+  "noeud": "p59",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS5_1",
+  "triangles": 358
+ },
+ {
+  "noeud": "p60",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS6_1",
+  "triangles": 358
+ },
+ {
+  "noeud": "p61",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS10_1",
+  "triangles": 2588
+ },
+ {
+  "noeud": "p62",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS11_1",
+  "triangles": 404
+ },
+ {
+  "noeud": "p63",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / 202018_BOX_COVER_ASM_ASM / CORPS12_1",
+  "triangles": 404
+ },
+ {
+  "noeud": "p64",
+  "chemin": "C0042-26091-D1172-00 PORTE DROITE ASS1 / CLAVIER COMPLET / SYSTEME_CLAVIER",
+  "triangles": 7959
+ }
+]

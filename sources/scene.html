@@ -1,0 +1,126 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#f3f4f5;overflow:hidden}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { toCreasedNormals } from 'three/addons/utils/BufferGeometryUtils.js';
+
+const L = innerWidth, H = innerHeight;
+const renderer = new THREE.WebGLRenderer({ antialias: new URLSearchParams(location.search).get('aa') !== '0', preserveDrawingBuffer: true });
+renderer.setSize(L, H); renderer.setPixelRatio(1);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.1;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf3f4f5);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = 0.9;
+
+const C = new THREE.Vector3(-1.054, 1.0, 2.0);   // centre de l'ensemble (m)
+const SOL = -0.0423;
+
+const soleil = new THREE.DirectionalLight(0xffffff, 2.2);
+soleil.position.copy(C).add(new THREE.Vector3(3.5, 8, 3.5));
+soleil.target.position.copy(C);
+soleil.castShadow = true;
+soleil.shadow.mapSize.set(4096, 4096);
+Object.assign(soleil.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 1, far: 20 });
+soleil.shadow.bias = -0.0002; soleil.shadow.normalBias = 0.01; soleil.shadow.radius = 6; soleil.shadow.blurSamples = 16;
+scene.add(soleil, soleil.target);
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd8dadc, 0.7));
+const appoint = new THREE.DirectionalLight(0xffffff, 0.9); appoint.position.copy(C).add(new THREE.Vector3(-5, 3, 7)); appoint.target.position.copy(C); scene.add(appoint, appoint.target);
+
+const sol = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.24 }));
+sol.rotation.x = -Math.PI / 2; sol.position.y = SOL; sol.receiveShadow = true;
+scene.add(sol);
+
+const M = {
+  alu:      new THREE.MeshStandardMaterial({ color: 0xc4c8cc, metalness: 0.85, roughness: 0.38 }),
+  panneau:  new THREE.MeshStandardMaterial({ color: 0x383e42, metalness: 0.15, roughness: 0.55 }),
+  porte:    new THREE.MeshStandardMaterial({ color: 0x383e42, metalness: 0.15, roughness: 0.6 }),
+  boitier:  new THREE.MeshStandardMaterial({ color: 0x2b3033, metalness: 0.2, roughness: 0.5 }),
+  inox:     new THREE.MeshStandardMaterial({ color: 0xdadcde, metalness: 1.0, roughness: 0.22 }),
+  clavier:  new THREE.MeshStandardMaterial({ color: 0x17191b, metalness: 0.1, roughness: 0.45 }),
+  vitre:    new THREE.MeshStandardMaterial({ color: 0x0c0d0e, metalness: 0.0, roughness: 0.12 }),
+  touche:   new THREE.MeshStandardMaterial({ color: 0x5a5f63, metalness: 0.3, roughness: 0.4 }),
+  porteFace: new THREE.MeshStandardMaterial({ color: 0x383e42, metalness: 0.15, roughness: 0.6, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -4 }),
+};
+function matiere(ch) {
+  if (/\[façade\]/.test(ch)) return M.porteFace;
+  if (/CHARNIERE/.test(ch)) return M.inox;
+  if (/CORPS4_1/.test(ch)) return M.vitre;
+  if (/CORPS(5|6|11|12)_1/.test(ch)) return M.touche;
+  if (/CLAVIER/.test(ch)) return M.clavier;
+  if (/BOITIER/.test(ch)) return M.boitier;
+  if (/PORTE|PORTILLON/.test(ch)) return M.porte;
+  if (/PAN /.test(ch)) return M.panneau;
+  return M.alu;
+}
+
+for (const m of Object.values(M)) { m.side = THREE.DoubleSide; m.shadowSide = THREE.DoubleSide; }
+const index = await (await fetch('index.json')).json();
+const parNoeud = Object.fromEntries(index.map(i => [i.noeud, i.chemin]));
+const gltf = await new GLTFLoader().loadAsync('hub.glb');
+const racine = gltf.scene; scene.add(racine);
+racine.updateMatrixWorld(true);
+
+const pivots = {
+  gauche: new THREE.Group(), droite: new THREE.Group(),
+};
+pivots.gauche.position.set(-2.0900, 0, 3.0869);
+pivots.droite.position.set(-0.0180, 0, 3.0869);
+scene.add(pivots.gauche, pivots.droite);
+scene.updateMatrixWorld(true);
+
+const meshes = [];
+racine.traverse(o => { if (o.isMesh) meshes.push(o); });
+for (const o of meshes) {
+  let n = o; while (n && !parNoeud[n.name]) n = n.parent;
+  const ch = n ? parNoeud[n.name] : '';
+  o.geometry = toCreasedNormals(o.geometry, THREE.MathUtils.degToRad(35));
+  o.material = matiere(ch);
+  if (o.material === M.porteFace) { const N = o.geometry.attributes.normal; for (let i = 0; i < N.count; i++) N.setXYZ(i, 0, 0, 1); N.needsUpdate = true; }
+  o.castShadow = o.receiveShadow = true;
+  o.userData.ch = ch;
+  if (/PORTE GAUCHE/.test(ch)) pivots.gauche.attach(o);
+  else if (/PORTE DROITE ASS1/.test(ch)) pivots.droite.attach(o);
+}
+
+const tex = await new THREE.TextureLoader().loadAsync('clavier_tex.png');
+tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+const matClavier = new THREE.MeshStandardMaterial({ map: tex, metalness: 0.0, roughness: 0.55, envMapIntensity: 0.35, color: 0xe6e6e6, side: THREE.DoubleSide });
+for (const o of meshes) {
+  let n = o; while (n && !parNoeud[n.name]) n = n.parent;
+  if (!n || !/SYSTEME_CLAVIER/.test(parNoeud[n.name])) continue;
+  const g = o.geometry; g.computeBoundingBox(); const b = g.boundingBox, P = g.attributes.position;
+  const uv = new Float32Array(P.count * 2);
+  for (let i = 0; i < P.count; i++) {
+    uv[2*i] = (P.getX(i) - b.min.x) / (b.max.x - b.min.x);
+    uv[2*i+1] = (P.getY(i) - b.min.y) / (b.max.y - b.min.y);
+  }
+  g.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+  o.material = matClavier;
+}
+const camera = new THREE.PerspectiveCamera(28, L / H, 0.05, 100);
+window.rendre = ({ seul = null, sauf = null, sansOmbre = false, ouverture = 0, az = -35, el = 12, dist = 8.2, cible = null, focale = 28 }) => {
+  pivots.gauche.rotation.y = -THREE.MathUtils.degToRad(ouverture);
+  pivots.droite.rotation.y =  THREE.MathUtils.degToRad(ouverture);
+  const t = cible ? new THREE.Vector3(...cible) : C.clone();
+  const a = THREE.MathUtils.degToRad(az), e = THREE.MathUtils.degToRad(el);
+  camera.fov = focale; camera.updateProjectionMatrix();
+  camera.position.set(t.x + dist * Math.cos(e) * Math.sin(a), t.y + dist * Math.sin(e), t.z + dist * Math.cos(e) * Math.cos(a));
+  camera.lookAt(t);
+  soleil.castShadow = !sansOmbre;
+  for (const o of meshes) o.visible = (!seul || new RegExp(seul).test(o.userData.ch)) && (!sauf || !new RegExp(sauf).test(o.userData.ch));
+  renderer.render(scene, camera);
+  return true;
+};
+window.pret = true;
+</script></body></html>

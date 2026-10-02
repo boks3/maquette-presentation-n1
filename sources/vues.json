@@ -1,0 +1,91 @@
+{
+ "01_ferme_trois-quarts_gauche": {
+  "ouverture": 0,
+  "az": -35,
+  "el": 12,
+  "dist": 8.6
+ },
+ "02_ferme_face": {
+  "ouverture": 0,
+  "az": 0,
+  "el": 6,
+  "dist": 8.6
+ },
+ "03_ouvert_trois-quarts_gauche": {
+  "ouverture": 100,
+  "az": -38,
+  "el": 12,
+  "dist": 9.8,
+  "cible": [
+   -1.054,
+   0.95,
+   2.45
+  ]
+ },
+ "04_ouvert_face": {
+  "ouverture": 100,
+  "az": 0,
+  "el": 8,
+  "dist": 10.2,
+  "cible": [
+   -1.054,
+   0.95,
+   2.55
+  ]
+ },
+ "05_ouvert_trois-quarts_droite": {
+  "ouverture": 100,
+  "az": 38,
+  "el": 12,
+  "dist": 9.8,
+  "cible": [
+   -1.054,
+   0.95,
+   2.45
+  ]
+ },
+ "06_ouvert_plongee": {
+  "ouverture": 100,
+  "az": -25,
+  "el": 32,
+  "dist": 9.8,
+  "cible": [
+   -1.054,
+   0.8,
+   2.45
+  ]
+ },
+ "07_entrouvert": {
+  "ouverture": 45,
+  "az": -30,
+  "el": 10,
+  "dist": 9.2,
+  "cible": [
+   -1.054,
+   0.95,
+   2.3
+  ]
+ },
+ "08_detail_clavier": {
+  "ouverture": 0,
+  "az": 35,
+  "el": 5,
+  "dist": 2.4,
+  "cible": [
+   -0.84,
+   0.97,
+   3.07
+  ]
+ },
+ "09_clavier_gros_plan": {
+  "ouverture": 0,
+  "az": 18,
+  "el": 3,
+  "dist": 0.7,
+  "cible": [
+   -0.73,
+   0.94,
+   3.079
+  ]
+ }
+}
