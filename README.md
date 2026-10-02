@@ -4,11 +4,11 @@ Cinq maquettes 3D interactives sur la même page, au choix en tête de page (lie
 
 - **Présentation N°1** : caisson **C0042-26091-D1100-00 « PRÉSENTATION N°1 »** (export SolidWorks 2025
   du 02/10/2026), avec ses photos de présentation ;
-- **Armoire V 1800** : ensemble **BOKS 1 D V1800 1250 « ARMOIRE V 1800 COMPLETE (rampe étroite) »**
+- **Boks taille XL** (Armoire V 1800) : ensemble **BOKS 1 D V1800 1250 « ARMOIRE V 1800 COMPLETE (rampe étroite) »**
   (export SolidWorks 2022 du 07/05/2023), une porte, serrure à barillet, rampe d'accès. Pas de photos ;
-- **Casier V 1200** : **BOKS 1 D CASIER V1200 1050 COMPLET** (SolidWorks 2022, 07/05/2023), une porte,
+- **Boks taille L** (Casier V 1200) : **BOKS 1 D CASIER V1200 1050 COMPLET** (SolidWorks 2022, 07/05/2023), une porte,
   clavier Boks connecté, serrure à barillet ;
-- **Armoire PRO** : **C0042-22101-D1060-00 ARMOIRE COMPLETE PRO** (SolidWorks 2022, 14/02/2023), une porte
+- **Boks taille M** (Armoire PRO) : **C0042-22101-D1060-00 ARMOIRE COMPLETE PRO** (SolidWorks 2022, 14/02/2023), une porte
   sur charnières à ressort, clavier Boks, serrure à barillet ;
 - **boksONE taille S** (avec porte arrière) : **« V2 3D BOKS capuchon for rendering back door »**, export **Rhino 7**
   du 30/11/2023 (fichier de rendu, pas l'original SolidWorks), porte avant, porte arrière, clavier Boks connecté.
@@ -62,7 +62,7 @@ npx gltfpack -i armoire-brut.glb -o armoire.glb -kn -km && rm armoire-brut.glb
   --facade "B040-00- PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
 # 1 quater. boksONE (Rhino : pièces sans nom, découpées volume par volume ; la scène de rendu, à 40 m, est écartée)
 .venv/bin/python maillage.py ~/chemin/"V2 3D BOKS capuchon for rendering back door.stp" --nom one-brut --decouper \
-  --boite=-260,-800,-60,260,600,800 --axes=x,z,-y --facade "^$" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
+  --boite=-260,-800,-60,260,600,800 --axes=x,z,-y --facade "^$" --angle 0.5 --petites 50 --normales --minuscules 15
 for n in casier pro one; do mv $n-brut-index.json $n-index.json; npx gltfpack -i $n-brut.glb -o $n.glb -kn -km && rm $n-brut.glb; .venv/bin/python pieces.py $n; done
 # 2. (si l'image du clavier change) texture
 .venv/bin/python preparer_clavier.py
@@ -142,4 +142,8 @@ Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris
   le montant droit (clavier, barillet) reste fixe. **Porte arrière** (`a`) : charnières à droite (axe x = 156,9, y = 228,3 mm),
   avec sa crémone et ses tringles. Les deux portes s'ouvrent ensemble, jusqu'à 110° (le fichier ne donne pas de butée).
 - **Clavier** : l'image du clavier Boks est plaquée sur le film de 34 × 109 mm (le même que sur le casier).
+- **Rendu** : `--normales` exporte l'orientation exacte des surfaces (la page ne la recalcule plus) : les triangles
+  longs et fins des grandes faces planes, une fois les positions quantifiées, faisaient des traînées de reflet.
+  Rien n'est simplifié, sauf les pièces de moins de 15 mm (`--minuscules`, 120 triangles, orientation recalculée).
+  149 000 triangles.
 - Encombrement mesuré : 408 × 400 (charnières arrière comprises) × 705 mm ; boks.app annonce H 70 × L 40 × P 37 cm.

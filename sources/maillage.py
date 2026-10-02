@@ -20,6 +20,7 @@ from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
 from OCP.TopAbs import TopAbs_WIRE
 from OCP.Bnd import Bnd_Box
 from OCP.TopoDS import TopoDS_Iterator
+from OCP.BRepLib import BRepLib_ToolTriangulatedShape
 from OCP.TopAbs import TopAbs_COMPOUND
 from OCP.BRepBndLib import BRepBndLib
 import re, argparse
@@ -35,6 +36,9 @@ ap.add_argument("--petites", type=float, default=0, help="pièces de diagonale <
 ap.add_argument("--plafond", type=int, default=0, help="triangles au plus par pièce, au-delà : simplification quadrique ; 0 = non")
 ap.add_argument("--plafond-petites", type=int, default=0, help="idem pour les pièces de --petites ; 0 = non")
 ap.add_argument("--sans", default="", help="chemins laissés de côté (ex. la dalle de présentation)")
+ap.add_argument("--normales", action="store_true", help="exporte l'orientation exacte des surfaces (la page ne la recalcule plus) ; sans simplification")
+ap.add_argument("--minuscules", type=float, default=0, help="avec --normales : pièces de diagonale < N mm simplifiées (--plafond-minuscules), sans normales exportées")
+ap.add_argument("--plafond-minuscules", type=int, default=120)
 ap.add_argument("--decouper", action="store_true", help="un nœud par élément des COMPOUND (exports Rhino sans arbre nommé)")
 ap.add_argument("--boite", default="", help="xmin,ymin,zmin,xmax,ymax,zmax en mm (repère du STEP) : on écarte ce dont le centre est dehors")
 ap.add_argument("--grossier", default="", help="chemins maillés grossièrement (1 mm, 0,8 rad) et jamais simplifiés (tôles à picots)")
@@ -76,7 +80,7 @@ def petite(shape):
 def maille(shape, combler=False, grossier=False):
     lin, ang = (1.0, 0.8) if grossier or petite(shape) else (0.4, A.angle)
     BRepMesh_IncrementalMesh(shape, lin, False, ang, True)
-    V, F, off = [], [], 0
+    V, F, N, off = [], [], [], 0
     ex = TopExp_Explorer(shape, TopAbs_FACE)
     while ex.More():
         f = TopoDS.Face(ex.Current()); loc = TopLoc_Location()
@@ -91,12 +95,17 @@ def maille(shape, combler=False, grossier=False):
             for i in range(1, tri.NbNodes()+1):
                 p = tri.Node(i).Transformed(tr); pts.append((p.X(), p.Y(), p.Z()))
             inv = f.Orientation() == TopAbs_REVERSED
+            if A.normales:  # normale de la surface aux nœuds, retournée si la face l'est
+                BRepLib_ToolTriangulatedShape.ComputeNormals_s(f, tri)
+                for i in range(1, tri.NbNodes()+1):
+                    d = tri.Normal(i).Transformed(tr); sg = -1 if inv else 1
+                    N.append((sg * d.X(), sg * d.Y(), sg * d.Z()))
             for i in range(1, tri.NbTriangles()+1):
                 a, b, c = tri.Triangle(i).Get()
                 F.append((off+a-1, off+c-1, off+b-1) if inv else (off+a-1, off+b-1, off+c-1))
             V += pts; off += len(pts)
         ex.Next()
-    return np.array(V, float), np.array(F, int)
+    return np.array(V, float), np.array(F, int), (np.array(N, float) if A.normales else None)
 
 pieces = []
 def parcours(lab, loc, chemin):
@@ -134,26 +143,30 @@ def ajouter(chemin, forme):
             cx, cy, cz = (p0.X() + p1.X()) / 2, (p0.Y() + p1.Y()) / 2, (p0.Z() + p1.Z()) / 2
             if not (x0 <= cx <= x1 and y0 <= cy <= y1 and z0 <= cz <= z1): return
         grossier = bool(A.grossier and re.search(A.grossier, ch))
-        V, F = maille(forme, combler=bool(re.search(A.combler, ch)), grossier=grossier)
-        if len(F): pieces.append((chemin[1:], V, F, petite(forme), grossier))
+        V, F, N = maille(forme, combler=bool(re.search(A.combler, ch)), grossier=grossier)
+        if len(F): pieces.append((chemin[1:], V, F, petite(forme), grossier, N))
 
 roots = Seq(); st.GetFreeShapes(roots)
 for i in range(1, roots.Length()+1): parcours(roots.Value(i), TopLoc_Location(), [])
 
 scene = trimesh.Scene()
 index = []
-for k, (chemin, V, F, est_petite, grossier) in enumerate(pieces):
+for k, (chemin, V, F, est_petite, grossier, N) in enumerate(pieces):
     boite = [round(float(v), 1) for v in list(V.min(0)) + list(V.max(0))]  # mm, repère du STEP
+    minuscule = bool(A.minuscules) and float(np.linalg.norm(V.max(0) - V.min(0))) < A.minuscules
+    if minuscule: N = None
     axes = A.axes or ("-y,z,-x" if A.z_haut else "")
     if axes:  # chaque composante de la page = ± un axe du STEP ; rotation propre : l'enroulement des triangles ne change pas
         cols = [(-1 if c.strip().startswith("-") else 1) * V[:, "xyz".index(c.strip()[-1])] for c in axes.split(",")]
         M = np.array([[(-1 if c.strip().startswith("-") else 1) * (j == "xyz".index(c.strip()[-1])) for j in range(3)] for c in axes.split(",")])
         assert round(np.linalg.det(M)) == 1, "--axes doit être une rotation (déterminant +1)"
         V = np.column_stack(cols)
+        if N is not None: N = np.column_stack([(-1 if c.strip().startswith("-") else 1) * N[:, "xyz".index(c.strip()[-1])] for c in axes.split(",")])
     V = V / 1000.0  # mm -> m
-    m = trimesh.Trimesh(V, F, process=True)
+    m = trimesh.Trimesh(V, F, process=True) if N is None else trimesh.Trimesh(V, F, vertex_normals=N, process=False)
     plafond = A.plafond_petites if est_petite and A.plafond_petites else A.plafond
-    if plafond and len(m.faces) > plafond and not grossier:
+    if minuscule: plafond = A.plafond_minuscules
+    if plafond and len(m.faces) > plafond and not grossier and N is None:
         m = m.simplify_quadric_decimation(face_count=plafond)
     ch = ' / '.join(chemin)
     if re.search(A.facade, ch):

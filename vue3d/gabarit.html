@@ -91,17 +91,18 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
   .choix button { padding: 9px 10px; }
   .modeles { display: grid; grid-template-columns: 1fr 1fr; width: 100%; overflow: visible; }
   .modeles button + button { border-left: 0; }
-  .modeles button:nth-child(even) { border-left: 1px solid var(--line); }
-  .modeles button:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .modeles button:first-child { grid-column: 1 / -1; }
+  .modeles button:nth-child(odd):not(:first-child) { border-left: 1px solid var(--line); }
+  .modeles button:nth-child(n+2) { border-top: 1px solid var(--line); }
 }
 </style>
 
 <div class="choix modeles" role="group" aria-label="Modèle">
   <button type="button" data-produit="n1" aria-pressed="true">Présentation N°1</button>
-  <button type="button" data-produit="armoire" aria-pressed="false">Armoire V 1800</button>
-  <button type="button" data-produit="casier" aria-pressed="false">Casier V 1200</button>
-  <button type="button" data-produit="pro" aria-pressed="false">Armoire PRO</button>
-  <button type="button" data-produit="one" aria-pressed="false">boksONE S</button>
+  <button type="button" data-produit="one" aria-pressed="false">boksONE taille S</button>
+  <button type="button" data-produit="pro" aria-pressed="false">Boks taille M</button>
+  <button type="button" data-produit="casier" aria-pressed="false">Boks taille L</button>
+  <button type="button" data-produit="armoire" aria-pressed="false">Boks taille XL</button>
 </div>
 <header class="tete">
   <div class="titre">
@@ -194,7 +195,7 @@ const PRODUITS = {
     note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. Le toit est ajouré, comme dans la maquette d'origine.",
   },
   armoire: {
-    titre: 'Armoire V 1800', ref: 'BOKS 1 D V1800 1250 · une porte, serrure à barillet, rampe étroite',
+    titre: 'Boks taille XL', ref: 'Armoire V 1800 · BOKS 1 D V1800 1250 · une porte, serrure à barillet, rampe étroite',
     cotes: ['1 459 mm', '1 545 mm', '1 909 mm'],
     pieces: 'donnees-pieces-armoire', glb: 'sources/armoire.glb',
     centre: [-0.864, 4.011, -2.67], sol: 3.0559,
@@ -203,7 +204,7 @@ const PRODUITS = {
     note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. Le volet de la poignée est ouvert, comme dans le fichier. La rampe d'accès mesure 2 056 mm.",
   },
   casier: {
-    titre: 'Casier V 1200', ref: 'BOKS 1 D CASIER V1200 1050 · une porte, clavier Boks connecté, serrure à barillet',
+    titre: 'Boks taille L', ref: 'Casier V 1200 · BOKS 1 D CASIER V1200 1050 · une porte, clavier Boks connecté, serrure à barillet',
     cotes: ['805 mm', '879 mm', '1 256 mm'],
     pieces: 'donnees-pieces-casier', glb: 'sources/casier.glb', texture: 'donnees-clavier',
     centre: [-0.061, 0.175, 1.24], sol: -0.4536,
@@ -212,7 +213,7 @@ const PRODUITS = {
     note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le film du clavier connecté. La tige d'arrêt coulisse sur la paroi gauche ; ouverture limitée à 95°.",
   },
   pro: {
-    titre: 'Armoire PRO', ref: 'C0042-22101-D1060-00 · une porte sur charnières à ressort, clavier Boks, serrure à barillet',
+    titre: 'Boks taille M', ref: 'Armoire PRO · C0042-22101-D1060-00 · une porte sur charnières à ressort, clavier Boks, serrure à barillet',
     cotes: ['500 mm', '437 mm', '1 053 mm'],
     pieces: 'donnees-pieces-pro', glb: 'sources/pro.glb', texture: 'donnees-clavier',
     centre: [0.0599, 0.9735, -0.0969], sol: 0.4465,
@@ -389,7 +390,8 @@ async function charger(cle) {
   for (const o of meshes) {
     let n = o; while (n && !pieces[n.name]) n = n.parent;
     const [role, porte, detail] = n ? pieces[n.name] : ['alu', ''];
-    o.geometry = toCreasedNormals(o.geometry, THREE.MathUtils.degToRad(35));
+    // orientation exacte des surfaces quand le fichier l'apporte (maillage.py --normales), sinon recalculée
+    if (!o.geometry.attributes.normal) o.geometry = toCreasedNormals(o.geometry, THREE.MathUtils.degToRad(35));
     o.material = role === 'porteFace' ? M.porte : (M[role] || M.alu);
     if (role === 'porteFace') { const N = o.geometry.attributes.normal; for (let i = 0; i < N.count; i++) N.setXYZ(i, 0, 0, 1); N.needsUpdate = true; }
     o.castShadow = o.receiveShadow = true;
