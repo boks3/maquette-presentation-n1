@@ -1,28 +1,33 @@
-# Maquette Présentation N°1
+# Maquettes 3D Boks
 
-Maquette 3D interactive du caisson **C0042-26091-D1100-00 « PRÉSENTATION N°1 »** (export
-SolidWorks 2025 du 02/10/2026), avec ses photos de présentation.
+Deux maquettes 3D interactives sur la même page, au choix en tête de page (lien direct : `#n1` ou `#armoire`) :
+
+- **Présentation N°1** : caisson **C0042-26091-D1100-00 « PRÉSENTATION N°1 »** (export SolidWorks 2025
+  du 02/10/2026), avec ses photos de présentation ;
+- **Armoire V 1800** : ensemble **BOKS 1 D V1800 1250 « ARMOIRE V 1800 COMPLETE (rampe étroite) »**
+  (export SolidWorks 2022 du 07/05/2023), une porte, serrure à barillet, rampe d'accès. Pas de photos.
 
 - **Page en ligne** : https://boks3.github.io/maquette-presentation-n1/ (GitHub Pages, branche `main`, racine).
 - **Même page sur claude.ai** (privée) : https://claude.ai/artifact/ForGWMwGuv6tCGHkxbJ4kb
 
 🔴 **Ce dépôt est public.** Tout ce qui est ici (maquette 3D, photos) est visible et téléchargeable
 par n'importe qui. Le fichier **STEP d'origine n'y est pas** et ne doit pas y venir (`.gitignore`) :
-il reste sur les postes de l'équipe. Une fois les essais finis : Settings → General → passer en privé
+ils restent sur les postes de l'équipe (vaut pour les deux STEP). Une fois les essais finis : Settings → General → passer en privé
 ou supprimer le dépôt.
 
 ## Ce qu'il y a
 
 | Chemin | Contenu |
 |---|---|
-| `index.html` | La page en ligne : autonome (maquette, texture et pièces intégrées en base64), seul three.js 0.186.1 vient de jsDelivr. Générée, ne pas l'éditer à la main. |
-| `vue3d/gabarit.html` | Le code de la page (vue, portes, points de vue, teintes). C'est lui qu'on modifie. |
+| `index.html` | La page en ligne : autonome (deux maquettes, texture et pièces intégrées en base64, ~8,4 Mo), seul three.js 0.186.1 vient de jsDelivr. Générée, ne pas l'éditer à la main. |
+| `vue3d/gabarit.html` | Le code de la page (vue, portes, points de vue, teintes). Ce qui distingue les deux modèles est dans `PRODUITS`. C'est lui qu'on modifie. |
 | `vue3d/construire.py` | Construit `index.html` (et `vue3d/artifact.html` pour claude.ai) depuis le gabarit. |
-| `vue3d/pieces.json` | Pour chaque nœud de la maquette : sa matière et sa porte (`g`, `d` ou rien). |
+| `vue3d/pieces.json`, `vue3d/pieces-armoire.json` | Pour chaque nœud : sa matière, ce qui le fait bouger (`g`, `d`, `b1`, `b2` ou rien) et, pour l'armoire, `1` s'il cadre la vue « Serrure ». |
 | `photos/` | Les 9 photos en 2400 × 1600 : fermé, ouvert à 100° sous 4 angles, entrouvert à 45°, détail et gros plan du clavier. |
 | `sources/lire.py` | Lit le STEP et liste les pièces avec leur encombrement (repérage). |
-| `sources/maillage.py` | Convertit le STEP en `hub.glb` (mètres, Y vers le haut) + `index.json` (nom de chaque nœud). Bouche les perçages < 25 mm des portes, du portillon et du boîtier ; sépare la façade des portes (`[façade]`). |
-| `sources/pieces.py` | Refait `vue3d/pieces.json` depuis `index.json`. |
+| `sources/maillage.py` | Convertit un STEP en glTF (mètres, Y vers le haut) + index des nœuds. Sans option : Présentation N°1 (`hub.glb`, `index.json`). Options pour l'armoire : `--z-haut`, maillage allégé, `--sans`. Bouche les perçages < 25 mm ; sépare la façade des portes (`[façade]`). |
+| `sources/armoire.glb`, `sources/armoire-index.json` | Armoire V 1800 : sortie de `maillage.py` passée dans gltfpack (positions quantifiées, sans compression meshopt : la page ne charge pas de WebAssembly). |
+| `sources/pieces.py` | Refait `vue3d/pieces.json` depuis `index.json` ; `pieces.py armoire` refait `vue3d/pieces-armoire.json`. |
 | `sources/preparer_clavier.py` | Prépare la texture du clavier Boks (`clavier-original.png` → `clavier_tex.png`). |
 | `sources/scene.html`, `photos.mjs`, `vues.json` | Rendu des photos dans Chrome sans interface (three.js) ; `vues.json` = les 9 points de vue. |
 | `sources/reduire.py` | Réduit les rendus doubles (4800 × 3200) en photos 2400 × 1600. |
@@ -32,11 +37,18 @@ ou supprimer le dépôt.
 ```sh
 cd sources
 python3 -m venv .venv && .venv/bin/pip install cadquery-ocp trimesh numpy pillow   # ~1,3 Go (OpenCascade)
-npm ci                                                                            # three + playwright-core
+npm ci                                                                            # three, playwright-core, gltfpack
 
 # 1. STEP -> maquette 3D (le STEP reste hors du dépôt)
 .venv/bin/python maillage.py ~/chemin/C0042-26091-D1100-00_PRESENTATION_N_1.STEP
 .venv/bin/python pieces.py
+# 1 bis. STEP de l'armoire -> sources/armoire.glb (Z vers le haut dans le fichier ; tôles à picots maillées grossièrement)
+.venv/bin/python maillage.py ~/chemin/"BOKS 1 D V1800   1250 ARMOIRE V 1800 COMPLETE (rampe étroite).STEP" \
+  --nom armoire-brut --z-haut --facade "PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 \
+  --grossier "PLANCHER|RAMPE P1$|RAMPE -2 P10" --sans "DALLE PRESENTATION"
+mv armoire-brut-index.json armoire-index.json
+npx gltfpack -i armoire-brut.glb -o armoire.glb -kn -km && rm armoire-brut.glb
+.venv/bin/python pieces.py armoire
 # 2. (si l'image du clavier change) texture
 .venv/bin/python preparer_clavier.py
 # 3. photos
@@ -64,3 +76,20 @@ anticrénelage laisse des pointillés sur les portes : rendre en double sans ant
   rendu les forcent planes (nœuds `[façade]`).
 
 Encombrement : 2 170 mm (largeur) × 2 170 mm (profondeur, hors charnières) × 2 106 mm (hauteur).
+
+🔴 `hub.glb` n'a pas été refait sur le Mac : OpenCascade 8.0.1 (`cadquery-ocp` pour Python 3.14) maille trois
+pièces du clavier un peu autrement (±1 % de triangles) que la version de la session cloud. Les noms et
+l'ordre des 68 nœuds restent identiques.
+
+## Choix faits pour l'Armoire V 1800
+
+- **Repère** : le STEP est en Z vers le haut, façade vers −X ; `--z-haut` le tourne en Y vers le haut, façade vers +Z, comme la N°1.
+- **Dalle de présentation** (4 000 × 2 000 × 100 mm) retirée de la maquette.
+- **Volet de la poignée** : ouvert à 90°, tel que dessiné dans le fichier.
+- **Porte** : pivote sur l'axe `PORTE GD AXE` (x = 3 007, y = 1 534 mm dans le STEP) ; ouverture limitée à 110° (le fichier ne donne pas la butée).
+  Suivent la porte, bien qu'ils soient rangés hors de son assemblage : les deux supports de sérigraphie et, côté porte, la ferrure du compas (L1, son axe, ses écrous).
+- **Compas d'arrêt de porte** : C1 pivote sur l'armoire (entretoise ENT 1), C2 sur la porte (axe de la ferrure L1) ; les deux restent alignés et coulissent l'un dans l'autre (`b1`, `b2`).
+- **Matières** : panneaux, façade, visière et rivets laqués à la teinte choisie ; pièces zinguées et rampe en alu ; serrure JIEKAI et visserie inox en inox ; poignée noire.
+- **Maillage allégé** : pièces de moins de 80 mm simplifiées à 240 triangles ; plancher et rampes (tôle à picots, ~400 bossages chacun) maillés grossièrement plutôt que simplifiés, la simplification les froissait. 397 000 triangles.
+
+Encombrement de l'armoire : 1 459 mm (largeur) × 1 545 mm (profondeur, visière comprise, volet fermé) × 1 909 mm (hauteur sur vérins) ; rampe : 2 056 × 770 mm.

@@ -20,7 +20,20 @@ from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
 from OCP.TopAbs import TopAbs_WIRE
 from OCP.Bnd import Bnd_Box
 from OCP.BRepBndLib import BRepBndLib
-import re
+import re, argparse
+ap = argparse.ArgumentParser(description="STEP -> maquette glTF (mètres, Y vers le haut) + index des nœuds")
+ap.add_argument("step")
+ap.add_argument("--nom", default="hub", help="sortie <nom>.glb et index ; hub = Présentation N°1 (index.json)")
+ap.add_argument("--z-haut", action="store_true", help="STEP en Z vers le haut, façade vers -X : (x, y, z) -> (-y, z, -x)")
+ap.add_argument("--combler", default=r"PORTE|PORTILLON|BOITIER", help="chemins dont on bouche les perçages < 25 mm")
+ap.add_argument("--facade", default=r"PORTE GAUCHE P1|PORTE DROITE P1|PORTILLON", help="chemins dont la façade devient un nœud [façade]")
+ap.add_argument("--angle", type=float, default=0.25, help="déflexion angulaire du maillage (rad)")
+ap.add_argument("--petites", type=float, default=0, help="pièces de diagonale < N mm : maillage grossier (1 mm, 0,8 rad) ; 0 = non")
+ap.add_argument("--plafond", type=int, default=0, help="triangles au plus par pièce, au-delà : simplification quadrique ; 0 = non")
+ap.add_argument("--plafond-petites", type=int, default=0, help="idem pour les pièces de --petites ; 0 = non")
+ap.add_argument("--sans", default="", help="chemins laissés de côté (ex. la dalle de présentation)")
+ap.add_argument("--grossier", default="", help="chemins maillés grossièrement (1 mm, 0,8 rad) et jamais simplifiés (tôles à picots)")
+A = ap.parse_args()
 BOUCHES = [0]
 def taille_fil(w):
     b = Bnd_Box(); BRepBndLib.Add_s(w, b)
@@ -43,15 +56,21 @@ def sans_petits_trous(f, seuil=25.0):
 
 doc = TDocStd_Document(TCollection_ExtendedString("doc"))
 r = STEPCAFControl_Reader(); r.SetNameMode(True)
-assert r.ReadFile(sys.argv[1]) == IFSelect_RetDone
+assert r.ReadFile(A.step) == IFSelect_RetDone
 r.Transfer(doc)
 st = XCAFDoc_DocumentTool.ShapeTool_s(doc.Main())
 def nom(lab):
     a = TDataStd_Name()
     return a.Get().ToExtString() if lab.FindAttribute(TDataStd_Name.GetID_s(), a) else "?"
 
-def maille(shape, combler=False):
-    BRepMesh_IncrementalMesh(shape, 0.4, False, 0.25, True)
+def petite(shape):
+    if not A.petites: return False
+    b = Bnd_Box(); BRepBndLib.Add_s(shape, b)
+    return b.SquareExtent() ** 0.5 < A.petites
+
+def maille(shape, combler=False, grossier=False):
+    lin, ang = (1.0, 0.8) if grossier or petite(shape) else (0.4, A.angle)
+    BRepMesh_IncrementalMesh(shape, lin, False, ang, True)
     V, F, off = [], [], 0
     ex = TopExp_Explorer(shape, TopAbs_FACE)
     while ex.More():
@@ -59,7 +78,7 @@ def maille(shape, combler=False):
         if combler:
             g = sans_petits_trous(f)
             if g is not f:
-                BRepMesh_IncrementalMesh(g, 0.4, False, 0.25, True); f = g
+                BRepMesh_IncrementalMesh(g, lin, False, ang, True); f = g
         tri = BRep_Tool.Triangulation_s(f, loc)
         if tri is not None:
             tr = loc.Transformation()
@@ -86,19 +105,26 @@ def parcours(lab, loc, chemin):
         enf = Seq(); st.GetComponents_s(cible, enf)
         for i in range(1, enf.Length()+1): parcours(enf.Value(i), loc, chemin)
     else:
-        V, F = maille(st.GetShape_s(cible).Moved(loc), combler=bool(re.search(r'PORTE|PORTILLON|BOITIER', ' / '.join(chemin))))
-        if len(F): pieces.append((chemin[1:], V, F))
+        forme = st.GetShape_s(cible).Moved(loc); ch = ' / '.join(chemin)
+        if A.sans and re.search(A.sans, ch): return
+        grossier = bool(A.grossier and re.search(A.grossier, ch))
+        V, F = maille(forme, combler=bool(re.search(A.combler, ch)), grossier=grossier)
+        if len(F): pieces.append((chemin[1:], V, F, petite(forme), grossier))
 
 roots = Seq(); st.GetFreeShapes(roots)
 for i in range(1, roots.Length()+1): parcours(roots.Value(i), TopLoc_Location(), [])
 
 scene = trimesh.Scene()
 index = []
-for k, (chemin, V, F) in enumerate(pieces):
+for k, (chemin, V, F, est_petite, grossier) in enumerate(pieces):
+    if A.z_haut: V = np.column_stack([-V[:, 1], V[:, 2], -V[:, 0]])  # rotation propre : l'enroulement des triangles ne change pas
     V = V / 1000.0  # mm -> m
     m = trimesh.Trimesh(V, F, process=True)
+    plafond = A.plafond_petites if est_petite and A.plafond_petites else A.plafond
+    if plafond and len(m.faces) > plafond and not grossier:
+        m = m.simplify_quadric_decimation(face_count=plafond)
     ch = ' / '.join(chemin)
-    if re.search(r'PORTE GAUCHE P1|PORTE DROITE P1|PORTILLON', ch):
+    if re.search(A.facade, ch):
         n = m.face_normals; c = m.triangles_center
         face = (n[:, 2] > 0.99) & (c[:, 2] > m.bounds[1][2] - 0.0002)
         if face.any() and (~face).any():
@@ -110,6 +136,6 @@ for k, (chemin, V, F) in enumerate(pieces):
     nomnoeud = f"p{k:02d}"
     scene.add_geometry(m, node_name=nomnoeud, geom_name=nomnoeud)
     index.append({"noeud": nomnoeud, "chemin": " / ".join(chemin), "triangles": int(len(m.faces))})
-scene.export("hub.glb")
-json.dump(index, open("index.json", "w"), ensure_ascii=False, indent=1)
+scene.export(f"{A.nom}.glb")
+json.dump(index, open("index.json" if A.nom == "hub" else f"{A.nom}-index.json", "w"), ensure_ascii=False, indent=1)
 print("trous bouchés :", BOUCHES[0]); print(len(pieces), "pièces,", sum(i["triangles"] for i in index), "triangles")
