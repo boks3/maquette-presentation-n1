@@ -183,8 +183,9 @@ const $ = id => document.getElementById(id);
 /* Chaque modèle : ses textes, ses données, son centre (éclairage), la hauteur de son sol,
    l'axe de ses portes (x, z en mètres) et la vue de détail. sens = +1 si la porte du détail
    tourne vers +y (porte droite), -1 sinon. b1 et b2 : axes du compas d'arrêt de porte
-   (bras C1 sur l'armoire, bras C2 sur la porte, position porte fermée) ; sans b1, glissiere
-   = bout de la tige d'arrêt qui coulisse sur la paroi (x fixe), porte fermée.
+   (bras C1 sur l'armoire, bras C2 sur la porte, position porte fermée) ; sans b1, guide = point
+   de passage de la tige d'arrêt dans le guide fixé au cadre (FACE ARRET PT, ARRET PT3), sur l'axe
+   de la tige porte fermée : la tige pivote sur la porte et coulisse dans ce guide.
    glb : fichier de la maquette (compressé meshopt), téléchargé au premier choix du modèle ; si le navigateur
    refuse de le décoder (WebAssembly bloqué), la page prend sources/secours/<même nom>, non compressé. */
 const PRODUITS = {
@@ -211,18 +212,18 @@ const PRODUITS = {
     cotes: ['805 mm', '879 mm', '1 256 mm'],
     pieces: 'donnees-pieces-casier', glb: 'sources/casier.glb', texture: 'donnees-clavier',
     centre: [-0.061, 0.175, 1.24], sol: -0.4536,
-    pivots: { g: [-0.4289, 1.5915], b2: [-0.2361, 1.5904] }, glissiere: { x: -0.4610, z: 1.3634 }, max: 95, portes: 'la porte',
+    pivots: { g: [-0.4289, 1.5915], b2: [-0.2361, 1.5904] }, guide: { x: -0.2404, z: 1.5861 }, max: 107, portes: 'la porte',
     detail: { nom: 'Clavier', az: 15, sens: 0, dist: 0.62 },
-    note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le film du clavier connecté. La tige d'arrêt coulisse sur la paroi gauche ; ouverture limitée à 95°.",
+    note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le film du clavier connecté. La tige d'arrêt pivote sur la porte et coulisse dans un guide fixé au cadre ; son coude bute contre le guide vers 107°.",
   },
   pro: {
     titre: 'Boks taille M', ref: 'Armoire PRO · C0042-22101-D1060-00 · une porte sur charnières à ressort, clavier Boks, serrure à barillet',
     cotes: ['500 mm', '437 mm', '1 053 mm'],
     pieces: 'donnees-pieces-pro', glb: 'sources/pro.glb', texture: 'donnees-clavier',
     centre: [0.0599, 0.9735, -0.0969], sol: 0.4465,
-    pivots: { g: [-0.1567, 0.1102], b2: [-0.0437, 0.1105] }, glissiere: { x: -0.0001, z: -0.0752 }, max: 90, portes: 'la porte',
+    pivots: { g: [-0.1567, 0.1102], b2: [-0.0437, 0.1105] }, guide: { x: -0.0414, z: 0.1005 }, max: 106, portes: 'la porte',
     detail: { nom: 'Clavier', az: 15, sens: 0, dist: 0.62 },
-    note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le clavier. La tige d'arrêt coulisse dans le plafond ; ouverture limitée à 90°, le fichier ne donne pas la butée.",
+    note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le clavier. La tige d'arrêt pivote sur la porte et coulisse dans un guide fixé au cadre ; son coude bute contre le guide vers 106°.",
   },
   one: {
     titre: 'boksONE taille S', ref: 'Porte avant et porte arrière, clavier Boks connecté · fichier de rendu Rhino du 30/11/2023',
@@ -463,7 +464,7 @@ function poserAngle(a) {
   if (pv.b2) {
     /* Arrêt de porte : l'axe D (sur la porte) tourne avec elle autour de la charnière H.
        Compas (b1) : C1 pivote en B sur l'armoire, C2 en D, alignés sur BD, ils coulissent l'un dans l'autre.
-       Tige (glissiere) : pivote en D, son autre bout F reste sur la paroi (x fixe), à distance constante de D. */
+       Tige (guide) : pivote en D et passe toujours par le guide G, fixé au cadre ; elle y coulisse. */
     const H = pv.g.position, D0 = actuel.compas;
     const dx = D0.x - H.x, dz = D0.z - H.z, c = Math.cos(-t), s = Math.sin(-t);
     const D = new THREE.Vector3(H.x + dx * c + dz * s, D0.y, H.z - dx * s + dz * c);
@@ -473,9 +474,8 @@ function poserAngle(a) {
       phi = Math.atan2(D.x - B.x, D.z - B.z) - Math.atan2(D0.x - B.x, D0.z - B.z);
       pv.b1.rotation.y = phi;
     } else {
-      const F = PRODUITS[actuel.cle].glissiere, L = Math.hypot(F.x - D0.x, F.z - D0.z);
-      const zF = D.z - Math.sqrt(Math.max(0, L * L - (D.x - F.x) ** 2));
-      phi = Math.atan2(F.x - D.x, zF - D.z) - Math.atan2(F.x - D0.x, F.z - D0.z);
+      const G = PRODUITS[actuel.cle].guide;
+      phi = Math.atan2(G.x - D.x, G.z - D.z) - Math.atan2(G.x - D0.x, G.z - D0.z);
     }
     pv.b2.position.copy(D); pv.b2.rotation.y = phi;
   }

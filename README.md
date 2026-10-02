@@ -128,9 +128,10 @@ Encombrement de l'armoire : 1 459 mm (largeur) × 1 545 mm (profondeur, visière
 - **Porte** : pivote à gauche (casier : axe `AXE P2` ; PRO : paliers et charnières à ressort). Suivent la porte bien que
   rangés hors de son assemblage : casier, support de gâche, crochet de serrure (SUOGOU), ferrure U1 et 4 écrous M4 ;
   PRO, ferrure U1 et sa rondelle.
-- **Tige d'arrêt Ø4** (`b2` + `glissiere`) : pivote sur la ferrure U1 de la porte, son autre bout coulisse à x constant
-  (casier : sur la paroi gauche ; PRO : dans le plafond). Ouverture limitée à 95° (casier, avant que l'axe de la tige
-  ne sorte du plan de la paroi) et 90° (PRO) : le fichier ne donne pas la longueur des lumières.
+- **Tige d'arrêt Ø4** (`b2` + `guide`) : pivote sur la ferrure U1 de la porte et coulisse dans un guide fixé au cadre,
+  juste derrière la ferrure (PRO : « FACE ARRET PT » ; casier : « ARRET PT3 ») ; son coude bute contre le guide.
+  Ouverture maximale = cette butée : 106° (M), 107° (L). Corrigé le 02/10 sur l'indication de Ziad (« cette partie
+  est fixe, la tige glisse ») : la 1re version faisait glisser le bout coudé dans le plafond.
 - **Allègement** : pièces de moins de 80 mm à 240 triangles ; la carte électronique du clavier connecté (cachée dans
   son boîtier) simplifiée à 15 000 triangles. Casier 226 000 triangles, PRO 106 000.
 
