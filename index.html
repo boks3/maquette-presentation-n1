@@ -263,6 +263,7 @@ renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.1;
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFShadowMap;
+renderer.shadowMap.autoUpdate = false;  // l'ombre ne dépend pas de la caméra : recalculée seulement quand une pièce bouge
 stage.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -280,6 +281,7 @@ function eclairer(P) {
   soleil.position.copy(C).add(new THREE.Vector3(3.5, 8, 3.5)); soleil.target.position.copy(C);
   appoint.position.copy(C).add(new THREE.Vector3(-5, 3, 7)); appoint.target.position.copy(C);
   sol.position.y = P.sol;
+  renderer.shadowMap.needsUpdate = true;
 }
 scene.add(soleil, soleil.target, appoint, appoint.target, new THREE.HemisphereLight(0xffffff, 0xd8dadc, 0.7));
 
@@ -320,6 +322,34 @@ controles.enableDamping = true; controles.dampingFactor = 0.08;
 controles.maxPolarAngle = Math.PI / 2 - 0.03; controles.minDistance = 0.35; controles.maxDistance = 16;
 controles.screenSpacePanning = true;
 controles.addEventListener('start', () => { $('aide').hidden = true; marquerVue(null); });
+
+/* Zoom à la molette : celui d'OrbitControls avance de 5 % par cran, d'un bloc. Ici ~25 % par cran,
+   lissé sur quelques images, vers le point visé. Le pincement (tactile) reste à OrbitControls. */
+const zoom = { restant: 0, point: new THREE.Vector3(), t: 0 };
+stage.addEventListener('wheel', e => {
+  e.preventDefault(); e.stopPropagation();  // capture sur le conteneur : OrbitControls ne la reçoit pas
+  const unite = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 400 : 1;
+  zoom.restant += THREE.MathUtils.clamp(e.deltaY * unite, -400, 400) * 0.0022;
+  const r = renderer.domElement.getBoundingClientRect();
+  const ndc = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+  const rayon = new THREE.Raycaster(); rayon.setFromCamera(ndc, camera);
+  const plan = new THREE.Plane().setFromNormalAndCoplanarPoint(camera.getWorldDirection(new THREE.Vector3()), controles.target);
+  if (!rayon.ray.intersectPlane(plan, zoom.point)) zoom.point.copy(controles.target);
+  animVue = null; $('aide').hidden = true; marquerVue(null);
+}, { capture: true, passive: false });
+function avancerZoom(t) {
+  const dt = zoom.t ? Math.min(0.05, (t - zoom.t) / 1000) : 0.016;
+  zoom.t = t;
+  if (Math.abs(zoom.restant) < 1e-4) { zoom.restant = 0; return; }
+  const pas = zoom.restant * (1 - Math.exp(-dt / 0.08));
+  zoom.restant -= pas;
+  const d = camera.position.distanceTo(controles.target);
+  const f = THREE.MathUtils.clamp(d * Math.exp(pas), controles.minDistance, controles.maxDistance) / d;
+  if (Math.abs(f - 1) < 1e-6) { zoom.restant = 0; return; }  // butée de distance
+  camera.position.sub(zoom.point).multiplyScalar(f).add(zoom.point);
+  controles.target.sub(zoom.point).multiplyScalar(f).add(zoom.point);
+  aRendre = true;
+}
 
 function taille() {
   const l = stage.clientWidth, h = stage.clientHeight;
@@ -427,6 +457,7 @@ function poserAngle(a) {
     }
     pv.b2.position.copy(D); pv.b2.rotation.y = phi;
   }
+  renderer.shadowMap.needsUpdate = true;
   $('angle').value = Math.round(a); $('angleVal').textContent = Math.round(a) + '°';
   const ouvert = a > 0.5;
   const portes = actuel ? PRODUITS[actuel.cle].portes : 'les portes';  // la maquette affichée, pas celle en cours de chargement
@@ -440,7 +471,7 @@ function animerPortes(cible) {
   const depart = angle, duree = Math.max(350, Math.abs(cible - depart) / 180 * 1600);
   animPorte = { depart, cible, t0: performance.now(), duree };
 }
-$('bascule').addEventListener('click', () => animerPortes(angle > 0.5 ? 0 : 100));
+$('bascule').addEventListener('click', () => animerPortes(angle > 0.5 ? 0 : Math.min(100, Number($('angle').max))));  // 100°, ou moins si le modèle s'arrête avant
 $('angle').addEventListener('input', e => { animPorte = null; poserAngle(Number(e.target.value)); });
 
 /* Points de vue */
@@ -498,6 +529,7 @@ function boucle(t) {
     if (k >= 1) animVue = null;
     aRendre = true;
   }
+  avancerZoom(t);
   if (controles.update()) aRendre = true;
   if (aRendre) { renderer.render(scene, camera); aRendre = false; }
   requestAnimationFrame(boucle);

@@ -72,6 +72,14 @@ Sous Linux sans carte graphique (conteneur cloud), Chrome rend en logiciel (Swif
 anticrénelage laisse des pointillés sur les portes : rendre en double sans anticrénelage puis réduire :
 `AA=0 DOS=hd node photos.mjs "$(cat vues.json)" 4800x3200 && .venv/bin/python reduire.py hd ../photos`.
 
+## Comportement de la page
+
+- **Zoom à la molette** : ~25 % par cran, lissé sur quelques images, vers le point visé (celui d'OrbitControls
+  avançait de 5 % par cran, d'un bloc). Le pincement sur téléphone reste celui d'OrbitControls.
+- **Ombres** : recalculées seulement quand une pièce bouge (porte, changement de modèle), pas quand la caméra
+  tourne ou zoome : c'était 75 à 95 % du coût d'une image.
+- **« Ouvrir la porte »** : 100°, ou la limite du modèle si elle est plus basse.
+
 ## Choix faits (le fichier ne les donne pas)
 
 - **Teintes** : le STEP n'a aucune couleur. Panneaux et portes anthracite RAL 7016, structure alu,
