@@ -19,6 +19,8 @@ from OCP.BRepTools import BRepTools
 from OCP.BRepBuilderAPI import BRepBuilderAPI_MakeFace
 from OCP.TopAbs import TopAbs_WIRE
 from OCP.Bnd import Bnd_Box
+from OCP.TopoDS import TopoDS_Iterator
+from OCP.TopAbs import TopAbs_COMPOUND
 from OCP.BRepBndLib import BRepBndLib
 import re, argparse
 ap = argparse.ArgumentParser(description="STEP -> maquette glTF (mètres, Y vers le haut) + index des nœuds")
@@ -33,6 +35,8 @@ ap.add_argument("--petites", type=float, default=0, help="pièces de diagonale <
 ap.add_argument("--plafond", type=int, default=0, help="triangles au plus par pièce, au-delà : simplification quadrique ; 0 = non")
 ap.add_argument("--plafond-petites", type=int, default=0, help="idem pour les pièces de --petites ; 0 = non")
 ap.add_argument("--sans", default="", help="chemins laissés de côté (ex. la dalle de présentation)")
+ap.add_argument("--decouper", action="store_true", help="un nœud par élément des COMPOUND (exports Rhino sans arbre nommé)")
+ap.add_argument("--boite", default="", help="xmin,ymin,zmin,xmax,ymax,zmax en mm (repère du STEP) : on écarte ce dont le centre est dehors")
 ap.add_argument("--grossier", default="", help="chemins maillés grossièrement (1 mm, 0,8 rad) et jamais simplifiés (tôles à picots)")
 A = ap.parse_args()
 BOUCHES = [0]
@@ -108,6 +112,27 @@ def parcours(lab, loc, chemin):
     else:
         forme = st.GetShape_s(cible).Moved(loc); ch = ' / '.join(chemin)
         if A.sans and re.search(A.sans, ch): return
+        if A.decouper and forme.ShapeType() == TopAbs_COMPOUND:
+            elements = []
+            def ouvrir(f):
+                it = TopoDS_Iterator(f)
+                while it.More():
+                    e = it.Value()
+                    if e.ShapeType() == TopAbs_COMPOUND: ouvrir(e)
+                    else: elements.append(e)
+                    it.Next()
+            ouvrir(forme)
+            for i, e in enumerate(elements): ajouter(chemin + [f"{chemin[-1]} {i:03d}"], e)
+            return
+        ajouter(chemin, forme)
+
+def ajouter(chemin, forme):
+        ch = ' / '.join(chemin)
+        if A.boite:
+            b = Bnd_Box(); BRepBndLib.Add_s(forme, b); p0, p1 = b.CornerMin(), b.CornerMax()
+            x0, y0, z0, x1, y1, z1 = map(float, A.boite.split(","))
+            cx, cy, cz = (p0.X() + p1.X()) / 2, (p0.Y() + p1.Y()) / 2, (p0.Z() + p1.Z()) / 2
+            if not (x0 <= cx <= x1 and y0 <= cy <= y1 and z0 <= cz <= z1): return
         grossier = bool(A.grossier and re.search(A.grossier, ch))
         V, F = maille(forme, combler=bool(re.search(A.combler, ch)), grossier=grossier)
         if len(F): pieces.append((chemin[1:], V, F, petite(forme), grossier))
@@ -118,6 +143,7 @@ for i in range(1, roots.Length()+1): parcours(roots.Value(i), TopLoc_Location(),
 scene = trimesh.Scene()
 index = []
 for k, (chemin, V, F, est_petite, grossier) in enumerate(pieces):
+    boite = [round(float(v), 1) for v in list(V.min(0)) + list(V.max(0))]  # mm, repère du STEP
     axes = A.axes or ("-y,z,-x" if A.z_haut else "")
     if axes:  # chaque composante de la page = ± un axe du STEP ; rotation propre : l'enroulement des triangles ne change pas
         cols = [(-1 if c.strip().startswith("-") else 1) * V[:, "xyz".index(c.strip()[-1])] for c in axes.split(",")]
@@ -141,7 +167,7 @@ for k, (chemin, V, F, est_petite, grossier) in enumerate(pieces):
             index.append({"noeud": nf, "chemin": ch + " [façade]", "triangles": int(len(mf.faces))})
     nomnoeud = f"p{k:02d}"
     scene.add_geometry(m, node_name=nomnoeud, geom_name=nomnoeud)
-    index.append({"noeud": nomnoeud, "chemin": " / ".join(chemin), "triangles": int(len(m.faces))})
+    index.append({"noeud": nomnoeud, "chemin": " / ".join(chemin), "triangles": int(len(m.faces))} | ({"boite": boite} if A.decouper else {}))
 scene.export(f"{A.nom}.glb")
 json.dump(index, open("index.json" if A.nom == "hub" else f"{A.nom}-index.json", "w"), ensure_ascii=False, indent=1)
 print("trous bouchés :", BOUCHES[0]); print(len(pieces), "pièces,", sum(i["triangles"] for i in index), "triangles")

@@ -1,0 +1,3135 @@
+[
+ {
+  "noeud": "p00",
+  "chemin": "COMPOUND / COMPOUND 000",
+  "triangles": 208,
+  "boite": [
+   139.3,
+   -123.7,
+   464.0,
+   153.5,
+   -122.2,
+   479.5
+  ]
+ },
+ {
+  "noeud": "p01",
+  "chemin": "COMPOUND / COMPOUND 001",
+  "triangles": 406,
+  "boite": [
+   111.7,
+   -122.1,
+   448.3,
+   157.2,
+   -10.4,
+   486.3
+  ]
+ },
+ {
+  "noeud": "p02",
+  "chemin": "COMPOUND / COMPOUND 002",
+  "triangles": 240,
+  "boite": [
+   135.7,
+   -148.9,
+   459.5,
+   157.6,
+   -116.0,
+   481.5
+  ]
+ },
+ {
+  "noeud": "p03",
+  "chemin": "COMPOUND / COMPOUND 003",
+  "triangles": 5160,
+  "boite": [
+   130.5,
+   -120.1,
+   467.3,
+   165.9,
+   17.9,
+   475.3
+  ]
+ },
+ {
+  "noeud": "p04",
+  "chemin": "COMPOUND / COMPOUND 004",
+  "triangles": 148,
+  "boite": [
+   138.6,
+   -139.3,
+   463.4,
+   154.7,
+   -135.4,
+   477.6
+  ]
+ },
+ {
+  "noeud": "p05",
+  "chemin": "COMPOUND / COMPOUND 005",
+  "triangles": 148,
+  "boite": [
+   133.9,
+   -146.5,
+   459.4,
+   159.3,
+   -141.5,
+   481.6
+  ]
+ },
+ {
+  "noeud": "p06",
+  "chemin": "COMPOUND / COMPOUND 006",
+  "triangles": 232,
+  "boite": [
+   135.7,
+   -149.1,
+   459.5,
+   157.6,
+   -146.8,
+   481.5
+  ]
+ },
+ {
+  "noeud": "p07",
+  "chemin": "COMPOUND / COMPOUND 007",
+  "triangles": 240,
+  "boite": [
+   135.9,
+   -152.0,
+   460.0,
+   157.2,
+   -148.5,
+   481.2
+  ]
+ },
+ {
+  "noeud": "p08",
+  "chemin": "COMPOUND / COMPOUND 008",
+  "triangles": 36,
+  "boite": [
+   145.4,
+   -151.1,
+   468.6,
+   147.7,
+   -144.0,
+   475.6
+  ]
+ },
+ {
+  "noeud": "p09",
+  "chemin": "COMPOUND / COMPOUND 009",
+  "triangles": 15000,
+  "boite": [
+   128.2,
+   -123.1,
+   355.9,
+   185.7,
+   5.9,
+   478.8
+  ]
+ },
+ {
+  "noeud": "p10",
+  "chemin": "COMPOUND / COMPOUND 011",
+  "triangles": 240,
+  "boite": [
+   101.2,
+   -90.8,
+   393.9,
+   141.2,
+   -78.8,
+   405.8
+  ]
+ },
+ {
+  "noeud": "p11",
+  "chemin": "COMPOUND / COMPOUND 012",
+  "triangles": 144,
+  "boite": [
+   123.2,
+   -87.8,
+   396.9,
+   141.2,
+   -81.8,
+   402.9
+  ]
+ },
+ {
+  "noeud": "p12",
+  "chemin": "COMPOUND / COMPOUND 013",
+  "triangles": 240,
+  "boite": [
+   103.1,
+   -29.8,
+   388.4,
+   110.3,
+   -24.7,
+   393.4
+  ]
+ },
+ {
+  "noeud": "p13",
+  "chemin": "COMPOUND / COMPOUND 014",
+  "triangles": 450,
+  "boite": [
+   113.3,
+   -100.2,
+   374.2,
+   120.5,
+   -47.8,
+   409.3
+  ]
+ },
+ {
+  "noeud": "p14",
+  "chemin": "COMPOUND / COMPOUND 015",
+  "triangles": 468,
+  "boite": [
+   122.5,
+   -98.1,
+   374.2,
+   127.5,
+   -19.7,
+   434.2
+  ]
+ },
+ {
+  "noeud": "p15",
+  "chemin": "COMPOUND / COMPOUND 016",
+  "triangles": 240,
+  "boite": [
+   103.1,
+   -68.8,
+   374.4,
+   110.3,
+   -63.8,
+   379.4
+  ]
+ },
+ {
+  "noeud": "p16",
+  "chemin": "COMPOUND / COMPOUND 017",
+  "triangles": 240,
+  "boite": [
+   103.3,
+   -78.8,
+   390.6,
+   109.2,
+   -75.2,
+   394.3
+  ]
+ },
+ {
+  "noeud": "p17",
+  "chemin": "COMPOUND / COMPOUND 018",
+  "triangles": 240,
+  "boite": [
+   103.1,
+   -65.3,
+   408.0,
+   110.3,
+   -60.3,
+   413.0
+  ]
+ },
+ {
+  "noeud": "p18",
+  "chemin": "COMPOUND / COMPOUND 019",
+  "triangles": 6688,
+  "boite": [
+   110.7,
+   -51.4,
+   371.8,
+   120.5,
+   -19.8,
+   454.4
+  ]
+ },
+ {
+  "noeud": "p19",
+  "chemin": "COMPOUND / COMPOUND 020",
+  "triangles": 240,
+  "boite": [
+   101.2,
+   -48.3,
+   375.9,
+   141.2,
+   -36.3,
+   387.8
+  ]
+ },
+ {
+  "noeud": "p20",
+  "chemin": "COMPOUND / COMPOUND 021",
+  "triangles": 144,
+  "boite": [
+   123.2,
+   -45.3,
+   378.9,
+   141.2,
+   -39.3,
+   384.9
+  ]
+ },
+ {
+  "noeud": "p21",
+  "chemin": "COMPOUND / COMPOUND 022",
+  "triangles": 240,
+  "boite": [
+   103.3,
+   -52.9,
+   372.8,
+   109.2,
+   -49.3,
+   376.5
+  ]
+ },
+ {
+  "noeud": "p22",
+  "chemin": "COMPOUND / COMPOUND 023",
+  "triangles": 6102,
+  "boite": [
+   103.1,
+   -100.1,
+   369.4,
+   120.3,
+   -17.7,
+   448.4
+  ]
+ },
+ {
+  "noeud": "p23",
+  "chemin": "COMPOUND / COMPOUND 024",
+  "triangles": 6700,
+  "boite": [
+   110.7,
+   -51.3,
+   371.8,
+   120.5,
+   -25.5,
+   455.9
+  ]
+ },
+ {
+  "noeud": "p24",
+  "chemin": "COMPOUND / COMPOUND 025",
+  "triangles": 240,
+  "boite": [
+   118.1,
+   -124.3,
+   397.7,
+   125.6,
+   -112.1,
+   405.3
+  ]
+ },
+ {
+  "noeud": "p25",
+  "chemin": "COMPOUND / COMPOUND 026",
+  "triangles": 240,
+  "boite": [
+   113.7,
+   -124.3,
+   367.5,
+   121.6,
+   -120.9,
+   375.4
+  ]
+ },
+ {
+  "noeud": "p26",
+  "chemin": "COMPOUND / COMPOUND 027",
+  "triangles": 164,
+  "boite": [
+   110.0,
+   -120.3,
+   365.3,
+   130.0,
+   -116.3,
+   407.7
+  ]
+ },
+ {
+  "noeud": "p27",
+  "chemin": "COMPOUND / COMPOUND 028",
+  "triangles": 564,
+  "boite": [
+   110.0,
+   -145.9,
+   342.1,
+   130.0,
+   -120.3,
+   430.8
+  ]
+ },
+ {
+  "noeud": "p28",
+  "chemin": "COMPOUND / COMPOUND 029",
+  "triangles": 240,
+  "boite": [
+   163.1,
+   -137.7,
+   518.2,
+   169.1,
+   -125.7,
+   530.3
+  ]
+ },
+ {
+  "noeud": "p29",
+  "chemin": "COMPOUND / COMPOUND 030",
+  "triangles": 240,
+  "boite": [
+   118.8,
+   -140.5,
+   549.1,
+   124.0,
+   -130.2,
+   554.3
+  ]
+ },
+ {
+  "noeud": "p30",
+  "chemin": "COMPOUND / COMPOUND 031",
+  "triangles": 240,
+  "boite": [
+   118.8,
+   -140.5,
+   510.9,
+   124.0,
+   -130.2,
+   516.0
+  ]
+ },
+ {
+  "noeud": "p31",
+  "chemin": "COMPOUND / COMPOUND 032",
+  "triangles": 240,
+  "boite": [
+   169.3,
+   -140.5,
+   575.6,
+   174.5,
+   -130.2,
+   580.8
+  ]
+ },
+ {
+  "noeud": "p32",
+  "chemin": "COMPOUND / COMPOUND 033",
+  "triangles": 240,
+  "boite": [
+   118.8,
+   -140.5,
+   613.9,
+   124.0,
+   -130.2,
+   619.0
+  ]
+ },
+ {
+  "noeud": "p33",
+  "chemin": "COMPOUND / COMPOUND 034",
+  "triangles": 240,
+  "boite": [
+   169.3,
+   -140.5,
+   510.9,
+   174.5,
+   -130.2,
+   516.0
+  ]
+ },
+ {
+  "noeud": "p34",
+  "chemin": "COMPOUND / COMPOUND 035",
+  "triangles": 240,
+  "boite": [
+   169.3,
+   -140.5,
+   613.9,
+   174.5,
+   -130.2,
+   619.0
+  ]
+ },
+ {
+  "noeud": "p35",
+  "chemin": "COMPOUND / COMPOUND 036",
+  "triangles": 1328,
+  "boite": [
+   120.9,
+   -102.4,
+   507.2,
+   172.3,
+   -82.4,
+   621.1
+  ]
+ },
+ {
+  "noeud": "p36",
+  "chemin": "COMPOUND / COMPOUND 037",
+  "triangles": 10618,
+  "boite": [
+   117.6,
+   -142.7,
+   506.4,
+   175.7,
+   -94.4,
+   623.4
+  ]
+ },
+ {
+  "noeud": "p37",
+  "chemin": "COMPOUND / COMPOUND 038",
+  "triangles": 1988,
+  "boite": [
+   129.7,
+   -146.1,
+   510.5,
+   163.5,
+   -145.2,
+   619.3
+  ]
+ },
+ {
+  "noeud": "p38",
+  "chemin": "COMPOUND / COMPOUND 039",
+  "triangles": 10856,
+  "boite": [
+   115.2,
+   -148.2,
+   496.0,
+   178.0,
+   -134.7,
+   633.8
+  ]
+ },
+ {
+  "noeud": "p39",
+  "chemin": "COMPOUND / COMPOUND 040",
+  "triangles": 816,
+  "boite": [
+   117.7,
+   -146.7,
+   498.5,
+   175.6,
+   -145.2,
+   631.4
+  ]
+ },
+ {
+  "noeud": "p40",
+  "chemin": "COMPOUND / COMPOUND 041",
+  "triangles": 894,
+  "boite": [
+   96.6,
+   -122.2,
+   367.0,
+   144.6,
+   3.3,
+   450.5
+  ]
+ },
+ {
+  "noeud": "p41",
+  "chemin": "COMPOUND / COMPOUND 042",
+  "triangles": 840,
+  "boite": [
+   -213.9,
+   -147.8,
+   656.6,
+   184.6,
+   -102.4,
+   702.1
+  ]
+ },
+ {
+  "noeud": "p42",
+  "chemin": "COMPOUND / COMPOUND 043",
+  "triangles": 362,
+  "boite": [
+   -213.9,
+   -147.4,
+   4.6,
+   184.6,
+   -102.1,
+   43.0
+  ]
+ },
+ {
+  "noeud": "p43",
+  "chemin": "COMPOUND / COMPOUND 044",
+  "triangles": 1220,
+  "boite": [
+   -213.9,
+   -147.4,
+   5.1,
+   -165.4,
+   -102.1,
+   701.9
+  ]
+ },
+ {
+  "noeud": "p44",
+  "chemin": "COMPOUND / COMPOUND 045",
+  "triangles": 240,
+  "boite": [
+   168.6,
+   -146.8,
+   562.9,
+   172.6,
+   -138.9,
+   566.9
+  ]
+ },
+ {
+  "noeud": "p45",
+  "chemin": "COMPOUND / COMPOUND 046",
+  "triangles": 240,
+  "boite": [
+   120.6,
+   -146.8,
+   562.9,
+   124.6,
+   -138.9,
+   566.9
+  ]
+ },
+ {
+  "noeud": "p46",
+  "chemin": "COMPOUND / COMPOUND 047",
+  "triangles": 240,
+  "boite": [
+   144.6,
+   -146.8,
+   624.5,
+   148.6,
+   -138.9,
+   628.5
+  ]
+ },
+ {
+  "noeud": "p47",
+  "chemin": "COMPOUND / COMPOUND 048",
+  "triangles": 240,
+  "boite": [
+   144.6,
+   -146.8,
+   501.5,
+   148.6,
+   -138.9,
+   505.5
+  ]
+ },
+ {
+  "noeud": "p48",
+  "chemin": "COMPOUND / COMPOUND 049",
+  "triangles": 518,
+  "boite": [
+   -183.9,
+   -146.8,
+   606.5,
+   -165.6,
+   -138.0,
+   688.5
+  ]
+ },
+ {
+  "noeud": "p49",
+  "chemin": "COMPOUND / COMPOUND 050",
+  "triangles": 240,
+  "boite": [
+   -185.8,
+   -145.9,
+   626.6,
+   -176.1,
+   -136.1,
+   666.5
+  ]
+ },
+ {
+  "noeud": "p50",
+  "chemin": "COMPOUND / COMPOUND 051",
+  "triangles": 404,
+  "boite": [
+   109.8,
+   -146.4,
+   342.6,
+   129.8,
+   -116.4,
+   430.6
+  ]
+ },
+ {
+  "noeud": "p51",
+  "chemin": "COMPOUND / COMPOUND 052",
+  "triangles": 240,
+  "boite": [
+   -164.9,
+   -141.2,
+   636.2,
+   -159.3,
+   -133.7,
+   644.2
+  ]
+ },
+ {
+  "noeud": "p52",
+  "chemin": "COMPOUND / COMPOUND 053",
+  "triangles": 240,
+  "boite": [
+   83.8,
+   -141.8,
+   635.3,
+   88.8,
+   -133.2,
+   645.1
+  ]
+ },
+ {
+  "noeud": "p53",
+  "chemin": "COMPOUND / COMPOUND 054",
+  "triangles": 240,
+  "boite": [
+   -163.6,
+   -141.2,
+   636.4,
+   -153.4,
+   -133.7,
+   644.0
+  ]
+ },
+ {
+  "noeud": "p54",
+  "chemin": "COMPOUND / COMPOUND 055",
+  "triangles": 152,
+  "boite": [
+   81.3,
+   -142.4,
+   635.2,
+   82.3,
+   -132.5,
+   645.2
+  ]
+ },
+ {
+  "noeud": "p55",
+  "chemin": "COMPOUND / COMPOUND 056",
+  "triangles": 240,
+  "boite": [
+   78.1,
+   -141.2,
+   636.4,
+   90.3,
+   -133.7,
+   644.0
+  ]
+ },
+ {
+  "noeud": "p56",
+  "chemin": "COMPOUND / COMPOUND 057",
+  "triangles": 144,
+  "boite": [
+   -157.8,
+   -144.5,
+   633.2,
+   -156.6,
+   -130.5,
+   647.2
+  ]
+ },
+ {
+  "noeud": "p57",
+  "chemin": "COMPOUND / COMPOUND 058",
+  "triangles": 240,
+  "boite": [
+   -170.7,
+   -146.8,
+   621.6,
+   -166.7,
+   -138.9,
+   625.6
+  ]
+ },
+ {
+  "noeud": "p58",
+  "chemin": "COMPOUND / COMPOUND 059",
+  "triangles": 240,
+  "boite": [
+   -170.7,
+   -146.8,
+   667.5,
+   -166.7,
+   -138.9,
+   671.5
+  ]
+ },
+ {
+  "noeud": "p59",
+  "chemin": "COMPOUND / COMPOUND 060",
+  "triangles": 240,
+  "boite": [
+   -144.7,
+   -147.5,
+   597.9,
+   -140.7,
+   -139.6,
+   601.9
+  ]
+ },
+ {
+  "noeud": "p60",
+  "chemin": "COMPOUND / COMPOUND 061",
+  "triangles": 240,
+  "boite": [
+   65.4,
+   -147.5,
+   597.9,
+   69.4,
+   -139.6,
+   601.9
+  ]
+ },
+ {
+  "noeud": "p61",
+  "chemin": "COMPOUND / COMPOUND 062",
+  "triangles": 240,
+  "boite": [
+   -39.7,
+   -147.5,
+   597.9,
+   -35.7,
+   -139.6,
+   601.9
+  ]
+ },
+ {
+  "noeud": "p62",
+  "chemin": "COMPOUND / COMPOUND 063",
+  "triangles": 260,
+  "boite": [
+   -161.3,
+   -152.4,
+   607.3,
+   86.0,
+   -144.8,
+   657.4
+  ]
+ },
+ {
+  "noeud": "p63",
+  "chemin": "COMPOUND / COMPOUND 064",
+  "triangles": 240,
+  "boite": [
+   118.8,
+   216.6,
+   13.6,
+   122.8,
+   224.5,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p64",
+  "chemin": "COMPOUND / COMPOUND 065",
+  "triangles": 240,
+  "boite": [
+   -151.2,
+   216.6,
+   13.6,
+   -147.2,
+   224.5,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p65",
+  "chemin": "COMPOUND / COMPOUND 066",
+  "triangles": 240,
+  "boite": [
+   -151.2,
+   -146.8,
+   13.6,
+   -147.2,
+   -138.9,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p66",
+  "chemin": "COMPOUND / COMPOUND 067",
+  "triangles": 240,
+  "boite": [
+   -66.2,
+   -146.8,
+   13.6,
+   -62.2,
+   -138.9,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p67",
+  "chemin": "COMPOUND / COMPOUND 068",
+  "triangles": 240,
+  "boite": [
+   33.8,
+   -146.8,
+   13.6,
+   37.8,
+   -138.9,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p68",
+  "chemin": "COMPOUND / COMPOUND 069",
+  "triangles": 240,
+  "boite": [
+   118.8,
+   -146.8,
+   13.6,
+   122.8,
+   -138.9,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p69",
+  "chemin": "COMPOUND / COMPOUND 070",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   -115.6,
+   664.2,
+   -208.1,
+   -107.8,
+   672.0
+  ]
+ },
+ {
+  "noeud": "p70",
+  "chemin": "COMPOUND / COMPOUND 071",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   -115.6,
+   574.2,
+   -208.1,
+   -107.8,
+   582.0
+  ]
+ },
+ {
+  "noeud": "p71",
+  "chemin": "COMPOUND / COMPOUND 072",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   -115.6,
+   394.2,
+   -208.1,
+   -107.8,
+   402.0
+  ]
+ },
+ {
+  "noeud": "p72",
+  "chemin": "COMPOUND / COMPOUND 073",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   -115.6,
+   214.2,
+   -208.1,
+   -107.8,
+   222.0
+  ]
+ },
+ {
+  "noeud": "p73",
+  "chemin": "COMPOUND / COMPOUND 074",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   -115.6,
+   34.2,
+   -208.1,
+   -107.8,
+   42.0
+  ]
+ },
+ {
+  "noeud": "p74",
+  "chemin": "COMPOUND / COMPOUND 075",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   209.1,
+   34.2,
+   -208.1,
+   216.9,
+   42.0
+  ]
+ },
+ {
+  "noeud": "p75",
+  "chemin": "COMPOUND / COMPOUND 076",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   209.1,
+   214.2,
+   -208.1,
+   216.9,
+   222.0
+  ]
+ },
+ {
+  "noeud": "p76",
+  "chemin": "COMPOUND / COMPOUND 077",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   209.1,
+   394.2,
+   -208.1,
+   216.9,
+   402.0
+  ]
+ },
+ {
+  "noeud": "p77",
+  "chemin": "COMPOUND / COMPOUND 078",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   209.1,
+   574.2,
+   -208.1,
+   216.9,
+   582.0
+  ]
+ },
+ {
+  "noeud": "p78",
+  "chemin": "COMPOUND / COMPOUND 079",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   209.1,
+   664.2,
+   -208.1,
+   216.9,
+   672.0
+  ]
+ },
+ {
+  "noeud": "p79",
+  "chemin": "COMPOUND / COMPOUND 080",
+  "triangles": 240,
+  "boite": [
+   -213.7,
+   49.2,
+   11.7,
+   -209.0,
+   57.0,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p80",
+  "chemin": "COMPOUND / COMPOUND 081",
+  "triangles": 240,
+  "boite": [
+   -213.7,
+   -40.8,
+   11.7,
+   -209.0,
+   -33.0,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p81",
+  "chemin": "COMPOUND / COMPOUND 082",
+  "triangles": 240,
+  "boite": [
+   -213.7,
+   139.2,
+   11.7,
+   -209.0,
+   147.0,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p82",
+  "chemin": "COMPOUND / COMPOUND 083",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   209.1,
+   11.7,
+   -208.1,
+   216.9,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p83",
+  "chemin": "COMPOUND / COMPOUND 084",
+  "triangles": 240,
+  "boite": [
+   -212.7,
+   -115.8,
+   11.7,
+   -208.0,
+   -108.0,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p84",
+  "chemin": "COMPOUND / COMPOUND 085",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   211.0,
+   666.1,
+   -207.0,
+   215.0,
+   670.1
+  ]
+ },
+ {
+  "noeud": "p85",
+  "chemin": "COMPOUND / COMPOUND 086",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   211.0,
+   576.1,
+   -207.0,
+   215.0,
+   580.1
+  ]
+ },
+ {
+  "noeud": "p86",
+  "chemin": "COMPOUND / COMPOUND 087",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   211.0,
+   396.1,
+   -207.0,
+   215.0,
+   400.1
+  ]
+ },
+ {
+  "noeud": "p87",
+  "chemin": "COMPOUND / COMPOUND 088",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   211.0,
+   216.1,
+   -207.0,
+   215.0,
+   220.1
+  ]
+ },
+ {
+  "noeud": "p88",
+  "chemin": "COMPOUND / COMPOUND 089",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   211.0,
+   36.1,
+   -207.0,
+   215.0,
+   40.1
+  ]
+ },
+ {
+  "noeud": "p89",
+  "chemin": "COMPOUND / COMPOUND 090",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   211.0,
+   13.6,
+   -207.0,
+   215.0,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p90",
+  "chemin": "COMPOUND / COMPOUND 091",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   -114.0,
+   13.6,
+   -207.0,
+   -110.0,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p91",
+  "chemin": "COMPOUND / COMPOUND 092",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   -38.9,
+   13.6,
+   -207.0,
+   -34.9,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p92",
+  "chemin": "COMPOUND / COMPOUND 093",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   51.1,
+   13.6,
+   -207.0,
+   55.1,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p93",
+  "chemin": "COMPOUND / COMPOUND 094",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   141.1,
+   13.6,
+   -207.0,
+   145.1,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p94",
+  "chemin": "COMPOUND / COMPOUND 095",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   -114.0,
+   36.1,
+   -207.0,
+   -110.0,
+   40.1
+  ]
+ },
+ {
+  "noeud": "p95",
+  "chemin": "COMPOUND / COMPOUND 096",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   -114.0,
+   216.1,
+   -207.0,
+   -110.0,
+   220.1
+  ]
+ },
+ {
+  "noeud": "p96",
+  "chemin": "COMPOUND / COMPOUND 097",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   -114.0,
+   396.1,
+   -207.0,
+   -110.0,
+   400.1
+  ]
+ },
+ {
+  "noeud": "p97",
+  "chemin": "COMPOUND / COMPOUND 098",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   -114.0,
+   576.1,
+   -207.0,
+   -110.0,
+   580.1
+  ]
+ },
+ {
+  "noeud": "p98",
+  "chemin": "COMPOUND / COMPOUND 099",
+  "triangles": 240,
+  "boite": [
+   -214.9,
+   -114.0,
+   666.1,
+   -207.0,
+   -110.0,
+   670.1
+  ]
+ },
+ {
+  "noeud": "p99",
+  "chemin": "COMPOUND / COMPOUND 100",
+  "triangles": 504,
+  "boite": [
+   -214.8,
+   -101.3,
+   3.4,
+   -201.2,
+   194.7,
+   22.2
+  ]
+ },
+ {
+  "noeud": "p100",
+  "chemin": "COMPOUND / COMPOUND 101",
+  "triangles": 780,
+  "boite": [
+   -216.1,
+   -149.8,
+   2.2,
+   -201.1,
+   227.2,
+   705.3
+  ]
+ },
+ {
+  "noeud": "p101",
+  "chemin": "COMPOUND / COMPOUND 102",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   209.1,
+   11.7,
+   184.3,
+   216.9,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p102",
+  "chemin": "COMPOUND / COMPOUND 103",
+  "triangles": 240,
+  "boite": [
+   180.6,
+   49.1,
+   11.7,
+   185.3,
+   56.9,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p103",
+  "chemin": "COMPOUND / COMPOUND 104",
+  "triangles": 240,
+  "boite": [
+   180.6,
+   139.1,
+   11.7,
+   185.2,
+   146.9,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p104",
+  "chemin": "COMPOUND / COMPOUND 105",
+  "triangles": 240,
+  "boite": [
+   180.6,
+   -40.9,
+   11.7,
+   185.3,
+   -33.1,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p105",
+  "chemin": "COMPOUND / COMPOUND 106",
+  "triangles": 240,
+  "boite": [
+   179.7,
+   -115.8,
+   11.7,
+   184.3,
+   -108.0,
+   19.5
+  ]
+ },
+ {
+  "noeud": "p106",
+  "chemin": "COMPOUND / COMPOUND 107",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -109.8,
+   356.9,
+   184.3,
+   -102.0,
+   364.7
+  ]
+ },
+ {
+  "noeud": "p107",
+  "chemin": "COMPOUND / COMPOUND 108",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -109.8,
+   452.9,
+   184.3,
+   -102.0,
+   460.7
+  ]
+ },
+ {
+  "noeud": "p108",
+  "chemin": "COMPOUND / COMPOUND 109",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -19.8,
+   356.9,
+   184.3,
+   -12.0,
+   364.7
+  ]
+ },
+ {
+  "noeud": "p109",
+  "chemin": "COMPOUND / COMPOUND 110",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -19.8,
+   452.9,
+   184.3,
+   -12.0,
+   460.7
+  ]
+ },
+ {
+  "noeud": "p110",
+  "chemin": "COMPOUND / COMPOUND 111",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -115.8,
+   664.2,
+   184.3,
+   -108.0,
+   672.0
+  ]
+ },
+ {
+  "noeud": "p111",
+  "chemin": "COMPOUND / COMPOUND 112",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -115.8,
+   574.2,
+   184.3,
+   -108.0,
+   582.0
+  ]
+ },
+ {
+  "noeud": "p112",
+  "chemin": "COMPOUND / COMPOUND 113",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -115.8,
+   394.2,
+   184.3,
+   -108.0,
+   402.0
+  ]
+ },
+ {
+  "noeud": "p113",
+  "chemin": "COMPOUND / COMPOUND 114",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -115.8,
+   214.2,
+   184.3,
+   -108.0,
+   222.0
+  ]
+ },
+ {
+  "noeud": "p114",
+  "chemin": "COMPOUND / COMPOUND 115",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   -115.8,
+   34.2,
+   184.3,
+   -108.0,
+   42.0
+  ]
+ },
+ {
+  "noeud": "p115",
+  "chemin": "COMPOUND / COMPOUND 116",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   209.1,
+   664.2,
+   184.3,
+   216.9,
+   672.0
+  ]
+ },
+ {
+  "noeud": "p116",
+  "chemin": "COMPOUND / COMPOUND 117",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   209.1,
+   574.2,
+   184.3,
+   216.9,
+   582.0
+  ]
+ },
+ {
+  "noeud": "p117",
+  "chemin": "COMPOUND / COMPOUND 118",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   209.1,
+   394.2,
+   184.3,
+   216.9,
+   402.0
+  ]
+ },
+ {
+  "noeud": "p118",
+  "chemin": "COMPOUND / COMPOUND 119",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   209.1,
+   214.2,
+   184.3,
+   216.9,
+   222.0
+  ]
+ },
+ {
+  "noeud": "p119",
+  "chemin": "COMPOUND / COMPOUND 120",
+  "triangles": 240,
+  "boite": [
+   179.6,
+   209.1,
+   34.2,
+   184.3,
+   216.9,
+   42.0
+  ]
+ },
+ {
+  "noeud": "p120",
+  "chemin": "COMPOUND / COMPOUND 121",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -108.0,
+   358.8,
+   186.6,
+   -104.0,
+   362.8
+  ]
+ },
+ {
+  "noeud": "p121",
+  "chemin": "COMPOUND / COMPOUND 122",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -18.0,
+   358.8,
+   186.6,
+   -14.0,
+   362.8
+  ]
+ },
+ {
+  "noeud": "p122",
+  "chemin": "COMPOUND / COMPOUND 123",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -18.0,
+   454.8,
+   186.6,
+   -14.0,
+   458.8
+  ]
+ },
+ {
+  "noeud": "p123",
+  "chemin": "COMPOUND / COMPOUND 124",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -108.0,
+   454.8,
+   186.6,
+   -104.0,
+   458.8
+  ]
+ },
+ {
+  "noeud": "p124",
+  "chemin": "COMPOUND / COMPOUND 125",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   211.0,
+   13.6,
+   186.6,
+   215.0,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p125",
+  "chemin": "COMPOUND / COMPOUND 126",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   141.0,
+   13.6,
+   186.6,
+   145.0,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p126",
+  "chemin": "COMPOUND / COMPOUND 127",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   51.0,
+   13.6,
+   186.6,
+   55.0,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p127",
+  "chemin": "COMPOUND / COMPOUND 128",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -39.0,
+   13.6,
+   186.6,
+   -35.0,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p128",
+  "chemin": "COMPOUND / COMPOUND 129",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -114.0,
+   13.6,
+   186.6,
+   -110.0,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p129",
+  "chemin": "COMPOUND / COMPOUND 130",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -114.0,
+   36.1,
+   186.6,
+   -110.0,
+   40.1
+  ]
+ },
+ {
+  "noeud": "p130",
+  "chemin": "COMPOUND / COMPOUND 131",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   211.0,
+   36.1,
+   186.6,
+   215.0,
+   40.1
+  ]
+ },
+ {
+  "noeud": "p131",
+  "chemin": "COMPOUND / COMPOUND 132",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   211.0,
+   216.1,
+   186.6,
+   215.0,
+   220.1
+  ]
+ },
+ {
+  "noeud": "p132",
+  "chemin": "COMPOUND / COMPOUND 133",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -114.0,
+   216.1,
+   186.6,
+   -110.0,
+   220.1
+  ]
+ },
+ {
+  "noeud": "p133",
+  "chemin": "COMPOUND / COMPOUND 134",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -114.0,
+   396.1,
+   186.6,
+   -110.0,
+   400.1
+  ]
+ },
+ {
+  "noeud": "p134",
+  "chemin": "COMPOUND / COMPOUND 135",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   211.0,
+   396.1,
+   186.6,
+   215.0,
+   400.1
+  ]
+ },
+ {
+  "noeud": "p135",
+  "chemin": "COMPOUND / COMPOUND 136",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   211.0,
+   576.1,
+   186.6,
+   215.0,
+   580.1
+  ]
+ },
+ {
+  "noeud": "p136",
+  "chemin": "COMPOUND / COMPOUND 137",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -114.0,
+   576.1,
+   186.6,
+   -110.0,
+   580.1
+  ]
+ },
+ {
+  "noeud": "p137",
+  "chemin": "COMPOUND / COMPOUND 138",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   -114.0,
+   666.1,
+   186.6,
+   -110.0,
+   670.1
+  ]
+ },
+ {
+  "noeud": "p138",
+  "chemin": "COMPOUND / COMPOUND 139",
+  "triangles": 240,
+  "boite": [
+   178.7,
+   211.0,
+   666.1,
+   186.6,
+   215.0,
+   670.1
+  ]
+ },
+ {
+  "noeud": "p139",
+  "chemin": "COMPOUND / COMPOUND 140",
+  "triangles": 504,
+  "boite": [
+   173.0,
+   -101.3,
+   3.4,
+   186.5,
+   194.7,
+   22.2
+  ]
+ },
+ {
+  "noeud": "p140",
+  "chemin": "COMPOUND / COMPOUND 141",
+  "triangles": 780,
+  "boite": [
+   172.8,
+   -149.8,
+   2.2,
+   187.8,
+   227.2,
+   705.3
+  ]
+ },
+ {
+  "noeud": "p141",
+  "chemin": "COMPOUND / COMPOUND 142",
+  "triangles": 240,
+  "boite": [
+   117.0,
+   -145.3,
+   11.8,
+   124.8,
+   -140.7,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p142",
+  "chemin": "COMPOUND / COMPOUND 143",
+  "triangles": 240,
+  "boite": [
+   -68.1,
+   -145.3,
+   11.8,
+   -60.3,
+   -140.7,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p143",
+  "chemin": "COMPOUND / COMPOUND 144",
+  "triangles": 240,
+  "boite": [
+   -153.1,
+   -145.3,
+   11.8,
+   -145.3,
+   -140.7,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p144",
+  "chemin": "COMPOUND / COMPOUND 145",
+  "triangles": 240,
+  "boite": [
+   31.8,
+   -145.3,
+   11.8,
+   39.6,
+   -140.7,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p145",
+  "chemin": "COMPOUND / COMPOUND 146",
+  "triangles": 3108,
+  "boite": [
+   -211.8,
+   -146.6,
+   5.9,
+   183.4,
+   222.8,
+   21.9
+  ]
+ },
+ {
+  "noeud": "p146",
+  "chemin": "COMPOUND / COMPOUND 147",
+  "triangles": 240,
+  "boite": [
+   28.8,
+   216.6,
+   13.6,
+   32.8,
+   224.5,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p147",
+  "chemin": "COMPOUND / COMPOUND 148",
+  "triangles": 240,
+  "boite": [
+   -61.1,
+   216.6,
+   13.6,
+   -57.1,
+   224.5,
+   17.6
+  ]
+ },
+ {
+  "noeud": "p148",
+  "chemin": "COMPOUND / COMPOUND 149",
+  "triangles": 240,
+  "boite": [
+   -63.0,
+   216.9,
+   11.8,
+   -55.2,
+   221.5,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p149",
+  "chemin": "COMPOUND / COMPOUND 150",
+  "triangles": 240,
+  "boite": [
+   26.8,
+   216.9,
+   11.8,
+   34.6,
+   221.5,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p150",
+  "chemin": "COMPOUND / COMPOUND 151",
+  "triangles": 240,
+  "boite": [
+   -153.1,
+   216.9,
+   11.8,
+   -145.3,
+   221.5,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p151",
+  "chemin": "COMPOUND / COMPOUND 152",
+  "triangles": 240,
+  "boite": [
+   117.0,
+   216.9,
+   11.8,
+   124.8,
+   221.5,
+   19.6
+  ]
+ },
+ {
+  "noeud": "p152",
+  "chemin": "COMPOUND / COMPOUND 153",
+  "triangles": 240,
+  "boite": [
+   142.8,
+   -142.2,
+   622.6,
+   150.5,
+   -137.5,
+   630.4
+  ]
+ },
+ {
+  "noeud": "p153",
+  "chemin": "COMPOUND / COMPOUND 154",
+  "triangles": 240,
+  "boite": [
+   142.8,
+   -142.2,
+   499.6,
+   150.5,
+   -137.5,
+   507.4
+  ]
+ },
+ {
+  "noeud": "p154",
+  "chemin": "COMPOUND / COMPOUND 155",
+  "triangles": 240,
+  "boite": [
+   118.7,
+   -142.2,
+   561.0,
+   126.5,
+   -137.5,
+   568.8
+  ]
+ },
+ {
+  "noeud": "p155",
+  "chemin": "COMPOUND / COMPOUND 156",
+  "triangles": 240,
+  "boite": [
+   166.8,
+   -142.2,
+   561.0,
+   174.6,
+   -137.5,
+   568.8
+  ]
+ },
+ {
+  "noeud": "p156",
+  "chemin": "COMPOUND / COMPOUND 157",
+  "triangles": 240,
+  "boite": [
+   -39.7,
+   -147.5,
+   634.0,
+   -35.7,
+   -139.6,
+   638.0
+  ]
+ },
+ {
+  "noeud": "p157",
+  "chemin": "COMPOUND / COMPOUND 158",
+  "triangles": 240,
+  "boite": [
+   65.4,
+   -147.5,
+   634.0,
+   69.4,
+   -139.6,
+   638.0
+  ]
+ },
+ {
+  "noeud": "p158",
+  "chemin": "COMPOUND / COMPOUND 159",
+  "triangles": 240,
+  "boite": [
+   -144.7,
+   -147.5,
+   634.0,
+   -140.7,
+   -139.6,
+   638.0
+  ]
+ },
+ {
+  "noeud": "p159",
+  "chemin": "COMPOUND / COMPOUND 160",
+  "triangles": 516,
+  "boite": [
+   -156.6,
+   -147.5,
+   626.2,
+   81.3,
+   -127.6,
+   646.2
+  ]
+ },
+ {
+  "noeud": "p160",
+  "chemin": "COMPOUND / COMPOUND 161",
+  "triangles": 692,
+  "boite": [
+   -159.3,
+   -145.8,
+   585.7,
+   83.8,
+   -125.8,
+   652.9
+  ]
+ },
+ {
+  "noeud": "p161",
+  "chemin": "COMPOUND / COMPOUND 162",
+  "triangles": 240,
+  "boite": [
+   -146.6,
+   -144.2,
+   596.0,
+   -138.8,
+   -139.6,
+   603.8
+  ]
+ },
+ {
+  "noeud": "p162",
+  "chemin": "COMPOUND / COMPOUND 163",
+  "triangles": 240,
+  "boite": [
+   -41.5,
+   -144.2,
+   596.0,
+   -33.7,
+   -139.6,
+   603.8
+  ]
+ },
+ {
+  "noeud": "p163",
+  "chemin": "COMPOUND / COMPOUND 164",
+  "triangles": 240,
+  "boite": [
+   -41.5,
+   -144.2,
+   632.1,
+   -33.7,
+   -139.6,
+   639.9
+  ]
+ },
+ {
+  "noeud": "p164",
+  "chemin": "COMPOUND / COMPOUND 165",
+  "triangles": 240,
+  "boite": [
+   63.5,
+   -144.2,
+   596.0,
+   71.3,
+   -139.6,
+   603.8
+  ]
+ },
+ {
+  "noeud": "p165",
+  "chemin": "COMPOUND / COMPOUND 166",
+  "triangles": 240,
+  "boite": [
+   63.5,
+   -144.2,
+   632.1,
+   71.3,
+   -139.6,
+   639.9
+  ]
+ },
+ {
+  "noeud": "p166",
+  "chemin": "COMPOUND / COMPOUND 167",
+  "triangles": 240,
+  "boite": [
+   -146.6,
+   -144.2,
+   632.1,
+   -138.8,
+   -139.6,
+   639.9
+  ]
+ },
+ {
+  "noeud": "p167",
+  "chemin": "COMPOUND / COMPOUND 168",
+  "triangles": 240,
+  "boite": [
+   -172.6,
+   -143.9,
+   665.6,
+   -164.8,
+   -139.3,
+   673.4
+  ]
+ },
+ {
+  "noeud": "p168",
+  "chemin": "COMPOUND / COMPOUND 169",
+  "triangles": 240,
+  "boite": [
+   -172.6,
+   -143.9,
+   619.7,
+   -164.8,
+   -139.3,
+   627.5
+  ]
+ },
+ {
+  "noeud": "p169",
+  "chemin": "COMPOUND / COMPOUND 170",
+  "triangles": 284,
+  "boite": [
+   -217.9,
+   -151.4,
+   686.6,
+   189.9,
+   230.0,
+   706.6
+  ]
+ },
+ {
+  "noeud": "p170",
+  "chemin": "COMPOUND / COMPOUND 171",
+  "triangles": 240,
+  "boite": [
+   176.0,
+   -52.7,
+   697.7,
+   180.0,
+   -48.7,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p171",
+  "chemin": "COMPOUND / COMPOUND 172",
+  "triangles": 240,
+  "boite": [
+   -208.0,
+   -52.7,
+   697.7,
+   -204.0,
+   -48.7,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p172",
+  "chemin": "COMPOUND / COMPOUND 173",
+  "triangles": 240,
+  "boite": [
+   -208.0,
+   127.3,
+   697.7,
+   -204.0,
+   131.3,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p173",
+  "chemin": "COMPOUND / COMPOUND 174",
+  "triangles": 240,
+  "boite": [
+   176.0,
+   127.3,
+   697.7,
+   180.0,
+   131.3,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p174",
+  "chemin": "COMPOUND / COMPOUND 175",
+  "triangles": 240,
+  "boite": [
+   176.0,
+   207.3,
+   697.7,
+   180.0,
+   211.3,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p175",
+  "chemin": "COMPOUND / COMPOUND 176",
+  "triangles": 240,
+  "boite": [
+   -208.0,
+   207.3,
+   697.7,
+   -204.0,
+   211.3,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p176",
+  "chemin": "COMPOUND / COMPOUND 177",
+  "triangles": 240,
+  "boite": [
+   74.0,
+   207.3,
+   697.7,
+   78.0,
+   211.3,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p177",
+  "chemin": "COMPOUND / COMPOUND 178",
+  "triangles": 240,
+  "boite": [
+   -106.0,
+   207.3,
+   697.7,
+   -102.0,
+   211.3,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p178",
+  "chemin": "COMPOUND / COMPOUND 179",
+  "triangles": 240,
+  "boite": [
+   -106.0,
+   -117.7,
+   697.7,
+   -102.0,
+   -113.7,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p179",
+  "chemin": "COMPOUND / COMPOUND 180",
+  "triangles": 240,
+  "boite": [
+   74.0,
+   -117.7,
+   697.7,
+   78.0,
+   -113.7,
+   705.6
+  ]
+ },
+ {
+  "noeud": "p180",
+  "chemin": "COMPOUND / COMPOUND 181",
+  "triangles": 564,
+  "boite": [
+   -199.5,
+   196.4,
+   686.6,
+   171.5,
+   228.8,
+   705.4
+  ]
+ },
+ {
+  "noeud": "p181",
+  "chemin": "COMPOUND / COMPOUND 182",
+  "triangles": 464,
+  "boite": [
+   -199.5,
+   -150.2,
+   686.6,
+   171.5,
+   -101.7,
+   705.4
+  ]
+ },
+ {
+  "noeud": "p182",
+  "chemin": "COMPOUND / COMPOUND 183",
+  "triangles": 240,
+  "boite": [
+   -209.8,
+   205.4,
+   698.3,
+   -202.0,
+   213.2,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p183",
+  "chemin": "COMPOUND / COMPOUND 184",
+  "triangles": 240,
+  "boite": [
+   -209.8,
+   125.4,
+   698.3,
+   -202.0,
+   133.2,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p184",
+  "chemin": "COMPOUND / COMPOUND 185",
+  "triangles": 240,
+  "boite": [
+   -209.8,
+   -54.6,
+   698.3,
+   -202.0,
+   -46.8,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p185",
+  "chemin": "COMPOUND / COMPOUND 186",
+  "triangles": 240,
+  "boite": [
+   174.1,
+   205.4,
+   698.3,
+   181.9,
+   213.2,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p186",
+  "chemin": "COMPOUND / COMPOUND 187",
+  "triangles": 240,
+  "boite": [
+   174.1,
+   125.4,
+   698.3,
+   181.9,
+   133.2,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p187",
+  "chemin": "COMPOUND / COMPOUND 188",
+  "triangles": 240,
+  "boite": [
+   174.1,
+   -54.6,
+   698.3,
+   181.9,
+   -46.8,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p188",
+  "chemin": "COMPOUND / COMPOUND 189",
+  "triangles": 240,
+  "boite": [
+   -107.8,
+   205.4,
+   698.3,
+   -100.0,
+   213.2,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p189",
+  "chemin": "COMPOUND / COMPOUND 190",
+  "triangles": 240,
+  "boite": [
+   72.1,
+   205.4,
+   698.3,
+   79.9,
+   213.2,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p190",
+  "chemin": "COMPOUND / COMPOUND 191",
+  "triangles": 240,
+  "boite": [
+   -107.8,
+   -119.8,
+   698.3,
+   -100.0,
+   -112.1,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p191",
+  "chemin": "COMPOUND / COMPOUND 192",
+  "triangles": 240,
+  "boite": [
+   72.1,
+   -119.8,
+   698.3,
+   79.9,
+   -112.1,
+   703.0
+  ]
+ },
+ {
+  "noeud": "p192",
+  "chemin": "COMPOUND / COMPOUND 193",
+  "triangles": 1184,
+  "boite": [
+   -186.3,
+   225.7,
+   21.4,
+   154.2,
+   245.7,
+   681.1
+  ]
+ },
+ {
+  "noeud": "p193",
+  "chemin": "COMPOUND / COMPOUND 194",
+  "triangles": 236,
+  "boite": [
+   -146.2,
+   225.7,
+   341.5,
+   -126.4,
+   247.8,
+   361.0
+  ]
+ },
+ {
+  "noeud": "p194",
+  "chemin": "COMPOUND / COMPOUND 195",
+  "triangles": 136,
+  "boite": [
+   -142.5,
+   246.6,
+   345.1,
+   -130.1,
+   247.8,
+   357.4
+  ]
+ },
+ {
+  "noeud": "p195",
+  "chemin": "COMPOUND / COMPOUND 196",
+  "triangles": 240,
+  "boite": [
+   -146.3,
+   219.7,
+   326.2,
+   -126.3,
+   221.7,
+   376.2
+  ]
+ },
+ {
+  "noeud": "p196",
+  "chemin": "COMPOUND / COMPOUND 197",
+  "triangles": 44,
+  "boite": [
+   -139.8,
+   212.2,
+   346.3,
+   -132.8,
+   225.7,
+   356.2
+  ]
+ },
+ {
+  "noeud": "p197",
+  "chemin": "COMPOUND / COMPOUND 198",
+  "triangles": 92,
+  "boite": [
+   -145.8,
+   220.6,
+   658.4,
+   -126.8,
+   225.6,
+   678.4
+  ]
+ },
+ {
+  "noeud": "p198",
+  "chemin": "COMPOUND / COMPOUND 199",
+  "triangles": 92,
+  "boite": [
+   -145.8,
+   220.6,
+   22.2,
+   -126.8,
+   225.6,
+   42.2
+  ]
+ },
+ {
+  "noeud": "p199",
+  "chemin": "COMPOUND / COMPOUND 200",
+  "triangles": 236,
+  "boite": [
+   162.2,
+   226.4,
+   86.2,
+   167.3,
+   227.7,
+   91.3
+  ]
+ },
+ {
+  "noeud": "p200",
+  "chemin": "COMPOUND / COMPOUND 201",
+  "triangles": 140,
+  "boite": [
+   163.0,
+   222.1,
+   87.1,
+   166.4,
+   226.7,
+   90.5
+  ]
+ },
+ {
+  "noeud": "p201",
+  "chemin": "COMPOUND / COMPOUND 202",
+  "triangles": 92,
+  "boite": [
+   164.0,
+   226.5,
+   88.1,
+   165.4,
+   227.6,
+   89.4
+  ]
+ },
+ {
+  "noeud": "p202",
+  "chemin": "COMPOUND / COMPOUND 203",
+  "triangles": 92,
+  "boite": [
+   164.0,
+   226.5,
+   113.1,
+   165.4,
+   227.6,
+   114.4
+  ]
+ },
+ {
+  "noeud": "p203",
+  "chemin": "COMPOUND / COMPOUND 204",
+  "triangles": 140,
+  "boite": [
+   163.0,
+   222.1,
+   112.1,
+   166.4,
+   226.7,
+   115.5
+  ]
+ },
+ {
+  "noeud": "p204",
+  "chemin": "COMPOUND / COMPOUND 205",
+  "triangles": 236,
+  "boite": [
+   162.2,
+   226.4,
+   111.2,
+   167.3,
+   227.7,
+   116.3
+  ]
+ },
+ {
+  "noeud": "p205",
+  "chemin": "COMPOUND / COMPOUND 206",
+  "triangles": 236,
+  "boite": [
+   155.0,
+   233.5,
+   111.2,
+   156.3,
+   238.6,
+   116.3
+  ]
+ },
+ {
+  "noeud": "p206",
+  "chemin": "COMPOUND / COMPOUND 207",
+  "triangles": 140,
+  "boite": [
+   150.7,
+   234.4,
+   112.1,
+   155.3,
+   237.8,
+   115.5
+  ]
+ },
+ {
+  "noeud": "p207",
+  "chemin": "COMPOUND / COMPOUND 208",
+  "triangles": 92,
+  "boite": [
+   155.1,
+   235.4,
+   113.1,
+   156.2,
+   236.8,
+   114.4
+  ]
+ },
+ {
+  "noeud": "p208",
+  "chemin": "COMPOUND / COMPOUND 209",
+  "triangles": 92,
+  "boite": [
+   155.1,
+   235.4,
+   88.1,
+   156.2,
+   236.8,
+   89.4
+  ]
+ },
+ {
+  "noeud": "p209",
+  "chemin": "COMPOUND / COMPOUND 210",
+  "triangles": 140,
+  "boite": [
+   150.7,
+   234.4,
+   87.1,
+   155.3,
+   237.8,
+   90.5
+  ]
+ },
+ {
+  "noeud": "p210",
+  "chemin": "COMPOUND / COMPOUND 211",
+  "triangles": 236,
+  "boite": [
+   155.0,
+   233.5,
+   86.2,
+   156.3,
+   238.6,
+   91.3
+  ]
+ },
+ {
+  "noeud": "p211",
+  "chemin": "COMPOUND / COMPOUND 212",
+  "triangles": 240,
+  "boite": [
+   154.3,
+   225.7,
+   82.2,
+   159.4,
+   243.2,
+   120.2
+  ]
+ },
+ {
+  "noeud": "p212",
+  "chemin": "COMPOUND / COMPOUND 213",
+  "triangles": 240,
+  "boite": [
+   154.3,
+   225.7,
+   82.2,
+   171.9,
+   230.8,
+   120.2
+  ]
+ },
+ {
+  "noeud": "p213",
+  "chemin": "COMPOUND / COMPOUND 214",
+  "triangles": 140,
+  "boite": [
+   155.3,
+   226.7,
+   82.2,
+   158.4,
+   229.8,
+   120.0
+  ]
+ },
+ {
+  "noeud": "p214",
+  "chemin": "COMPOUND / COMPOUND 215",
+  "triangles": 236,
+  "boite": [
+   162.2,
+   226.4,
+   611.2,
+   167.3,
+   227.7,
+   616.2
+  ]
+ },
+ {
+  "noeud": "p215",
+  "chemin": "COMPOUND / COMPOUND 216",
+  "triangles": 140,
+  "boite": [
+   163.0,
+   222.1,
+   612.0,
+   166.4,
+   226.7,
+   615.4
+  ]
+ },
+ {
+  "noeud": "p216",
+  "chemin": "COMPOUND / COMPOUND 217",
+  "triangles": 92,
+  "boite": [
+   164.0,
+   226.5,
+   613.0,
+   165.4,
+   227.6,
+   614.4
+  ]
+ },
+ {
+  "noeud": "p217",
+  "chemin": "COMPOUND / COMPOUND 218",
+  "triangles": 92,
+  "boite": [
+   164.0,
+   226.5,
+   588.0,
+   165.4,
+   227.6,
+   589.4
+  ]
+ },
+ {
+  "noeud": "p218",
+  "chemin": "COMPOUND / COMPOUND 219",
+  "triangles": 140,
+  "boite": [
+   163.0,
+   222.1,
+   587.0,
+   166.4,
+   226.7,
+   590.4
+  ]
+ },
+ {
+  "noeud": "p219",
+  "chemin": "COMPOUND / COMPOUND 220",
+  "triangles": 236,
+  "boite": [
+   162.2,
+   226.4,
+   586.2,
+   167.3,
+   227.7,
+   591.2
+  ]
+ },
+ {
+  "noeud": "p220",
+  "chemin": "COMPOUND / COMPOUND 221",
+  "triangles": 236,
+  "boite": [
+   155.0,
+   233.5,
+   586.2,
+   156.3,
+   238.6,
+   591.2
+  ]
+ },
+ {
+  "noeud": "p221",
+  "chemin": "COMPOUND / COMPOUND 222",
+  "triangles": 140,
+  "boite": [
+   150.7,
+   234.4,
+   587.0,
+   155.3,
+   237.8,
+   590.4
+  ]
+ },
+ {
+  "noeud": "p222",
+  "chemin": "COMPOUND / COMPOUND 223",
+  "triangles": 92,
+  "boite": [
+   155.1,
+   235.4,
+   588.0,
+   156.2,
+   236.8,
+   589.4
+  ]
+ },
+ {
+  "noeud": "p223",
+  "chemin": "COMPOUND / COMPOUND 224",
+  "triangles": 92,
+  "boite": [
+   155.1,
+   235.4,
+   613.0,
+   156.2,
+   236.8,
+   614.4
+  ]
+ },
+ {
+  "noeud": "p224",
+  "chemin": "COMPOUND / COMPOUND 225",
+  "triangles": 140,
+  "boite": [
+   150.7,
+   234.4,
+   612.0,
+   155.3,
+   237.8,
+   615.4
+  ]
+ },
+ {
+  "noeud": "p225",
+  "chemin": "COMPOUND / COMPOUND 226",
+  "triangles": 236,
+  "boite": [
+   155.0,
+   233.5,
+   611.2,
+   156.3,
+   238.6,
+   616.2
+  ]
+ },
+ {
+  "noeud": "p226",
+  "chemin": "COMPOUND / COMPOUND 227",
+  "triangles": 240,
+  "boite": [
+   154.3,
+   225.7,
+   582.2,
+   159.4,
+   243.2,
+   620.2
+  ]
+ },
+ {
+  "noeud": "p227",
+  "chemin": "COMPOUND / COMPOUND 228",
+  "triangles": 240,
+  "boite": [
+   154.3,
+   225.7,
+   582.2,
+   171.9,
+   230.8,
+   620.2
+  ]
+ },
+ {
+  "noeud": "p228",
+  "chemin": "COMPOUND / COMPOUND 229",
+  "triangles": 140,
+  "boite": [
+   155.3,
+   226.7,
+   582.5,
+   158.4,
+   229.8,
+   620.3
+  ]
+ },
+ {
+  "noeud": "p229",
+  "chemin": "COMPOUND / COMPOUND 230",
+  "triangles": 240,
+  "boite": [
+   -159.3,
+   212.7,
+   56.9,
+   -113.3,
+   244.2,
+   71.9
+  ]
+ },
+ {
+  "noeud": "p230",
+  "chemin": "COMPOUND / COMPOUND 231",
+  "triangles": 240,
+  "boite": [
+   -159.3,
+   212.7,
+   630.6,
+   -113.3,
+   244.2,
+   645.6
+  ]
+ },
+ {
+  "noeud": "p231",
+  "chemin": "COMPOUND / COMPOUND 232",
+  "triangles": 368,
+  "boite": [
+   -139.8,
+   215.7,
+   367.2,
+   -132.8,
+   220.7,
+   677.2
+  ]
+ },
+ {
+  "noeud": "p232",
+  "chemin": "COMPOUND / COMPOUND 233",
+  "triangles": 368,
+  "boite": [
+   -139.8,
+   215.7,
+   25.2,
+   -132.8,
+   220.7,
+   335.2
+  ]
+ },
+ {
+  "noeud": "p233",
+  "chemin": "COMPOUND / COMPOUND 234",
+  "triangles": 2904,
+  "boite": [
+   -214.0,
+   196.4,
+   4.1,
+   185.5,
+   242.9,
+   703.4
+  ]
+ },
+ {
+  "noeud": "p234",
+  "chemin": "COMPOUND / COMPOUND 000",
+  "triangles": 40,
+  "boite": [
+   141.7,
+   -139.3,
+   465.5,
+   151.6,
+   -135.4,
+   475.5
+  ]
+ },
+ {
+  "noeud": "p235",
+  "chemin": "COMPOUND / COMPOUND 001",
+  "triangles": 36,
+  "boite": [
+   137.2,
+   -146.5,
+   461.0,
+   156.1,
+   -141.5,
+   480.0
+  ]
+ },
+ {
+  "noeud": "p236",
+  "chemin": "COMPOUND / COMPOUND 002",
+  "triangles": 6,
+  "boite": [
+   182.9,
+   -166.4,
+   698.8,
+   182.9,
+   -166.3,
+   699.2
+  ]
+ },
+ {
+  "noeud": "p237",
+  "chemin": "COMPOUND / COMPOUND 003",
+  "triangles": 2118,
+  "boite": [
+   109.6,
+   -147.4,
+   5.5,
+   184.6,
+   -102.1,
+   702.4
+  ]
+ },
+ {
+  "noeud": "p238",
+  "chemin": "COMPOUND / COMPOUND 004",
+  "triangles": 239,
+  "boite": [
+   -186.7,
+   -146.8,
+   616.5,
+   -162.7,
+   -135.2,
+   676.5
+  ]
+ },
+ {
+  "noeud": "p239",
+  "chemin": "COMPOUND / COMPOUND 005",
+  "triangles": 2205,
+  "boite": [
+   -189.2,
+   -147.9,
+   19.6,
+   158.8,
+   -129.9,
+   683.2
+  ]
+ },
+ {
+  "noeud": "p240",
+  "chemin": "COMPOUND / COMPOUND 006",
+  "triangles": 1124,
+  "boite": [
+   90.6,
+   -140.5,
+   40.5,
+   163.3,
+   -125.7,
+   685.1
+  ]
+ }
+]

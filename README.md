@@ -1,6 +1,6 @@
 # Maquettes 3D Boks
 
-Quatre maquettes 3D interactives sur la même page, au choix en tête de page (lien direct : `#n1`, `#armoire`, `#casier`, `#pro`) :
+Cinq maquettes 3D interactives sur la même page, au choix en tête de page (lien direct : `#n1`, `#armoire`, `#casier`, `#pro`, `#one`) :
 
 - **Présentation N°1** : caisson **C0042-26091-D1100-00 « PRÉSENTATION N°1 »** (export SolidWorks 2025
   du 02/10/2026), avec ses photos de présentation ;
@@ -9,7 +9,9 @@ Quatre maquettes 3D interactives sur la même page, au choix en tête de page (l
 - **Casier V 1200** : **BOKS 1 D CASIER V1200 1050 COMPLET** (SolidWorks 2022, 07/05/2023), une porte,
   clavier Boks connecté, serrure à barillet ;
 - **Armoire PRO** : **C0042-22101-D1060-00 ARMOIRE COMPLETE PRO** (SolidWorks 2022, 14/02/2023), une porte
-  sur charnières à ressort, clavier Boks, serrure à barillet.
+  sur charnières à ressort, clavier Boks, serrure à barillet ;
+- **boksONE taille S** (avec porte arrière) : **« V2 3D BOKS capuchon for rendering back door »**, export **Rhino 7**
+  du 30/11/2023 (fichier de rendu, pas l'original SolidWorks), porte avant, porte arrière, clavier Boks connecté.
 
 - **Page en ligne** : https://boks3.github.io/maquette-presentation-n1/ (GitHub Pages, branche `main`, racine).
 - **Même page sur claude.ai** (privée) : https://claude.ai/artifact/ForGWMwGuv6tCGHkxbJ4kb
@@ -30,7 +32,7 @@ ou supprimer le dépôt.
 | `photos/` | Les 9 photos en 2400 × 1600 : fermé, ouvert à 100° sous 4 angles, entrouvert à 45°, détail et gros plan du clavier. |
 | `sources/lire.py` | Lit le STEP et liste les pièces avec leur encombrement (repérage). |
 | `sources/maillage.py` | Convertit un STEP en glTF (mètres, Y vers le haut) + index des nœuds. Sans option : Présentation N°1 (`hub.glb`, `index.json`). Options pour l'armoire : `--z-haut`, maillage allégé, `--sans`. Bouche les perçages < 25 mm ; sépare la façade des portes (`[façade]`). |
-| `sources/armoire.glb`, `casier.glb`, `pro.glb` (+ `*-index.json`) | Armoire V 1800, Casier V 1200, Armoire PRO : sortie de `maillage.py` passée dans gltfpack (positions quantifiées, sans compression meshopt : la page ne charge pas de WebAssembly). |
+| `sources/armoire.glb`, `casier.glb`, `pro.glb`, `one.glb` (+ `*-index.json`) | Armoire V 1800, Casier V 1200, Armoire PRO : sortie de `maillage.py` passée dans gltfpack (positions quantifiées, sans compression meshopt : la page ne charge pas de WebAssembly). |
 | `sources/pieces.py` | Refait `vue3d/pieces.json` depuis `index.json` ; `pieces.py armoire` (`casier`, `pro`) refait `vue3d/pieces-armoire.json` (…). |
 | `sources/preparer_clavier.py` | Prépare la texture du clavier Boks (`clavier-original.png` → `clavier_tex.png`). |
 | `sources/scene.html`, `photos.mjs`, `vues.json` | Rendu des photos dans Chrome sans interface (three.js) ; `vues.json` = les 9 points de vue. |
@@ -58,7 +60,10 @@ npx gltfpack -i armoire-brut.glb -o armoire.glb -kn -km && rm armoire-brut.glb
   --facade "PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
 .venv/bin/python maillage.py ~/chemin/"C0042-22101-D1060-00-ARMOIRE COMPLETE PRO.STEP" --nom pro-brut --axes=-x,z,y \
   --facade "B040-00- PORTE P1" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
-for n in casier pro; do mv $n-brut-index.json $n-index.json; npx gltfpack -i $n-brut.glb -o $n.glb -kn -km && rm $n-brut.glb; .venv/bin/python pieces.py $n; done
+# 1 quater. boksONE (Rhino : pièces sans nom, découpées volume par volume ; la scène de rendu, à 40 m, est écartée)
+.venv/bin/python maillage.py ~/chemin/"V2 3D BOKS capuchon for rendering back door.stp" --nom one-brut --decouper \
+  --boite=-260,-800,-60,260,600,800 --axes=x,z,-y --facade "^$" --angle 0.5 --petites 80 --plafond-petites 240 --plafond 15000
+for n in casier pro one; do mv $n-brut-index.json $n-index.json; npx gltfpack -i $n-brut.glb -o $n.glb -kn -km && rm $n-brut.glb; .venv/bin/python pieces.py $n; done
 # 2. (si l'image du clavier change) texture
 .venv/bin/python preparer_clavier.py
 # 3. photos
@@ -126,3 +131,15 @@ Encombrement de l'armoire : 1 459 mm (largeur) × 1 545 mm (profondeur, visière
   son boîtier) simplifiée à 15 000 triangles. Casier 226 000 triangles, PRO 106 000.
 
 Encombrements : casier 805 × 879 (visière comprise) × 1 256 mm (pieds compris) ; PRO 500 × 437 × 1 053 mm (pieds compris).
+
+## Choix faits pour la boksONE
+
+- **Fichier** : export Rhino de rendu, 248 volumes rangés dans 3 « COMPOUND » sans nom. `--decouper` en fait un nœud par
+  volume et l'index garde l'encombrement de chacun (`boite`, mm) : `pieces.py one` décide matière et mouvement d'après
+  la position. La serrure JIEKAI nommée, un cube de 3 m et quelques pièces sont placés à ~40 m (scène de rendu) : écartés par `--boite`.
+- **Repère** : Z vers le haut, façade (clavier) vers −Y → `--axes=x,z,-y`.
+- **Porte avant** : pivote à gauche (axe x = −180,9, y = −141,1 mm) ; vantail, renforts, plaque haute et charnière la suivent ;
+  le montant droit (clavier, barillet) reste fixe. **Porte arrière** (`a`) : charnières à droite (axe x = 156,9, y = 228,3 mm),
+  avec sa crémone et ses tringles. Les deux portes s'ouvrent ensemble, jusqu'à 110° (le fichier ne donne pas de butée).
+- **Clavier** : l'image du clavier Boks est plaquée sur le film de 34 × 109 mm (le même que sur le casier).
+- Encombrement mesuré : 408 × 400 (charnières arrière comprises) × 705 mm ; boks.app annonce H 70 × L 40 × P 37 cm.

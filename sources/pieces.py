@@ -2,7 +2,8 @@
 `python pieces.py` (Présentation N°1 : index.json -> vue3d/pieces.json) ou
 `python pieces.py armoire` (armoire-index.json -> vue3d/pieces-armoire.json) ou
 `python pieces.py casier` (casier-index.json -> vue3d/pieces-casier.json) ou
-`python pieces.py pro` (pro-index.json -> vue3d/pieces-pro.json)."""
+`python pieces.py pro` (pro-index.json -> vue3d/pieces-pro.json) ou
+`python pieces.py one` (one-index.json -> vue3d/pieces-one.json)."""
 import json, re, sys
 nom = sys.argv[1] if len(sys.argv) > 1 else "hub"
 
@@ -77,6 +78,26 @@ def porte_pro(ch):
     if "D1021-00-PORTE ASS2" in ch or ("ARRET PORTE ASS1" in ch and re.search(r"U1|RONDELLE", piece)): return "g"
     return ""
 
+# boksONE S + porte arrière : export Rhino sans noms (« COMPOUND nnn ») -> tout se décide sur l'encombrement
+# (`boite`, mm, repère du STEP : Z en haut, façade vers -Y). g = porte avant (pivot à gauche), a = porte arrière
+# (charnières à droite). Restent fixes : le montant droit avec le clavier et le barillet, le cadre, la caisse.
+def role_one(i):
+    x0, y0, z0, x1, y1, z1 = i["boite"]; dx, dy, dz = x1 - x0, y1 - y0, z1 - z0
+    if 33 < dx < 35 and dy < 2 and 108 < dz < 110: return "facade"                     # film du clavier, 34 x 109
+    if x0 > 110 and y0 > -153 and y1 < 10 and 340 < z0 and z1 < 640 and max(dx, dy, dz) > 40: return "clavier"
+    if max(dx, dy, dz) < 80: return "inox"                                              # visserie, charnières, barillet
+    if 230 < dz < 330 and dx < 10: return "inox"                                        # tringles de la crémone
+    if dy < 25 and dx > 200 and dz > 500: return "porte"                                # les deux vantaux
+    if porte_one(i) and max(dx, dz) > 150: return "porte"                               # renforts et plaque des portes
+    return "panneau"
+def porte_one(i):
+    x0, y0, z0, x1, y1, z1 = i["boite"]
+    barillet = x0 > 130 and 455 < z0 and z1 < 490
+    clavier = x0 > 110 and 490 < z0 and z1 < 640
+    if y0 >= -153 and y1 <= -125.5 and x0 >= -190 and x1 <= 165 and z0 >= 19 and not (barillet or clavier): return "g"
+    if y0 >= 212 and y1 <= 249 and x0 >= -187 and x1 <= 160 and z0 >= 19: return "a"
+    return ""
+
 if nom == "hub":
     idx = json.load(open("index.json"))
     sortie = {i["noeud"]: [role(i["chemin"]), porte(i["chemin"])] for i in idx}
@@ -84,6 +105,10 @@ if nom == "hub":
 elif nom == "armoire":
     idx = json.load(open(f"{nom}-index.json"))
     sortie = {i["noeud"]: [role_armoire(i["chemin"]), porte_armoire(i["chemin"])] + ([1] if detail_armoire(i["chemin"]) else []) for i in idx}
+    chemin = f"../vue3d/pieces-{nom}.json"
+elif nom == "one":
+    idx = json.load(open(f"{nom}-index.json"))
+    sortie = {i["noeud"]: [role_one(i), porte_one(i)] for i in idx}
     chemin = f"../vue3d/pieces-{nom}.json"
 elif nom == "pro":
     idx = json.load(open(f"{nom}-index.json"))

@@ -101,6 +101,7 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
   <button type="button" data-produit="armoire" aria-pressed="false">Armoire V 1800</button>
   <button type="button" data-produit="casier" aria-pressed="false">Casier V 1200</button>
   <button type="button" data-produit="pro" aria-pressed="false">Armoire PRO</button>
+  <button type="button" data-produit="one" aria-pressed="false">boksONE S</button>
 </div>
 <header class="tete">
   <div class="titre">
@@ -160,6 +161,7 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
 <script id="donnees-pieces-armoire" type="application/json">__PIECES_ARMOIRE__</script>
 <script id="donnees-pieces-casier" type="application/json">__PIECES_CASIER__</script>
 <script id="donnees-pieces-pro" type="application/json">__PIECES_PRO__</script>
+<script id="donnees-pieces-one" type="application/json">__PIECES_ONE__</script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
@@ -217,6 +219,15 @@ const PRODUITS = {
     pivots: { g: [-0.1567, 0.1102], b2: [-0.0437, 0.1105] }, glissiere: { x: -0.0001, z: -0.0752 }, max: 90, portes: 'la porte',
     detail: { nom: 'Clavier', az: 15, sens: 0, dist: 0.62 },
     note: "Teintes d'illustration : le fichier SolidWorks n'en donne aucune. L'image du clavier Boks est plaquée sur le clavier. La tige d'arrêt coulisse dans le plafond ; ouverture limitée à 90°, le fichier ne donne pas la butée.",
+  },
+  one: {
+    titre: 'boksONE taille S', ref: 'Porte avant et porte arrière, clavier Boks connecté · fichier de rendu Rhino du 30/11/2023',
+    cotes: ['408 mm', '400 mm', '705 mm'],
+    pieces: 'donnees-pieces-one', glb: 'sources/one.glb', texture: 'donnees-clavier',
+    centre: [-0.014, 0.3545, -0.0478], sol: 0.0015,
+    pivots: { g: [-0.1809, 0.1411], a: [0.1569, -0.2283] }, max: 110, portes: 'les portes',
+    detail: { nom: 'Clavier', az: 15, sens: 0, dist: 0.62 },
+    note: "Teintes d'illustration. Le fichier (Rhino) ne nomme pas les pièces : portes, charnières et clavier sont repérés d'après leur position. L'image du clavier Boks est plaquée sur le film du clavier. Ouverture limitée à 110°.",
   },
 };
 
@@ -429,6 +440,7 @@ function poserAngle(a) {
   const pv = actuel ? actuel.pivots : {}, t = THREE.MathUtils.degToRad(a);
   if (pv.g) pv.g.rotation.y = -t;
   if (pv.d) pv.d.rotation.y = t;
+  if (pv.a) pv.a.rotation.y = -t;  // porte arrière (face à -z), charnières à droite vue de face : elle s'ouvre vers -z
   if (pv.b2) {
     /* Arrêt de porte : l'axe D (sur la porte) tourne avec elle autour de la charnière H.
        Compas (b1) : C1 pivote en B sur l'armoire, C2 en D, alignés sur BD, ils coulissent l'un dans l'autre.
