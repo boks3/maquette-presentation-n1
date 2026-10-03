@@ -84,8 +84,12 @@ def porte_pro(ch):
 # boksONE S + porte arrière : export Rhino sans noms (« COMPOUND nnn ») -> tout se décide sur l'encombrement
 # (`boite`, mm, repère du STEP : Z en haut, façade vers -Y). g = porte avant (pivot à gauche), a = porte arrière
 # (charnières à droite). Restent fixes : le montant droit avec le clavier et le barillet, le cadre, la caisse.
+def crochet_one(i):  # support de gâche et pièces vissées dessus, après le décalage de 18 mm (maillage.py --deplacer)
+    x0, y0, z0, x1, y1, z1 = i["boite"]
+    return x0 >= 127 and x1 <= 149 and y0 >= -147 and y1 <= -110 and z0 >= 340 and z1 <= 432
 def role_one(i):
     x0, y0, z0, x1, y1, z1 = i["boite"]; dx, dy, dz = x1 - x0, y1 - y0, z1 - z0
+    if crochet_one(i): return "panneau" if max(dx, dy, dz) > 50 else "inox"
     if x0 > 115 and x1 < 175 and 495 < z0 < 630 and y0 < -137 and max(dx, dy, dz) < 9: return "cache"  # goujons et écrous autour du clavier
     if 33 < dx < 35 and dy < 2 and 108 < dz < 110: return "facade"                     # film du clavier, 34 x 109
     if x0 > 110 and y0 > -153 and y1 < 10 and 340 < z0 and z1 < 640 and max(dx, dy, dz) > 40: return "clavier"
@@ -103,7 +107,9 @@ def porte_one(i):
     clavier = x0 > 110 and 490 < z0 and z1 < 640
     # crochet de la gâche, vissé dans la porte (cotes du « SUP GACHE » de l'armoire PRO) ; le capot de serrure
     # en U juste derrière (cotes du « CAPOT SERRURE » de la PRO) reste sur le montant
-    if x0 >= 109 and x1 <= 131 and y0 >= -147 and y1 <= -110 and z0 >= 340 and z1 <= 432: return "g"
+    if crochet_one(i): return "g"
+    # renfort vertical 73 x 15 x 645 derrière la porte : sur la caisse (Ziad, inspecteur : p243 « ne doit pas suivre la porte »)
+    if 70 < x1 - x0 < 76 and z1 - z0 > 600 and y1 - y0 < 20: return ""
     if y0 >= -153 and y1 <= -125.5 and x0 >= -190 and x1 <= 165 and z0 >= 19 and not (barillet or clavier): return "g"
     if y0 >= 212 and y1 <= 249 and x0 >= -187 and x1 <= 160 and z0 >= 19: return "a"
     return ""

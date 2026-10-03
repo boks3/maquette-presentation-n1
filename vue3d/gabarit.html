@@ -615,7 +615,10 @@ if (INSPECTEUR) {
   })[code] || 'fixe (caisse)';
   const ligne = c => {
     const k = actuel.cle, n = c.mesh.userData.noeud, [, porte] = piecesDe(k)[n] || [];
-    return { n, nom: (NOMS[k] || {})[n] || '', mouv: mouvement(k, porte || '') };
+    const g = c.mesh.geometry; g.computeBoundingBox();  // dimensions porte fermée : boîte locale x échelle (les rotations sont autour de Y)
+    const t = g.boundingBox.getSize(new THREE.Vector3()).multiply(c.mesh.getWorldScale(new THREE.Vector3())).multiplyScalar(1000);
+    const dims = [t.x, t.y, t.z].map(v => Math.round(v)).join(' × ') + ' mm';
+    return { n, nom: ((NOMS[k] || {})[n] || '') + ', ' + dims, mouv: mouvement(k, porte || '') };
   };
   function afficher() {
     const liste = $('inspListe'); liste.textContent = '';
