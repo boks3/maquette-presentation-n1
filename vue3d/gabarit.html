@@ -78,6 +78,18 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
 .teinte[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 2px; }
 .teinte-nom { font-size: 13px; color: var(--soft); white-space: nowrap; }
 .note { margin: 0; font-size: 12px; color: var(--soft); max-width: 70ch; }
+/* Inspecteur (page inspecteur.html seulement) : cliquer une pièce donne son repère, son nom dans le fichier et ce qu'elle suit */
+.inspecteur { position: absolute; top: 12px; right: 12px; width: min(360px, calc(100% - 24px)); max-height: calc(100% - 24px); overflow: auto;
+  display: grid; gap: 8px; padding: 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 2px 8px var(--shadow); font-size: 13px; }
+.inspecteur h2 { margin: 0; font-family: var(--font-head); font-size: 15px; font-weight: 500; }
+.inspecteur p { margin: 0; color: var(--soft); font-size: 12px; }
+.inspecteur ol { margin: 0; padding-left: 22px; display: grid; gap: 6px; font-variant-numeric: tabular-nums; }
+.inspecteur li { overflow-wrap: anywhere; }
+.inspecteur li strong { font-family: ui-monospace, Menlo, monospace; font-weight: 600; }
+.inspecteur .boutons { display: flex; flex-wrap: wrap; gap: 8px; }
+.inspecteur button { border: 1px solid var(--line); background: var(--bg); color: var(--ink); border-radius: 6px; padding: 7px 11px; font-size: 13px; }
+.inspecteur button.principal { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+@media (max-width: 640px) { .inspecteur { top: auto; bottom: 12px; max-height: 45%; } }
 
 @media (max-width: 640px) {
   body { gap: 10px; padding-block: 10px; }
@@ -124,6 +136,16 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
     <div class="jauge"><span id="jauge"></span></div>
   </div>
   <p class="aide" id="aide">Glisser pour tourner · clic droit ou Maj + glisser pour déplacer · molette pour zoomer</p>
+  <aside class="inspecteur" id="inspecteur" hidden aria-label="Inspecteur de pièces">
+    <h2>Pièces choisies</h2>
+    <p>Clic sur une pièce : la choisir · Maj + clic : en ajouter ou en retirer</p>
+    <ol id="inspListe"></ol>
+    <p id="inspEtat" role="status">Aucune pièce.</p>
+    <div class="boutons">
+      <button type="button" class="principal" id="inspCopier">Copier la liste</button>
+      <button type="button" id="inspVider">Vider</button>
+    </div>
+  </aside>
 </main>
 
 <section class="commandes" aria-label="Commandes">
@@ -165,6 +187,7 @@ output { font-family: var(--font-head); font-size: 15px; font-variant-numeric: t
 <p class="note" id="note">Teintes d'illustration : le fichier SolidWorks n'en donne aucune. Le toit est ajouré, comme dans la maquette d'origine.</p>
 
 <script id="donnees-pieces" type="application/json">__PIECES__</script>
+<script id="donnees-noms" type="application/json">__NOMS__</script>
 <script id="donnees-clavier" type="text/plain">__TEX__</script>
 <script id="donnees-pieces-armoire" type="application/json">__PIECES_ARMOIRE__</script>
 <script id="donnees-pieces-casier" type="application/json">__PIECES_CASIER__</script>
@@ -576,5 +599,61 @@ function boucle(t) {
   requestAnimationFrame(boucle);
 }
 requestAnimationFrame(boucle);
+
+/* Inspecteur : seulement dans inspecteur.html (construire.py y met les noms des pièces du fichier). */
+const INSPECTEUR = __INSPECTEUR__;
+if (INSPECTEUR) {
+  const NOMS = JSON.parse($('donnees-noms').textContent);
+  const cachePieces = {};
+  const piecesDe = k => cachePieces[k] || (cachePieces[k] = JSON.parse($(PRODUITS[k].pieces).textContent));
+  const surligne = new THREE.MeshStandardMaterial({ color: 0xff8a1f, emissive: 0xff6a00, emissiveIntensity: 0.55, side: THREE.DoubleSide });
+  const choisies = [];  // { mesh, mat }
+  const mouvement = (k, code) => ({
+    g: k === 'one' ? 'suit la porte avant' : PRODUITS[k].pivots.d ? 'suit la porte gauche' : 'suit la porte',
+    d: 'suit la porte droite', a: 'suit la porte arrière',
+    b1: 'compas, côté caisse', b2: k === 'armoire' ? 'compas, côté porte' : "tige d'arrêt",
+  })[code] || 'fixe (caisse)';
+  const ligne = c => {
+    const k = actuel.cle, n = c.mesh.userData.noeud, [, porte] = piecesDe(k)[n] || [];
+    return { n, nom: (NOMS[k] || {})[n] || '', mouv: mouvement(k, porte || '') };
+  };
+  function afficher() {
+    const liste = $('inspListe'); liste.textContent = '';
+    for (const c of choisies) {
+      const { n, nom, mouv } = ligne(c), li = document.createElement('li'), b = document.createElement('strong');
+      b.textContent = n; li.append(b, ` · ${nom} · ${mouv}`); liste.append(li);
+    }
+    $('inspEtat').textContent = choisies.length ? `${choisies.length} pièce${choisies.length > 1 ? 's' : ''}.` : 'Aucune pièce.';
+    aRendre = true;
+  }
+  function vider() { for (const c of choisies) c.mesh.material = c.mat; choisies.length = 0; afficher(); }
+  $('inspecteur').hidden = false;
+  $('inspVider').addEventListener('click', vider);
+  document.querySelectorAll('[data-produit]').forEach(b => b.addEventListener('click', vider));
+  addEventListener('hashchange', vider);
+  $('inspCopier').addEventListener('click', async () => {
+    if (!choisies.length) return;
+    const texte = PRODUITS[actuel.cle].titre + ' :\n' + choisies.map(c => { const { n, nom, mouv } = ligne(c); return `- ${n} (${nom}) : ${mouv}`; }).join('\n');
+    try { await navigator.clipboard.writeText(texte); $('inspEtat').textContent = 'Liste copiée.'; }
+    catch (e) {
+      const t = document.createElement('textarea'); t.value = texte; t.style.cssText = 'position:fixed;opacity:0'; document.body.append(t); t.select();
+      const ok = document.execCommand('copy'); t.remove(); $('inspEtat').textContent = ok ? 'Liste copiée.' : 'Copie refusée par le navigateur.';
+    }
+  });
+  const rayon = new THREE.Raycaster(); let depart = null;
+  renderer.domElement.addEventListener('pointerdown', e => { depart = [e.clientX, e.clientY, e.button]; });
+  renderer.domElement.addEventListener('pointerup', e => {
+    if (!depart || !actuel || depart[2] !== 0 || Math.hypot(e.clientX - depart[0], e.clientY - depart[1]) > 5) return;  // un glisser n'est pas un clic
+    const r = renderer.domElement.getBoundingClientRect();
+    rayon.setFromCamera(new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1), camera);
+    const t = rayon.intersectObject(actuel.monde, true).find(x => x.object.isMesh && x.object.visible && x.object.userData.noeud);
+    if (!e.shiftKey) vider();
+    if (!t) return;
+    const o = t.object, i = choisies.findIndex(c => c.mesh === o);
+    if (i >= 0) { o.material = choisies[i].mat; choisies.splice(i, 1); }
+    else { choisies.push({ mesh: o, mat: o.material }); o.material = surligne; }
+    afficher();
+  });
+}
 await choisir(PRODUITS[location.hash.slice(1)] ? location.hash.slice(1) : 'n1');
 </script>

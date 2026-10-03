@@ -26,6 +26,7 @@ ou supprimer le dépôt.
 | Chemin | Contenu |
 |---|---|
 | `index.html` | La page en ligne (~0,55 Mo : code, listes de pièces, texture du clavier). Elle télécharge la maquette du modèle choisi (`sources/*.glb`) et three.js 0.186.1 (jsDelivr). Générée, ne pas l'éditer à la main. Pour l'ouvrir en local, passer par un serveur (`python3 -m http.server`) : en `file://` le navigateur refuse le téléchargement. |
+| `inspecteur.html` | La même page avec un inspecteur : cliquer une pièce donne son repère (`p244`), son nom dans le fichier (`COMPOUND 042`) et ce qu'elle suit ; Maj + clic pour en ajouter ; « Copier la liste ». Pour signaler une pièce mal rattachée. Version claude.ai privée : https://claude.ai/artifact/5pNK5endobyJ4QUKhLwBPa |
 | `vue3d/gabarit.html` | Le code de la page (vue, portes, points de vue, teintes). Ce qui distingue les deux modèles est dans `PRODUITS`. C'est lui qu'on modifie. |
 | `vue3d/construire.py` | Construit `index.html` (et `vue3d/artifact.html` pour claude.ai, à publier avec les `sources/*.glb` aux mêmes chemins) depuis le gabarit. |
 | `vue3d/pieces.json`, `vue3d/pieces-armoire.json` | Pour chaque nœud : sa matière, ce qui le fait bouger (`g`, `d`, `b1`, `b2` ou rien) et, pour l'armoire, `1` s'il cadre la vue « Serrure ». |
